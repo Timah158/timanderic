@@ -13,7 +13,8 @@ By utilizing thi application we hope that we can not only show what we have acco
 
 1. The application show cases our skills and experience to potential employers.
 2. This will make it easy to contact us. Looking for a resume? **Bam!** It's right there.
-3. It give us, the creators a project to work on and a means for organizing projects. By having our projects public, it gives us incentive to work and maintain them.
+3. It give us, the creators a project to work on and a means for organizing projects.
+4. We will have more drive to work on projects as they will be publically documented.
 
 ### How do I access it?
 
