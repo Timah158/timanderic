@@ -16,6 +16,4 @@ By utilizing thi application we hope that we can not only show what we have acco
 3. It give us, the creators a project to work on and a means for organizing projects.
 4. We will have more drive to work on projects as they will be publically documented.
 
-### How do I access it?
-
-### Right here: [tim-and-eric.com](tim-and-eric.com)
+### Find us here: [tim-and-eric.com](tim-and-eric.com)
