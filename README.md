@@ -18,4 +18,4 @@ By utilizing thi application we hope that we can not only show what we have acco
 
 ### How do I access it?
 
-Right here: [tim-and-eric.com](tim-and-eric.com)
+### Right here: [tim-and-eric.com](tim-and-eric.com)
