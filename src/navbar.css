@@ -1,0 +1,52 @@
+:root {
+    --primary-color: hsl(264, 100%, 57%);
+    --hover-color: #3A0675;
+    --primary-font: white;
+}
+
+nav.navbar {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content:space-around;
+}
+
+.App-logo {
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 2em;
+}
+
+ul.navlist {
+    display: flex;
+}
+
+li.navlink {
+    display: flex;
+    list-style: none;
+    padding: .5em;
+}
+
+a.navlink {
+    padding: .5em;
+    color: var(--primary-font);
+    text-decoration: none;
+    font-size: 30px;
+    border-radius: .25em;
+}
+
+a.logo_link {
+    color: var(--primary-font);
+    text-decoration: none;
+}
+
+a.navlink:hover {
+    background-color: var(--hover-color);
+    color: rgba(255, 255, 255, 0.800);
+    text-decoration: underline;
+}
+
+.App-logo:hover {
+    opacity: .75;
+    background-color: var(--hover-color);
+}
