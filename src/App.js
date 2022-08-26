@@ -1,36 +1,47 @@
-import './navbar.css';
 import "./welcome_page.css"
-import logo from './favicon.svg'
+import Navbar from "./navbar";
+import Footer from "./footer";
 
-function Header() {
-  return (
-    <header>
-      <nav className="navbar">
-        <a href="#" className="logo_link"><img src={logo} className="App-logo" alt="logo" /></a>
-        <ul className="navlist">
-          <li className="navlink"><a className="navlink" href="#">Tim</a></li>
-          <li className="navlink"><a className="navlink" href="#">Eric</a></li>
-          <li className="navlink"><a className="navlink" href="#">Interview</a></li>
-        </ul>
-      </nav>
-    </header>
+function Section1() {
+  return(
+    <div id='section_1' className="section">
+      <section>
+      <h1 className='main_title'>Welcome Potential Employer!</h1>
+      <hr></hr>
+    </section>
+    </div>
   );
 }
 
-function Title() {
-  return(
-    <section id='section_1'>
-      <h1>Hire Us</h1>
-    </section>
+function Section2() {
+  return (
+    <div id='section_2' className="section odd_section">
+      <section>
+        <h2>About Tim</h2>
+      </section>
+    </div>
+  );
+}
+
+function Section3() {
+  return (
+    <div id='section_3' className="section">
+      <section>
+        <h2>About Eric</h2>
+      </section>
+    </div>
   );
 }
 
 function App() {
   return (
-    <body>
-      <Header></Header>
-      <Title></Title>
-    </body>
+    <div>
+      <Navbar></Navbar>
+      <Section1></Section1>
+      <Section2></Section2>
+      <Section3></Section3>
+      <Footer></Footer>
+    </div>
   );
 }
 

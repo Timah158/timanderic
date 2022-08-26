@@ -1,20 +1,19 @@
-:root {
-    --primary-color: hsl(264, 100%, 57%);
-    --hover-color: #3A0675;
-    --primary-font: white;
+header {
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
 }
 
 nav.navbar {
-    background-color: var(--primary-color);
+    width: 60vw;
     display: flex;
-    justify-content:space-around;
+    justify-content:space-between;
 }
 
 .App-logo {
     height: 100%;
     margin-top: auto;
     margin-bottom: auto;
-    margin-left: 2em;
 }
 
 ul.navlist {
@@ -24,7 +23,7 @@ ul.navlist {
 li.navlink {
     display: flex;
     list-style: none;
-    padding: .5em;
+    padding: .5em 0 .5em 0;
 }
 
 a.navlink {
@@ -42,11 +41,9 @@ a.logo_link {
 
 a.navlink:hover {
     background-color: var(--hover-color);
-    color: rgba(255, 255, 255, 0.800);
     text-decoration: underline;
 }
 
 .App-logo:hover {
-    opacity: .75;
     background-color: var(--hover-color);
 }

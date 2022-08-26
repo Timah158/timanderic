@@ -1,4 +1,26 @@
-#section_1 {
-    display: none;
+.section {
+    height: 33vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_title {
+    font-size: 55px;
+    color: var(--primary-color);
     text-align: center;
+}
+
+hr {
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    width: 100%;
+}
+
+section {
+    width: 60vw;
+}
+
+.odd_section {
+    background-color: var(--odd_section_color);
 }

@@ -1,6 +1,16 @@
 :root {
   --bg-color: white;
+  --primary-color: #4287f5;
+  --hover-color: #204075;
+  --primary-font: white;
+  --footer-background-color: #8DB5F7;
+  --footer-icon-hover: #F7CF8D;
+  --odd_section_color: rgba(141, 181, 247, .2);
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&family=Ubuntu&family=Work+Sans&display=swap');
 
 /* Box sizing rules */
 * {
@@ -10,4 +20,7 @@
 
 body {
   background-color: var(--bg-color);
+  /*font-family: 'Work Sans', sans-serif;
+  font-family: 'Silkscreen', cursive;*/
+  font-family: 'Ubuntu', sans-serif;
 }
