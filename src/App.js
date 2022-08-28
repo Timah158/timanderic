@@ -3,11 +3,11 @@ import Navbar from "./navbar";
 import Footer from "./footer";
 
 function Section1() {
-  return(
+  return (
     <div id='section_1' className="section">
       <section id="main_title">
-      <h1 className='main_title'>Welcome Potential Employers</h1>
-    </section>
+        <h1 className='main_title'>Welcome Potential Employers</h1>
+      </section>
     </div>
   );
 }
@@ -19,7 +19,7 @@ function Section2() {
         <h3>What We Do</h3>
         <hr></hr>
         <p>
-          We are to two industry professionnals looking to showcase our kills and connect with employers. 
+          We are two industry professionals looking to showcase our skills and connect with employers.
           We hope that with this site we can properly demonstrate our skills and learn by doing.
         </p>
         <br></br>
@@ -41,7 +41,7 @@ function Section3() {
         <hr></hr>
         <p>
           I am an IT professional with experience in technical support, front-end development, and a passion for cybersecurity.
-          During my time at university I worked as a call technician for 2 years providing technical support and troubleshooting. 
+          During my time at university I worked as a call technician for 2 years providing technical support and troubleshooting.
           While at this job I was eventually moved to the development team where I gained experience with HTML, CSS, and JavaScript.
         </p>
         <br></br>
@@ -64,14 +64,15 @@ function Section4() {
         <h3>About Eric</h3>
         <hr></hr>
         <p>
-          I am a Full-stack developer with experience in SpringBoot, Thymeleaf, Bootstrap, and MongoDB.
+          I am a Full-stack web developer with experience in Spring Boot, Thymeleaf, Bootstrap, MySQL, and MongoDB.
           I prefer working in Java, however I also have experience with other frameworks such as Django.
-          If you're looking for someone that hass a passion for Java and backend services, I'm your guy. 
+          If you're looking for someone that has a passion for Object-oriented principles and backend services, I'm your guy.
         </p>
         <br></br>
         <ul>
           <li>Full Stack</li>
           <li>Java</li>
+          <li>MySQL</li>
           <li>MongoDB</li>
         </ul>
       </section>
