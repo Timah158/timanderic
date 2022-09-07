@@ -2,7 +2,7 @@ import "./welcome_page.css"
 import Navbar from "./navbar";
 import Footer from "./footer";
 
-function Section1() {
+function Heading() {
   return (
     <div id='section_1' className="section">
       <section id="main_title">
@@ -12,7 +12,7 @@ function Section1() {
   );
 }
 
-function Section2() {
+function WhatWeDo() {
   return (
     <div id='section_2' className="section odd_section">
       <section>
@@ -33,7 +33,7 @@ function Section2() {
   );
 }
 
-function Section3() {
+function AboutTim() {
   return (
     <div id='section_3' className="section">
       <section>
@@ -57,7 +57,7 @@ function Section3() {
   );
 }
 
-function Section4() {
+function AboutEric() {
   return (
     <div id='section_4' className="section odd_section">
       <section>
@@ -84,10 +84,10 @@ function App() {
   return (
     <div>
       <Navbar></Navbar>
-      <Section1></Section1>
-      <Section2></Section2>
-      <Section3></Section3>
-      <Section4></Section4>
+      <Heading></Heading>
+      <WhatWeDo></WhatWeDo>
+      <AboutTim></AboutTim>
+      <AboutEric></AboutEric>
       <Footer></Footer>
     </div>
   );
