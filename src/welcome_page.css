@@ -1,31 +1,31 @@
 .section {
-    height: 33vh;
+    min-height: 40vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .main_title {
-    font-size: 55px;
+    font-size: 2.5em;
     color: var(--primary-color);
-    text-align: center;
-}
-
-#main_title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-hr {
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-    width: 100%;
 }
 
 section {
-    width: 60vw;
+    width: 70vw;
     height: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.split {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 5em;
+}
+
+.center {
+    text-align: center;
+    width: 35vw;
 }
 
 .odd_section {
@@ -39,4 +39,36 @@ h3 {
 
 p, ul {
     font-size: 20px;
+    color: var(--primary-font);
+}
+
+#main_title_buttons {
+    text-align: center;
+}
+ 
+#main_title_buttons > button {
+    background-color: var(--primary-color);
+    outline: none;
+    border: none;
+    border-radius: .75em;
+    color: white;
+    font-size: 25px;
+    padding: 1em;
+    margin: 1em;
+}
+
+#main_title_buttons > button > a {
+    text-decoration: none;
+    color: white;
+}
+
+#main_title_buttons > button:hover {
+    cursor: pointer;
+    background-color: var(--selected_color);
+}
+
+.section_image {
+    height: 100%;
+    width: 100%;
+    border: 2px solid var(--primary-color);
 }

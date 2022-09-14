@@ -1,16 +1,17 @@
 header {
-    background-color: var(--primary-color);
     display: flex;
     justify-content: center;
+    padding-top: 3em;
+    padding-bottom: 6em;
 }
 
 nav.navbar {
-    width: 60vw;
+    width: 70vw;
     display: flex;
     justify-content:space-between;
 }
 
-.App-logo {
+.navbar_logo {
     height: 100%;
     margin-top: auto;
     margin-bottom: auto;
@@ -18,32 +19,26 @@ nav.navbar {
 
 ul.navlist {
     display: flex;
+    padding: 0;
 }
 
 li.navlink {
     display: flex;
     list-style: none;
-    padding: .5em 0 .5em 0;
+
 }
 
 a.navlink {
-    padding: .5em;
-    color: var(--primary-font);
+    padding: .5em 1em;
+    color: var(--primary-color);
     text-decoration: none;
-    font-size: 30px;
-    border-radius: .25em;
-}
-
-a.logo_link {
-    color: var(--primary-font);
-    text-decoration: none;
+    font-size: 25px;
 }
 
 a.navlink:hover {
-    background-color: var(--hover-color);
-    text-decoration: underline;
+    color: var(--selected_color);
 }
 
-.App-logo:hover {
-    background-color: var(--hover-color);
+#navbar_logo_svg:hover {
+    fill: var(--hover-color);
 }
