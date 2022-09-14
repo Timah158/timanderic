@@ -2,8 +2,8 @@ import "./welcome_page.css"
 import Navbar from "./navbar";
 import Footer from "./footer";
 
-function Section1() {
-  return(
+function Heading() {
+  return (
     <div id='section_1' className="section">
       <section className="split">
       <div>
@@ -23,7 +23,7 @@ function Section1() {
   );
 }
 
-function Section2() {
+function WhatWeDo() {
   return (
     <div id='section_2' className="section odd_section">
       <section className="center">
@@ -40,7 +40,7 @@ function Section2() {
   );
 }
 
-function Section3() {
+function AboutTim() {
   return (
     <div id='section_3' className="section">
       <section className="split">
@@ -49,7 +49,7 @@ function Section3() {
           <h3>About Tim</h3>
           <p>
           I am an IT professional with experience in technical support, front-end development, and a passion for cybersecurity.
-          During my time at university I worked as a call technician for 2 years providing technical support and troubleshooting. 
+          During my time at university I worked as a call technician for 2 years providing technical support and troubleshooting.
           While at this job I was eventually moved to the development team where I gained experience with HTML, CSS, and JavaScript.
           </p>
           <br></br>
@@ -66,16 +66,16 @@ function Section3() {
   );
 }
 
-function Section4() {
+function AboutEric() {
   return (
     <div id='section_4' className="section odd_section">
       <section className="split">
         <div>
           <h3>About Eric</h3>
           <p>
-            I am a Full-stack developer with experience in SpringBoot, Thymeleaf, Bootstrap, and MongoDB.
-            I prefer working in Java, however I also have experience with other frameworks such as Django.
-            If you're looking for someone that hass a passion for Java and backend services, I'm your guy. 
+          I am a Full-stack web developer with experience in Spring Boot, Thymeleaf, Bootstrap, MySQL, and MongoDB.
+          I prefer working in Java, however I also have experience with other frameworks such as Django.
+          If you're looking for someone that has a passion for Object-oriented principles and backend services, I'm your guy.. 
           </p>
           <br></br>
           <ul>
@@ -94,10 +94,10 @@ function App() {
   return (
     <div>
       <Navbar></Navbar>
-      <Section1></Section1>
-      <Section2></Section2>
-      <Section3></Section3>
-      <Section4></Section4>
+      <Heading></Heading>
+      <WhatWeDo></WhatWeDo>
+      <AboutTim></AboutTim>
+      <AboutEric></AboutEric>
       <Footer></Footer>
     </div>
   );
