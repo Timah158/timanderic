@@ -1,5 +1,5 @@
-import "./welcome_page.css"
-import Navbar from "./navbar";
+import "./CSS/welcome_page.css"
+import Navbar from "./navbar"
 import Footer from "./footer";
 
 function Heading() {
@@ -44,7 +44,7 @@ function AboutTim() {
   return (
     <div id='section_3' className="section">
       <section className="split">
-        <img src="https://stjohnboscochurch.com/images/rocketlauncher/pages/offline-page/img-01.jpg" className="section_image"/>
+        <img src="https://stjohnboscochurch.com/images/rocketlauncher/pages/offline-page/img-01.jpg" alt="Tim" className="section_image"/>
         <div>
           <h3>About Tim</h3>
           <p>
@@ -84,7 +84,7 @@ function AboutEric() {
             <li>MongoDB</li>
           </ul>
         </div>
-        <img src="https://stjohnboscochurch.com/images/rocketlauncher/pages/offline-page/img-01.jpg" className="section_image"/>
+        <img src="https://stjohnboscochurch.com/images/rocketlauncher/pages/offline-page/img-01.jpg" alt="Eric" className="section_image"/>
       </section>
     </div>
   );

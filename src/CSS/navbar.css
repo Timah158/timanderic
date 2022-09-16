@@ -39,6 +39,6 @@ a.navlink:hover {
     color: var(--selected_color);
 }
 
-#navbar_logo_svg:hover {
-    fill: var(--hover-color);
+.navbar_logo:hover > #logo_link, .navbar_logo:hover > #logo_circle {
+    fill: var(--selected_color);
 }

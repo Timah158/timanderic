@@ -1,8 +1,8 @@
 :root {
   --bg-color: white;
   --primary-color: #4287f5;
-  --selected_color: hsl(37, 90%, 61%);
-  --hover-color: #204075;
+  --selected_color: #f5b042;
+  --hover-color: hsl(217, 57%, 29%);
   --primary-font: hsl(217, 57%, 39%);
   --footer-background-color: #8DB5F7;
   --footer-icon-hover: #F7CF8D;
