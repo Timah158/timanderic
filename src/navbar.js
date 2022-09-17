@@ -7,9 +7,9 @@ function Navbar() {
         <nav className="navbar">
         <a href="/"><Logo className='navbar_logo'/></a>
           <ul className="navlist">
-            <li className="navlink"><a className="navlink" href="#">Tim</a></li>
-            <li className="navlink"><a className="navlink" href="#">Eric</a></li>
-            <li className="navlink"><a className="navlink" href="#">Interview</a></li>
+            <li className="navlink"><a className="navlink" href="/Tim">Tim</a></li>
+            <li className="navlink"><a className="navlink" href="/Eric">Eric</a></li>
+            <li className="navlink"><a className="navlink" href="/Interview">Interview</a></li>
           </ul>
         </nav>
       </header>

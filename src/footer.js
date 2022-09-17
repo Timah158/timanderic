@@ -6,9 +6,9 @@ import './CSS/footer.css';
 const Footer = () => {
     return (
       <footer>
-        <a href="https://github.com/Timah158/timanderic" target="_blank"><GithubIcon className='footer_icon'/></a>
-        <a href="https://www.linkedin.com/in/timlopez22" target="_blank"><LinkedInIcon className='footer_icon'/></a>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><EmailIcon className='footer_icon'/></a>
+        <a href="https://github.com/Timah158/timanderic" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
+        <a href="https://www.linkedin.com/in/timlopez22" rel='noreferrer' target="_blank"><LinkedInIcon className='footer_icon'/></a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" rel='noreferrer' target="_blank"><EmailIcon className='footer_icon'/></a>
       </footer>
     );
   }
