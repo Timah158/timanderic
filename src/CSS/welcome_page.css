@@ -73,3 +73,19 @@ ul {
     width: 100%;
     border: 2px solid var(--primary-color);
 }
+
+@media screen and (max-width: 480px) {
+    section, .center {
+        width: 90vw;
+    }
+    .split {
+        display: block;
+        text-align: center;
+    }
+    .section_image {
+        display: none;
+    }
+    ul {
+        display: none;
+    }
+  }

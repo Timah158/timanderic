@@ -42,3 +42,21 @@ a.navlink:hover {
 .navbar_logo:hover > #logo_link, .navbar_logo:hover > #logo_circle {
     fill: var(--selected_color);
 }
+
+@media screen and (max-width: 480px) {
+    header {
+        padding-top: 0;
+    }
+    nav.navbar {
+        padding: 1em 0 1em 0;
+        justify-content: space-evenly;
+        background-color: var(--primary-color);
+        width: 100vw;
+    }
+    .navbar_logo {
+        display: none;
+    }
+    a.navlink {
+        color: white;
+    }
+  }
