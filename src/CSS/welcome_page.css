@@ -24,6 +24,7 @@ section {
 }
 
 .center {
+    flex-direction: column;
     text-align: center;
     width: 35vw;
 }

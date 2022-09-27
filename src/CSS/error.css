@@ -1,0 +1,11 @@
+#error_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#error_title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 20vw;
+}
