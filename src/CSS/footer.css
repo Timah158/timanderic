@@ -4,6 +4,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .footer_icon {
@@ -14,4 +15,25 @@ footer {
 
 .footer_icon:hover {
     fill: var(--footer-icon-hover);
+}
+
+h4 {
+    font-size: 25px;
+    color: white;
+    padding: 0 .5em;
+}
+
+.toggle_footer {
+    display: flex;
+}
+
+.footer_button {
+    outline: none;
+    border: none;
+    background-color: var(--footer-background-color);
+}
+
+.footer_button:hover > h4 {
+    color: var(--footer-icon-hover);
+    cursor: pointer;
 }

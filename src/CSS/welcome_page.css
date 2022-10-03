@@ -49,24 +49,29 @@ ul {
 }
  
 #main_title_buttons > button {
-    background-color: var(--primary-color);
-    outline: none;
+    outline: var(--primary-color) solid 2px;
+    background-color: white;
     border: none;
-    border-radius: .75em;
-    color: white;
+    border-radius: .5em;
+    color: var(--primary-color);
     font-size: 25px;
-    padding: 1em;
+    padding: .75em 2em;
     margin: 1em;
 }
 
 #main_title_buttons > button > a {
     text-decoration: none;
-    color: white;
+    color: var(--primary-color);
 }
 
 #main_title_buttons > button:hover {
     cursor: pointer;
-    background-color: var(--selected_color);
+    outline: var(--selected_color) solid 2px;
+    color: var(--selected_color);
+}
+
+#main_title_buttons > button:hover > a {
+    color: var(--selected_color);
 }
 
 .section_image {
