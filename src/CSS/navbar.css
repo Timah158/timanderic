@@ -43,20 +43,58 @@ a.navlink:hover {
     fill: var(--selected_color);
 }
 
+.menu_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    outline: none;
+    border: none;
+    margin: 0 5vw;
+}
+
+.mobile_navbar_logo_link {
+    margin: 0 5vw;
+}
+
+.menu_icon > svg, .mobile_navbar_logo {
+    height: 3em;
+    width: 3em;
+}
+
+.menu_icon:hover {
+    background-color: var(--hover-color);
+}
+
 @media screen and (max-width: 480px) {
     header {
         padding-top: 0;
     }
     nav.navbar {
         padding: 1em 0 1em 0;
-        justify-content: space-evenly;
+        justify-content: space-between;
         background-color: var(--primary-color);
         width: 100vw;
-    }
-    .navbar_logo {
-        display: none;
     }
     a.navlink {
         color: white;
     }
+    .navlist, .navbar_logo_link {
+        display: none !important;
+    }
+    #logo_circle {
+        fill: white;
+    }
+    #logo_link {
+        display: none;
+    }
+    #circle_letters {
+        fill: var(--primary-color);
+    }
   }
+
+  @media screen and (min-width: 480px) { 
+    .mobile {
+        display: none !important;
+    }
+  }  
