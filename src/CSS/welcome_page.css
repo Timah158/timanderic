@@ -94,4 +94,7 @@ ul {
     ul {
         display: none;
     }
+    #main_title_buttons > button {
+        padding: .5em 1em;
+    }
   }

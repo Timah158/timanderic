@@ -71,6 +71,7 @@ a.navlink:hover {
         padding-top: 0;
     }
     nav.navbar {
+        position: fixed;
         padding: 1em 0 1em 0;
         justify-content: space-between;
         background-color: var(--primary-color);
@@ -79,7 +80,7 @@ a.navlink:hover {
     a.navlink {
         color: white;
     }
-    .navlist, .navbar_logo_link {
+    .navbar_logo_link {
         display: none !important;
     }
     #logo_circle {
@@ -90,6 +91,30 @@ a.navlink:hover {
     }
     #circle_letters {
         fill: var(--primary-color);
+    }
+    .navlist {
+        display: none !important;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        background-color: hsl(217, 90%, 61%, 20%);
+        align-items: flex-end;
+        margin-top: 3.25em;
+    }
+    li.navlink {
+        width: 50vw;
+        background-color: var(--primary-color);
+        justify-content: center;
+    }
+    a.navlink {
+        width: 100%;
+        height: min-content;
+        text-align: center;
+    }
+    .last_item {
+        height: 100%;
     }
   }
 

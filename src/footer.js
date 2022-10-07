@@ -9,7 +9,7 @@ function TimFooter ({ToggleFooter}) {
       <footer>
         <div className='toggle_footer'>
           <button className='footer_button' onClick={() => ToggleFooter(true)}><h4>&#60;</h4></button>
-          <h4>Tim</h4>
+          <a className="footerlink" href="/Tim"><b>Tim</b></a>
           <button className='footer_button' onClick={() => ToggleFooter(true)}><h4>&#62;</h4></button>
         </div>
         <div className='footer_icons'>
@@ -26,7 +26,7 @@ function TimFooter ({ToggleFooter}) {
       <footer>
         <div className='toggle_footer'>
           <button className='footer_button' onClick={() => ToggleFooter(false)}><h4>&#60;</h4></button>
-          <h4>Eric</h4>
+          <a className="footerlink" href="/Eric"><b>Eric</b></a>
           <button className='footer_button' onClick={() => ToggleFooter(false)}><h4>&#62;</h4></button>
         </div>
         <div className='footer_icons'>

@@ -17,10 +17,11 @@ footer {
     fill: var(--footer-icon-hover);
 }
 
-h4 {
+.footerlink, h4 {
     font-size: 25px;
     color: white;
     padding: 0 .5em;
+    text-decoration: none;
 }
 
 .toggle_footer {
@@ -33,7 +34,7 @@ h4 {
     background-color: var(--footer-background-color);
 }
 
-.footer_button:hover > h4 {
+.footer_button:hover > h4, .footerlink:hover {
     color: var(--footer-icon-hover);
     cursor: pointer;
 }
