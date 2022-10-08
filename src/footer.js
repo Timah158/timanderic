@@ -13,7 +13,7 @@ function TimFooter ({ToggleFooter}) {
           <button className='footer_button' onClick={() => ToggleFooter(true)}><h4>&#62;</h4></button>
         </div>
         <div className='footer_icons'>
-          <a href="https://github.com/Timah158/timanderic" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
+          <a href="https://github.com/Timah158" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
           <a href="https://www.linkedin.com/in/timlopez22" rel='noreferrer' target="_blank"><LinkedInIcon className='footer_icon'/></a>
           <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" rel='noreferrer' target="_blank"><EmailIcon className='footer_icon'/></a>
         </div>

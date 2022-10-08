@@ -99,12 +99,13 @@ a.navlink:hover {
         display: flex;
         flex-direction: column;
         position: fixed;
-        background-color: hsl(217, 90%, 61%, 20%);
+        background-color: rgba(157, 195, 255, 0.438);
         align-items: flex-end;
         margin-top: 3.25em;
+        border-top: 2px solid rgba(255, 255, 255, 0.596);
     }
     li.navlink {
-        width: 50vw;
+        width: 100vw;
         background-color: var(--primary-color);
         justify-content: center;
     }
@@ -113,8 +114,8 @@ a.navlink:hover {
         height: min-content;
         text-align: center;
     }
-    .last_item {
-        height: 100%;
+    a.navlink:hover { 
+        background-color: var(--hover-color);
     }
   }
 
