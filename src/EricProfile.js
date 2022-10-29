@@ -19,7 +19,7 @@ function Heading() {
       </div>
       <div id="main_title_buttons">
         <button>Contact</button>
-        <button><a href="#">Resume</a></button>
+        <button><a href={require("./resumes/ericResume.pdf")} download="eric.pdf">Resume</a></button>
       </div>
     </section>
     </div>
