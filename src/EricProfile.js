@@ -14,9 +14,9 @@ function Heading() {
           <h1 className='main_title'>About Eric</h1>
           <br></br>
           <p>
-            I am a Full-stack web developer with experience in Spring Boot, Thymeleaf, Bootstrap, MySQL, and MongoDB.
-            I prefer working in Java, however I also have experience with other frameworks such as Django.
-            If you're looking for someone that has a passion for Object-oriented principles and backend services, I'm your guy..
+            I am a full-stack web developer with experience in Spring Boot, Thymeleaf, Bootstrap, MySQL, PostgreSQL, and MongoDB.
+            I prefer working in Java, but I also have experience with other languages and webstacks such as .NET in C# and Django in Python.
+            If you're looking for someone that has a passion for Object-Oriented design principles and scalable backend servers, I'm your guy.
           </p>
         </div>
         <div id="main_title_buttons">
