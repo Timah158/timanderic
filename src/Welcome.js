@@ -2,7 +2,7 @@ import './CSS/welcome_page.css';
 import Navbar from "./navbar";
 import Footer from "./footer";
 import Tim from "./Pictures/Tim.jpg"
-import Eric from "./Pictures/Tim.jpg"
+import Eric from "./Pictures/Eric.jpg"
 
 function Heading() {
   return (
