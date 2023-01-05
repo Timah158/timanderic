@@ -3,6 +3,7 @@ import WelcomePage from './Welcome';
 import NoPage from "./NoPage";
 import TimProfile from "./TimProfile";
 import EricProfile from "./EricProfile";
+import InterviewModal from "./InterviewModal";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="*" element={<NoPage />} />
         <Route path="Tim" element={<TimProfile />}/>
         <Route path="Eric" element={<EricProfile />}/>
+        <Route path="Interview" element={<InterviewModal />}/>
       </Routes>
     </BrowserRouter>
   );

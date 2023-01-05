@@ -1,4 +1,4 @@
-import {ReactComponent as CloseIcon} from './SVGs/close.svg'
+import {ReactComponent as CloseIcon} from './SVGs/close_button.svg'
 import './CSS/Interview.css';
 
 function InterviewModal() {
