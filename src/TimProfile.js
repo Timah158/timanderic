@@ -1,4 +1,5 @@
 import "./CSS/welcome_page.css"
+import "./CSS/profile.css"
 import Navbar from "./navbar"
 import Footer from "./footer";
 import React from "react";
@@ -8,7 +9,7 @@ function Heading() {
   return (
     <div id='section_1' className="section">
       <section className="center">
-        <img src={Tim} alt="Tim" className="section_image" />
+        <img src={Tim} alt="Tim" className="profile_picture" />
         <div>
           <h1 className='main_title'>About Tim</h1>
           <br></br>
