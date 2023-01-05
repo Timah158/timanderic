@@ -15,7 +15,7 @@ function TimFooter ({ToggleFooter}) {
         <div className='footer_icons'>
           <a href="https://github.com/Timah158" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
           <a href="https://www.linkedin.com/in/timlopez22" rel='noreferrer' target="_blank"><LinkedInIcon className='footer_icon'/></a>
-          <a href="mailto:timothylopez95@gmail.com" rel='noreferrer' target="_blank"><EmailIcon className='footer_icon'/></a>
+          <EmailIcon className='footer_icon'onClick={() =>  navigator.clipboard.writeText('timothylopez95@gmail.com')}/>
         </div>
       </footer>
     );
@@ -30,9 +30,9 @@ function TimFooter ({ToggleFooter}) {
           <button className='footer_button' onClick={() => ToggleFooter(false)}><h4>&#62;</h4></button>
         </div>
         <div className='footer_icons'>
-          <a href="https://github.com/emoore36" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
-          <a href="https://www.linkedin.com/in/ericmoore0709/" rel='noreferrer' target="_blank"><LinkedInIcon className='footer_icon'/></a>
-          <a href="mailto:ericmoore0709@gmail.com" rel='noreferrer' target="_blank"><EmailIcon className='footer_icon'/></a>
+        <a href="https://github.com/emoore36" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
+        <a href="https://www.linkedin.com/in/ericmoore0709/" rel='noreferrer' target="_blank"><LinkedInIcon className='footer_icon'/></a>
+        <EmailIcon className='footer_icon' onClick={() =>  navigator.clipboard.writeText('ericmoore0709@gmail.com')}/>
         </div>
       </footer>
     )
