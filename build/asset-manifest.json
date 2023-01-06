@@ -1,20 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.585ce079.css",
-    "main.js": "/static/js/main.6c171e58.js",
+    "main.css": "/static/css/main.a7b72c57.css",
+    "main.js": "/static/js/main.21c6a484.js",
+    "static/media/Tim.jpg": "/static/media/Tim.7240f6bcf330214b6cdf.jpg",
+    "static/media/Eric.jpg": "/static/media/Eric.e158a63ce9d56fff5d81.jpg",
+    "static/media/ericResume.pdf": "/static/media/ericResume.d9ae3d7eea853229f4b1.pdf",
     "static/media/timResume.docx": "/static/media/timResume.c50d611149c1cc84891d.docx",
     "static/media/logo.svg": "/static/media/logo.e0d85b1e3ddc61a1aac07ebe1d050f0e.svg",
-    "static/media/menu.svg": "/static/media/menu.5de7d619c5c0ea20bb3a90ee57c4c8ff.svg",
+    "static/media/menu.svg": "/static/media/menu.d583d97d770166926f05157556373aae.svg",
     "static/media/github-brands.svg": "/static/media/github-brands.022db3ae71b7f7388d8a9835ca7fded2.svg",
+    "static/media/close_button.svg": "/static/media/close_button.e4efe2a1f14db3816252b7d8c1c64741.svg",
     "static/media/linkedin-brands.svg": "/static/media/linkedin-brands.c81e49155aded38c0fbe10d98d63504b.svg",
     "static/media/envelope-solid.svg": "/static/media/envelope-solid.d150e42179798a558956d8d8f090a78b.svg",
     "index.html": "/index.html",
-    "static/media/Mobile logo.svg": "/static/media/Mobile logo.dfa7568ed47919d55e1af79767ebac1f.svg",
-    "main.585ce079.css.map": "/static/css/main.585ce079.css.map",
-    "main.6c171e58.js.map": "/static/js/main.6c171e58.js.map"
+    "static/media/Mobile logo.svg": "/static/media/Mobile logo.367148b00f2388211c81c7504a0d9337.svg",
+    "main.a7b72c57.css.map": "/static/css/main.a7b72c57.css.map",
+    "main.21c6a484.js.map": "/static/js/main.21c6a484.js.map"
   },
   "entrypoints": [
-    "static/css/main.585ce079.css",
-    "static/js/main.6c171e58.js"
+    "static/css/main.a7b72c57.css",
+    "static/js/main.21c6a484.js"
   ]
 }
