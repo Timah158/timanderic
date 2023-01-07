@@ -1,0 +1,99 @@
+.modal_wrapper { 
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_content {
+    width: 70vw;
+    padding: 2em;
+    background-color: var(--primary-color);
+    border-radius: 2em;
+}
+
+.modal_content h3 {
+    text-align: center;
+    color: white;
+    margin-bottom: 1em;
+}
+
+.close_button:hover {
+    cursor: pointer;
+}
+
+.close_button:hover > #close_button {
+    background-color: var(--selected_color);
+    fill: var(--selected_color);
+}
+
+.close_button:hover > #Xbutton {
+    fill: var(--selected_color);
+}
+
+.close_button {
+    height: 3em;
+    width: 3em;
+    float: right;
+}
+
+#interview_row1 {
+    display: flex;
+    justify-content: space-between;
+    gap: .25em;
+}
+
+#interview_row1 input, #interview_row1 select {
+    width: 100%;
+    padding: 1em;
+    border-radius: .5em;
+    outline: none;
+    border: none;
+    color: var(--primary-font);
+    font-size: 20px;
+}
+
+#interview_row1 input:focus, #interview_row1 select:focus, 
+#interview_row1 input:hover, #interview_row1 select:hover {
+    outline-color: var(--selected_color);
+    outline-width: 2px;
+    outline-style: solid;
+}
+
+#interview_form textarea {
+    height: 25vh;
+    border-radius: .5em;
+    border: none;
+    font-size: 18px;
+    padding: 1em;
+    flex-wrap: wrap;
+}
+
+#interview_form {
+    display: grid;
+    align-content: center;
+    margin: auto;
+    gap: 1.5em;
+}
+
+#interview_form input[type='submit'] {
+    background-color: var(--footer-background-color);
+    border: none;
+    font-size: 30px;
+    color: white;
+    width: min-content;
+    padding: .75em;
+    border-radius: .5em;
+    justify-self: center;
+}
+
+#interview_form input[type='submit']:hover {
+    background-color: var(--selected_color);
+    cursor: pointer;
+}
+
+#interview_form textarea:hover {
+    outline-color: var(--selected_color);
+    outline-width: 2px;
+    outline-style: solid;
+}
