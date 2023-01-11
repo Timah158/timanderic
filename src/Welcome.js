@@ -19,7 +19,7 @@ function Heading({hideModal}) {
         </p>
       </div>
       <div id="main_title_buttons">
-        <button onClick={() => hideModal(true)}>Contact</button>
+        <button  onClick={() => hideModal(true)}>Contact</button>
         <button><a href="#section_3">About</a></button>
       </div>
     </section>
@@ -35,9 +35,9 @@ function WhatWeDo() {
           <h3>What We Do</h3>
           <p>
             We are two industry professionals looking to showcase our skills and connect with employers.
-            We hope that with this site we can properly demonstrate our skills and learn by doing. Our 
+            We hope that with this site we can properly demonstrate our skills and learn by doing. Our
             specialties are full-stack developent, cybersecurity, and teamwork.
-            </p>
+          </p>
         </div>
       </section>
     </div>
@@ -52,9 +52,9 @@ function AboutTim() {
         <div>
           <h3>About Tim</h3>
           <p>
-          I am an IT professional with experience in technical support, front-end development, and a passion for cybersecurity.
-          During my time at university I worked as a call technician for 2 years providing technical support and troubleshooting.
-          While at this job I was eventually moved to the development team where I gained experience with HTML, CSS, and JavaScript.
+            I am an IT professional with experience in technical support, front-end development, and a passion for cybersecurity.
+            During my time at university I worked as a call technician for 2 years providing technical support and troubleshooting.
+            While at this job I was eventually moved to the development team where I gained experience with HTML, CSS, and JavaScript.
           </p>
           <br></br>
           <ul>
@@ -77,9 +77,9 @@ function AboutEric() {
         <div>
           <h3>About Eric</h3>
           <p>
-          I am a Full-stack web developer with experience in Spring Boot, Thymeleaf, Bootstrap, MySQL, and MongoDB.
-          I prefer working in Java, however I also have experience with other frameworks such as Django.
-          If you're looking for someone that has a passion for Object-oriented principles and backend services, I'm your guy.. 
+            I am a full-stack web developer with experience in Spring Boot, Thymeleaf, Bootstrap, MySQL, PostgreSQL, and MongoDB.
+            I prefer working in Java, but I also have experience with other languages and webstacks such as .NET in C# and Django in Python.
+            If you're looking for someone that has a passion for Object-Oriented design principles and scalable backend servers, I'm your guy.
           </p>
           <br></br>
           <ul>
@@ -88,7 +88,7 @@ function AboutEric() {
             <li>MongoDB</li>
           </ul>
         </div>
-        <img src={Eric} className="section_image" alt='Eric'/>
+        <img src={Eric} className="section_image" alt='Eric' />
       </section>
     </div>
   );
