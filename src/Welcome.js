@@ -3,8 +3,10 @@ import Navbar from "./navbar";
 import Footer from "./footer";
 import Tim from "./Pictures/Tim.jpg"
 import Eric from "./Pictures/Eric.jpg"
+import InterviewModal from "./InterviewModal";
+import React,{useState} from 'react';
 
-function Heading() {
+function Heading({hideModal}) {
   return (
     <div id='section_1' className="section">
       <section className="split">
@@ -17,7 +19,7 @@ function Heading() {
         </p>
       </div>
       <div id="main_title_buttons">
-        <button>Contact</button>
+        <button onClick={() => hideModal(true)}>Contact</button>
         <button><a href="#section_3">About</a></button>
       </div>
     </section>
@@ -93,10 +95,12 @@ function AboutEric() {
 }
 
 function WelcomePage() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div>
-      <Navbar></Navbar>
-      <Heading></Heading>
+      {showModal && <InterviewModal hideModal={setShowModal}/>}
+      <Navbar hideModal={setShowModal}></Navbar>
+      <Heading hideModal={setShowModal}></Heading>
       <WhatWeDo></WhatWeDo>
       <AboutTim></AboutTim>
       <AboutEric></AboutEric>
