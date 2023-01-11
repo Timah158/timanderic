@@ -3,7 +3,7 @@ import {ReactComponent as MobileLogo} from './SVGs/Mobile logo.svg'
 import {ReactComponent as MenuIcon} from './SVGs/menu.svg'
 import './CSS/navbar.css';
 
-function Navbar() {
+function Navbar({hideModal}) {
     return (
       <header>
         <nav className="navbar">
@@ -13,7 +13,7 @@ function Navbar() {
           <ul className="navlist">
             <li className="navlink"><a className="navlink" href="/Tim">Tim</a></li>
             <li className="navlink"><a className="navlink" href="/Eric">Eric</a></li>
-            <li className="navlink last_item"><a className="navlink" href="/Interview">Interview</a></li>
+            <li className="navlink last_item"><button className="navlink" onClick={() => hideModal(true)}>Interview</button></li>
           </ul>
         </nav>
       </header>

@@ -28,14 +28,17 @@ li.navlink {
 
 }
 
-a.navlink {
+a.navlink, button.navlink {
     padding: .5em 1em;
     color: var(--primary-color);
     text-decoration: none;
     font-size: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-a.navlink:hover {
+a.navlink:hover, button.navlink:hover {
     color: var(--selected_color);
 }
 

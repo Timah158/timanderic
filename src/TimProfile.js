@@ -2,8 +2,10 @@ import "./CSS/welcome_page.css"
 import "./CSS/profile.css"
 import Navbar from "./navbar"
 import Footer from "./footer";
-import React from "react";
+import React,{useState} from "react";
 import Tim from "./Pictures/Tim.jpg"
+import {ReactComponent as Skills} from './SVGs/TimSkills.svg'
+import InterviewModal from "./InterviewModal";
 
 function Heading() {
   return (
@@ -33,7 +35,7 @@ function TimSkills() {
     <div id='section_3' className="section odd_section">
       <section className="center">
         <div>
-          <h3>Skills</h3>
+          <Skills/>
         </div>
       </section>
     </div>
@@ -53,9 +55,11 @@ function TimProjects() {
 }
 
 function TimProfile() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <React.Fragment>
-      <Navbar></Navbar>
+      {showModal && <InterviewModal hideModal={setShowModal}/>}
+      <Navbar hideModal={setShowModal}></Navbar>
       <Heading></Heading>
       <TimSkills></TimSkills>
       <TimProjects></TimProjects>
