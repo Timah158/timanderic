@@ -4,3 +4,7 @@
     border: 2px solid var(--primary-color);
     margin-bottom: 3em;
 }
+
+.skills {
+    width: 100%;
+}

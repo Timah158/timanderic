@@ -42,12 +42,12 @@
 
 #interview_row1 {
     display: flex;
-    justify-content: space-between;
     gap: .25em;
+    flex-wrap: wrap;
 }
 
 #interview_row1 input, #interview_row1 select {
-    width: 100%;
+    width: max-content;
     padding: 1em;
     border-radius: .5em;
     outline: none;

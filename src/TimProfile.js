@@ -35,7 +35,7 @@ function TimSkills() {
     <div id='section_3' className="section odd_section">
       <section className="center">
         <div>
-          <Skills/>
+          <Skills className="skills"/>
         </div>
       </section>
     </div>
