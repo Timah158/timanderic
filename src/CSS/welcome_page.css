@@ -80,21 +80,25 @@ ul {
     border: 2px solid var(--primary-color);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 610px) {
     section, .center {
         width: 90vw;
     }
     .split {
-        display: block;
+        display: flex;
+        flex-direction: column;
         text-align: center;
-    }
-    .section_image {
-        display: none;
     }
     ul {
         display: none;
     }
     #main_title_buttons > button {
         padding: .5em 1em;
+    }
+    .odd_section > section {
+        flex-direction: column-reverse !important;
+    }
+    .section_image {
+        margin: 5vw 0;
     }
   }
