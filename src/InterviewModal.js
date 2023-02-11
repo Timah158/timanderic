@@ -1,11 +1,11 @@
 import {ReactComponent as CloseIcon} from './SVGs/close_button.svg'
 import './CSS/Interview.css';
 
-function InterviewModal({hideModal}) {
+function InterviewModal({props}) {
     return (
       <div className='modal_wrapper'>
         <div className='modal_content'>
-            <CloseIcon className='close_button' onClick={() => hideModal(false)}/>
+            <CloseIcon className='close_button' onClick={() => props(false)}/>
             <h3>Schedule An Interview</h3>
             <form id='interview_form'>
                 <div id='interview_row1'>

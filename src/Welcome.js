@@ -1,12 +1,9 @@
 import './CSS/welcome_page.css';
-import Navbar from "./navbar";
 import Footer from "./footer";
 import Tim from "./Pictures/Tim.jpg"
 import Eric from "./Pictures/Eric.jpg"
-import InterviewModal from "./InterviewModal";
-import React,{useState} from 'react';
 
-function Heading({hideModal}) {
+function Heading({props}) {
   return (
     <div id='section_1' className="section">
       <section className="split">
@@ -19,7 +16,7 @@ function Heading({hideModal}) {
         </p>
       </div>
       <div id="main_title_buttons">
-        <button  onClick={() => hideModal(true)}>Contact</button>
+        <button onClick={() => props(true)}>Contact</button>
         <button><a href="#section_3">About</a></button>
       </div>
     </section>
@@ -94,13 +91,10 @@ function AboutEric() {
   );
 }
 
-function WelcomePage() {
-  const [showModal, setShowModal] = useState(false);
+function WelcomePage({props}) {
   return (
     <div>
-      {showModal && <InterviewModal hideModal={setShowModal}/>}
-      <Navbar hideModal={setShowModal}></Navbar>
-      <Heading hideModal={setShowModal}></Heading>
+      <Heading props={props}></Heading>
       <WhatWeDo></WhatWeDo>
       <AboutTim></AboutTim>
       <AboutEric></AboutEric>

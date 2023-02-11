@@ -1,13 +1,11 @@
 import "./CSS/welcome_page.css"
 import "./CSS/profile.css"
-import Navbar from "./navbar"
 import Footer from "./footer";
-import React,{useState} from "react";
+import React from "react";
 import Tim from "./Pictures/Tim.jpg"
 import {ReactComponent as Skills} from './SVGs/TimSkills.svg'
-import InterviewModal from "./InterviewModal";
 
-function Heading() {
+function Heading({props}) {
   return (
     <div id='section_1' className="section">
       <section className="center">
@@ -22,7 +20,7 @@ function Heading() {
           </p>
         </div>
         <div id="main_title_buttons">
-          <button>Contact</button>
+          <button onClick={() => props(true)}>Contact</button>
           <button><a href={require("./resumes/timResume.docx")} download="tim.docx">Resume</a></button>
         </div>
       </section>
@@ -54,13 +52,10 @@ function TimProjects() {
   );
 }
 
-function TimProfile() {
-  const [showModal, setShowModal] = useState(false);
+function TimProfile({props}) {
   return (
     <React.Fragment>
-      {showModal && <InterviewModal hideModal={setShowModal}/>}
-      <Navbar hideModal={setShowModal}></Navbar>
-      <Heading></Heading>
+      <Heading props={props}></Heading>
       <TimSkills></TimSkills>
       <TimProjects></TimProjects>
       <Footer></Footer>
