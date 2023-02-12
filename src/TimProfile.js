@@ -1,6 +1,5 @@
 import "./CSS/welcome_page.css"
 import "./CSS/profile.css"
-import Footer from "./footer";
 import React from "react";
 import Tim from "./Pictures/Tim.jpg"
 import {ReactComponent as Skills} from './SVGs/TimSkills.svg'
@@ -58,7 +57,6 @@ function TimProfile({props}) {
       <Heading props={props}></Heading>
       <TimSkills></TimSkills>
       <TimProjects></TimProjects>
-      <Footer></Footer>
     </React.Fragment>
   );
 }

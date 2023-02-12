@@ -4,14 +4,14 @@ import {ReactComponent as EmailIcon} from './SVGs/font_awesome_icons/envelope-so
 import React,{useState} from 'react';
 import './CSS/footer.css';
 
-function TimFooter ({ToggleFooter}) {
+function TimFooter ({props}) {
     return (
       <footer>
         <div className='footer_container'>
           <div className='toggle_footer'>
-            <button className='footer_button' onClick={() => ToggleFooter(true)}><h4>&#60;</h4></button>
-            <a className="footerlink" href="/Tim"><b>Tim</b></a>
-            <button className='footer_button' onClick={() => ToggleFooter(true)}><h4>&#62;</h4></button>
+            <button className='footer_button' onClick={() => props.setToggleFooter(true)}><h4>&#60;</h4></button>
+            <button className="footerlink" onClick={() => props.props("tim")}><b>Tim</b></button>
+            <button className='footer_button' onClick={() => props.setToggleFooter(true)}><h4>&#62;</h4></button>
           </div>
           <div className='footer_icons'>
             <a href="https://github.com/Timah158" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
@@ -23,14 +23,14 @@ function TimFooter ({ToggleFooter}) {
     );
   }
 
-  function EricFooter ({ToggleFooter}) {
+  function EricFooter ({props}) {
     return (
       <footer>
         <div className='footer_container'>
           <div className='toggle_footer'>
-            <button className='footer_button' onClick={() => ToggleFooter(false)}><h4>&#60;</h4></button>
-            <a className="footerlink" href="/Eric"><b>Eric</b></a>
-            <button className='footer_button' onClick={() => ToggleFooter(false)}><h4>&#62;</h4></button>
+            <button className='footer_button' onClick={() => props.setToggleFooter(false)}><h4>&#60;</h4></button>
+            <button className="footerlink" onClick={() => props.props("eric")}><b>Eric</b></button>
+            <button className='footer_button' onClick={() => props.setToggleFooter(false)}><h4>&#62;</h4></button>
           </div>
           <div className='footer_icons'>
           <a href="https://github.com/emoore36" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
@@ -42,13 +42,13 @@ function TimFooter ({ToggleFooter}) {
     )
   }
 
-  function Footer () {
+  function Footer ({props}) {
     const [ToggleFooter, setToggleFooter] = useState(false);
 
     return (
       <React.Fragment>
-        {!ToggleFooter && <TimFooter ToggleFooter={setToggleFooter}/>}
-        {ToggleFooter && <EricFooter ToggleFooter={setToggleFooter}/>}
+        {!ToggleFooter && <TimFooter props={{setToggleFooter, props}}/>}
+        {ToggleFooter && <EricFooter props={{setToggleFooter, props}}/>}
       </React.Fragment>
     )
   }

@@ -1,5 +1,4 @@
 import './CSS/welcome_page.css';
-import Footer from "./footer";
 import Tim from "./Pictures/Tim.jpg"
 import Eric from "./Pictures/Eric.jpg"
 
@@ -98,7 +97,6 @@ function WelcomePage({props}) {
       <WhatWeDo></WhatWeDo>
       <AboutTim></AboutTim>
       <AboutEric></AboutEric>
-      <Footer></Footer>
     </div>
   );
 }

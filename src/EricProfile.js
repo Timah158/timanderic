@@ -1,6 +1,5 @@
 import "./CSS/welcome_page.css"
 import "./CSS/profile.css"
-import Footer from "./footer";
 import React from "react";
 import Eric from "./Pictures/Eric.jpg"
 import {ReactComponent as Skills} from './SVGs/EricSkills.svg'
@@ -58,7 +57,6 @@ function EricProfile({props}) {
       <Heading props={props}></Heading>
       <EricSkills></EricSkills>
       <EricProjects></EricProjects>
-      <Footer></Footer>
     </React.Fragment>
   );
 }

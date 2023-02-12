@@ -4,6 +4,7 @@ import NavBar from './navbar';
 import TimProfile from "./TimProfile";
 import EricProfile from "./EricProfile";
 import InterviewModal from "./InterviewModal";
+import Footer from "./footer";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       {Page === "welcome" && <WelcomePage props={setIntModal}/>}
       {Page === "tim" && <TimProfile props={setIntModal}/>}
       {Page === "eric" && <EricProfile props={setIntModal}/>}
+      <Footer props={setPage}/>
     </React.Fragment>
   );
 }
