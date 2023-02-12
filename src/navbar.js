@@ -30,25 +30,17 @@ function DesktopNavbar({props}) {
         </nav>
       </header>
     );
-    function MobileDropdown({dropdownProps}) {
-      return(
-        <ul className="mobile_navlist">
-          <li className="mobile_navlink"><button className="mobile_navlink_a" onClick={
-            () => props.setPage("tim")
-            .then(dropdownProps.setShowDropdown(false))
-            }>Tim</button></li>
-          <li className="mobile_navlink"><button className="mobile_navlink_a" onClick={
-            () => props.setPage("eric")
-            }>Eric</button></li>
-          <li className="mobile_navlink"><button className="mobile_navlink_a" onClick={
-            () => props.setIntModal(true)
-            }>Interview</button></li>
-          <li className="mobile_navlink white_space" onClick={
-            () => dropdownProps.setShowDropdown(false)
-            }></li>
-        </ul>
-      );
-    }
+  }
+
+  function MobileDropdown({dropdownProps}) {
+    return(
+      <ul className="mobile_navlist">
+        <li className="mobile_navlink"><button className="mobile_navlink_a" onClick={() => dropdownProps.props.setPage("tim")}>Tim</button></li>
+        <li className="mobile_navlink"><button className="mobile_navlink_a" onClick={() => dropdownProps.props.setPage("eric")}>Eric</button></li>
+        <li className="mobile_navlink"><button className="mobile_navlink_a" onClick={() => dropdownProps.props.setIntModal(true)}>Interview</button></li>
+        <li className="mobile_navlink white_space" onClick={() => dropdownProps.setShowDropdown(false)}></li>
+      </ul>
+    );
   }
 
   function Navbar({props}) {

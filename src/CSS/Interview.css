@@ -14,6 +14,7 @@
     padding: 2em;
     background-color: var(--primary-color);
     border-radius: 2em;
+    overflow: scroll;
 }
 
 .modal_content h3 {
@@ -36,8 +37,10 @@
 }
 
 .close_button {
-    height: 3em;
-    width: 3em;
+    max-width: 2.5em;
+    max-height: 2.5em;
+    height: 10vw;
+    width: 10vw;
     float: right;
 }
 
@@ -100,4 +103,12 @@
     outline-color: var(--selected_color);
     outline-width: 2px;
     outline-style: solid;
+}
+
+@media screen and (max-width: 480px) {
+    #interview_form textarea, #interview_form input, #interview_row1 select {
+        font-size: 15px !important;
+        width: 100%;
+        padding: 1em;
+    }
 }
