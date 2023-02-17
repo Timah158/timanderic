@@ -6,7 +6,6 @@ import EricProfile from "./EricProfile";
 import InterviewModal from "./InterviewModal";
 import Footer from "./footer";
 
-
 function App() {
   const [IntModal, setIntModal] = useState(false);
   const [Page, setPage] = useState("welcome");
