@@ -7,7 +7,7 @@ function Heading({props}) {
     <div id='section_1' className="section">
       <section className="split">
       <div>
-        <h1 className='main_title'>Welcome Potential Employers! TEST AGAIN</h1>
+        <h1 className='main_title'>Welcome Potential Employers!</h1>
         <br></br>
         <p>We are two industry professionals looking to showcase our skills and are currently seeking employment.
           If you are looking for employees experienced in either full stack development or cybersecurity, you've
