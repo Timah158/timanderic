@@ -8,3 +8,16 @@
 .skills {
     width: 100%;
 }
+
+
+@media screen and (max-width: 800px) {
+    .profile_picture {
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 1375px) {
+    .profile {
+        width: 75vw;
+    }
+}

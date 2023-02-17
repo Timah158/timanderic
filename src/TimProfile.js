@@ -7,7 +7,7 @@ import {ReactComponent as Skills} from './SVGs/TimSkills.svg'
 function Heading({props}) {
   return (
     <div id='section_1' className="section">
-      <section className="center">
+      <section className="center profile">
         <img src={Tim} alt="Tim" className="profile_picture" />
         <div>
           <h1 className='main_title'>About Tim</h1>
@@ -30,7 +30,7 @@ function Heading({props}) {
 function TimSkills() {
   return (
     <div id='section_3' className="section odd_section">
-      <section className="center">
+      <section className="center profile">
         <div>
           <Skills className="skills"/>
         </div>
@@ -56,7 +56,7 @@ function TimProfile({props}) {
     <React.Fragment>
       <Heading props={props}></Heading>
       <TimSkills></TimSkills>
-      <TimProjects></TimProjects>
+      {/* <TimProjects></TimProjects> */}
     </React.Fragment>
   );
 }

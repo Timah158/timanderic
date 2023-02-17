@@ -56,7 +56,7 @@ function EricProfile({props}) {
     <React.Fragment>
       <Heading props={props}></Heading>
       <EricSkills></EricSkills>
-      <EricProjects></EricProjects>
+      {/* <EricProjects></EricProjects> */}
     </React.Fragment>
   );
 }

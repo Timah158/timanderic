@@ -8,8 +8,8 @@ import Footer from "./footer";
 
 
 function App() {
-  const [Page, setPage] = useState("welcome");
   const [IntModal, setIntModal] = useState(false);
+  const [Page, setPage] = useState("welcome");
   return (
     <React.Fragment>
       {IntModal && <InterviewModal props={setIntModal}/>}
