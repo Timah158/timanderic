@@ -15,6 +15,7 @@ section {
     height: 90%;
     display: flex;
     align-items: center;
+    margin: 2vw;
 }
 
 .split {
@@ -75,26 +76,42 @@ ul {
 }
 
 .section_image {
-    height: 75%;
-    width: 100%;
+    width: 20vw;
     border: 2px solid var(--primary-color);
+    margin: 2vw;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 800px) {
     section, .center {
         width: 90vw;
     }
     .split {
-        display: block;
+        display: flex;
+        flex-direction: column;
         text-align: center;
-    }
-    .section_image {
-        display: none;
     }
     ul {
         display: none;
     }
     #main_title_buttons > button {
         padding: .5em 1em;
+    }
+    .odd_section > section {
+        flex-direction: column-reverse !important;
+    }
+    .section_image {
+        width: 90vw;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .section_image {
+        width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 505px) {
+    #main_title_buttons > button {
+        font-size: 18px;
     }
   }

@@ -1,13 +1,10 @@
 import "./CSS/welcome_page.css"
 import "./CSS/profile.css"
-import Navbar from "./navbar"
-import Footer from "./footer";
-import React,{useState} from "react";
+import React from "react";
 import Eric from "./Pictures/Eric.jpg"
 import {ReactComponent as Skills} from './SVGs/EricSkills.svg'
-import InterviewModal from "./InterviewModal";
 
-function Heading() {
+function Heading({props}) {
   return (
     <div id='section_1' className="section">
       <section className="center">
@@ -22,7 +19,7 @@ function Heading() {
           </p>
         </div>
         <div id="main_title_buttons">
-          <button>Contact</button>
+          <button onClick={() => props(true)}>Contact</button>
           <button><a href={require("./resumes/ericResume.pdf")} download="eric.pdf">Resume</a></button>
         </div>
       </section>
@@ -54,16 +51,12 @@ function EricProjects() {
   );
 }
 
-function EricProfile() {
-  const [showModal, setShowModal] = useState(false);
+function EricProfile({props}) {
   return (
     <React.Fragment>
-      {showModal && <InterviewModal hideModal={setShowModal}/>}
-      <Navbar hideModal={setShowModal}></Navbar>
-      <Heading></Heading>
+      <Heading props={props}></Heading>
       <EricSkills></EricSkills>
-      <EricProjects></EricProjects>
-      <Footer></Footer>
+      {/* <EricProjects></EricProjects> */}
     </React.Fragment>
   );
 }

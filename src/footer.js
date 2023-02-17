@@ -4,48 +4,52 @@ import {ReactComponent as EmailIcon} from './SVGs/font_awesome_icons/envelope-so
 import React,{useState} from 'react';
 import './CSS/footer.css';
 
-function TimFooter ({ToggleFooter}) {
+function TimFooter ({props}) {
     return (
       <footer>
-        <div className='toggle_footer'>
-          <button className='footer_button' onClick={() => ToggleFooter(true)}><h4>&#60;</h4></button>
-          <a className="footerlink" href="/Tim"><b>Tim</b></a>
-          <button className='footer_button' onClick={() => ToggleFooter(true)}><h4>&#62;</h4></button>
-        </div>
-        <div className='footer_icons'>
-          <a href="https://github.com/Timah158" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
-          <a href="https://www.linkedin.com/in/timlopez22" rel='noreferrer' target="_blank"><LinkedInIcon className='footer_icon'/></a>
-          <EmailIcon className='footer_icon'onClick={() =>  navigator.clipboard.writeText('timothylopez95@gmail.com')}/>
+        <div className='footer_container'>
+          <div className='toggle_footer'>
+            <button className='footer_button' onClick={() => props.setToggleFooter(true)}><h4>&#60;</h4></button>
+            <button className="footerlink" onClick={() => props.props("tim")}><b>Tim</b></button>
+            <button className='footer_button' onClick={() => props.setToggleFooter(true)}><h4>&#62;</h4></button>
+          </div>
+          <div className='footer_icons'>
+            <a href="https://github.com/Timah158" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
+            <a href="https://www.linkedin.com/in/timlopez22" rel='noreferrer' target="_blank"><LinkedInIcon className='footer_icon'/></a>
+            <EmailIcon className='footer_icon'onClick={() =>  navigator.clipboard.writeText('timothylopez95@gmail.com')}/>
+          </div>
         </div>
       </footer>
     );
   }
 
-  function EricFooter ({ToggleFooter}) {
+  function EricFooter ({props}) {
     return (
       <footer>
-        <div className='toggle_footer'>
-          <button className='footer_button' onClick={() => ToggleFooter(false)}><h4>&#60;</h4></button>
-          <a className="footerlink" href="/Eric"><b>Eric</b></a>
-          <button className='footer_button' onClick={() => ToggleFooter(false)}><h4>&#62;</h4></button>
-        </div>
-        <div className='footer_icons'>
-        <a href="https://github.com/emoore36" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
-        <a href="https://www.linkedin.com/in/ericmoore0709/" rel='noreferrer' target="_blank"><LinkedInIcon className='footer_icon'/></a>
-        <EmailIcon className='footer_icon' onClick={() =>  navigator.clipboard.writeText('ericmoore0709@gmail.com')}/>
+        <div className='footer_container'>
+          <div className='toggle_footer'>
+            <button className='footer_button' onClick={() => props.setToggleFooter(false)}><h4>&#60;</h4></button>
+            <button className="footerlink" onClick={() => props.props("eric")}><b>Eric</b></button>
+            <button className='footer_button' onClick={() => props.setToggleFooter(false)}><h4>&#62;</h4></button>
+          </div>
+          <div className='footer_icons'>
+          <a href="https://github.com/emoore36" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
+          <a href="https://www.linkedin.com/in/ericmoore0709/" rel='noreferrer' target="_blank"><LinkedInIcon className='footer_icon'/></a>
+          <EmailIcon className='footer_icon' onClick={() =>  navigator.clipboard.writeText('ericmoore0709@gmail.com')}/>
+          </div>
         </div>
       </footer>
     )
   }
 
-  function Footer () {
+  function Footer ({props}) {
     const [ToggleFooter, setToggleFooter] = useState(false);
 
     return (
-      <>
-        {!ToggleFooter && <TimFooter ToggleFooter={setToggleFooter}/>}
-        {ToggleFooter && <EricFooter ToggleFooter={setToggleFooter}/>}
-      </>
+      <React.Fragment>
+        {!ToggleFooter && <TimFooter props={{setToggleFooter, props}}/>}
+        {ToggleFooter && <EricFooter props={{setToggleFooter, props}}/>}
+      </React.Fragment>
     )
   }
 
