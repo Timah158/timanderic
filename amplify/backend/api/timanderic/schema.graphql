@@ -1,3 +1,11 @@
+type Availability @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  user: String
+  startTime: AWSTime
+  endTime: AWSTime
+  day: String
+}
+
 type Interviews @model @auth(rules: [{allow: public}]) {
   id: ID!
   time: AWSTime
@@ -12,7 +20,7 @@ type Projects @model @auth(rules: [{allow: public}]) {
   id: ID!
   Title: String
   Content: String
-  Created_Date: AWSDate
-  Modified_Date: AWSDate
+  createdDate: AWSDate
+  modifiedDate: AWSDate
 }
  

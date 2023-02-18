@@ -1,5 +1,85 @@
 export const schema = {
     "models": {
+        "Availability": {
+            "name": "Availability",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "user": {
+                    "name": "user",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "startTime": {
+                    "name": "startTime",
+                    "isArray": false,
+                    "type": "AWSTime",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "endTime": {
+                    "name": "endTime",
+                    "isArray": false,
+                    "type": "AWSTime",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "day": {
+                    "name": "day",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "Availabilities",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "Interviews": {
             "name": "Interviews",
             "fields": {
@@ -118,15 +198,15 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "Created_Date": {
-                    "name": "Created_Date",
+                "createdDate": {
+                    "name": "createdDate",
                     "isArray": false,
                     "type": "AWSDate",
                     "isRequired": false,
                     "attributes": []
                 },
-                "Modified_Date": {
-                    "name": "Modified_Date",
+                "modifiedDate": {
+                    "name": "modifiedDate",
                     "isArray": false,
                     "type": "AWSDate",
                     "isRequired": false,
@@ -178,5 +258,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.3.5",
-    "version": "ff2799858325170cffa088734b54a607"
+    "version": "de2d0b311f77c717ca7d584212d1cc33"
 };

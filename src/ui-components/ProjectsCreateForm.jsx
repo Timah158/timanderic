@@ -25,30 +25,30 @@ export default function ProjectsCreateForm(props) {
   const initialValues = {
     Title: "",
     Content: "",
-    Created_Date: "",
-    Modified_Date: "",
+    createdDate: "",
+    modifiedDate: "",
   };
   const [Title, setTitle] = React.useState(initialValues.Title);
   const [Content, setContent] = React.useState(initialValues.Content);
-  const [Created_Date, setCreated_Date] = React.useState(
-    initialValues.Created_Date
+  const [createdDate, setCreatedDate] = React.useState(
+    initialValues.createdDate
   );
-  const [Modified_Date, setModified_Date] = React.useState(
-    initialValues.Modified_Date
+  const [modifiedDate, setModifiedDate] = React.useState(
+    initialValues.modifiedDate
   );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setTitle(initialValues.Title);
     setContent(initialValues.Content);
-    setCreated_Date(initialValues.Created_Date);
-    setModified_Date(initialValues.Modified_Date);
+    setCreatedDate(initialValues.createdDate);
+    setModifiedDate(initialValues.modifiedDate);
     setErrors({});
   };
   const validations = {
     Title: [],
     Content: [],
-    Created_Date: [],
-    Modified_Date: [],
+    createdDate: [],
+    modifiedDate: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -77,8 +77,8 @@ export default function ProjectsCreateForm(props) {
         let modelFields = {
           Title,
           Content,
-          Created_Date,
-          Modified_Date,
+          createdDate,
+          modifiedDate,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -135,8 +135,8 @@ export default function ProjectsCreateForm(props) {
             const modelFields = {
               Title: value,
               Content,
-              Created_Date,
-              Modified_Date,
+              createdDate,
+              modifiedDate,
             };
             const result = onChange(modelFields);
             value = result?.Title ?? value;
@@ -162,8 +162,8 @@ export default function ProjectsCreateForm(props) {
             const modelFields = {
               Title,
               Content: value,
-              Created_Date,
-              Modified_Date,
+              createdDate,
+              modifiedDate,
             };
             const result = onChange(modelFields);
             value = result?.Content ?? value;
@@ -183,56 +183,56 @@ export default function ProjectsCreateForm(props) {
         isRequired={false}
         isReadOnly={false}
         type="date"
-        value={Created_Date}
+        value={createdDate}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
               Title,
               Content,
-              Created_Date: value,
-              Modified_Date,
+              createdDate: value,
+              modifiedDate,
             };
             const result = onChange(modelFields);
-            value = result?.Created_Date ?? value;
+            value = result?.createdDate ?? value;
           }
-          if (errors.Created_Date?.hasError) {
-            runValidationTasks("Created_Date", value);
+          if (errors.createdDate?.hasError) {
+            runValidationTasks("createdDate", value);
           }
-          setCreated_Date(value);
+          setCreatedDate(value);
         }}
-        onBlur={() => runValidationTasks("Created_Date", Created_Date)}
-        errorMessage={errors.Created_Date?.errorMessage}
-        hasError={errors.Created_Date?.hasError}
-        {...getOverrideProps(overrides, "Created_Date")}
+        onBlur={() => runValidationTasks("createdDate", createdDate)}
+        errorMessage={errors.createdDate?.errorMessage}
+        hasError={errors.createdDate?.hasError}
+        {...getOverrideProps(overrides, "createdDate")}
       ></TextField>
       <TextField
         label="Modified date"
         isRequired={false}
         isReadOnly={false}
         type="date"
-        value={Modified_Date}
+        value={modifiedDate}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
               Title,
               Content,
-              Created_Date,
-              Modified_Date: value,
+              createdDate,
+              modifiedDate: value,
             };
             const result = onChange(modelFields);
-            value = result?.Modified_Date ?? value;
+            value = result?.modifiedDate ?? value;
           }
-          if (errors.Modified_Date?.hasError) {
-            runValidationTasks("Modified_Date", value);
+          if (errors.modifiedDate?.hasError) {
+            runValidationTasks("modifiedDate", value);
           }
-          setModified_Date(value);
+          setModifiedDate(value);
         }}
-        onBlur={() => runValidationTasks("Modified_Date", Modified_Date)}
-        errorMessage={errors.Modified_Date?.errorMessage}
-        hasError={errors.Modified_Date?.hasError}
-        {...getOverrideProps(overrides, "Modified_Date")}
+        onBlur={() => runValidationTasks("modifiedDate", modifiedDate)}
+        errorMessage={errors.modifiedDate?.errorMessage}
+        hasError={errors.modifiedDate?.hasError}
+        {...getOverrideProps(overrides, "modifiedDate")}
       ></TextField>
       <Flex
         justifyContent="space-between"

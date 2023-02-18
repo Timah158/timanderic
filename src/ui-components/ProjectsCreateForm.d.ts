@@ -15,22 +15,22 @@ export declare type ValidationFunction<T> = (value: T, validationResponse: Valid
 export declare type ProjectsCreateFormInputValues = {
     Title?: string;
     Content?: string;
-    Created_Date?: string;
-    Modified_Date?: string;
+    createdDate?: string;
+    modifiedDate?: string;
 };
 export declare type ProjectsCreateFormValidationValues = {
     Title?: ValidationFunction<string>;
     Content?: ValidationFunction<string>;
-    Created_Date?: ValidationFunction<string>;
-    Modified_Date?: ValidationFunction<string>;
+    createdDate?: ValidationFunction<string>;
+    modifiedDate?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type ProjectsCreateFormOverridesProps = {
     ProjectsCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
     Title?: PrimitiveOverrideProps<TextFieldProps>;
     Content?: PrimitiveOverrideProps<TextFieldProps>;
-    Created_Date?: PrimitiveOverrideProps<TextFieldProps>;
-    Modified_Date?: PrimitiveOverrideProps<TextFieldProps>;
+    createdDate?: PrimitiveOverrideProps<TextFieldProps>;
+    modifiedDate?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type ProjectsCreateFormProps = React.PropsWithChildren<{
     overrides?: ProjectsCreateFormOverridesProps | undefined | null;

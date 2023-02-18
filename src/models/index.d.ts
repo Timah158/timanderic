@@ -6,6 +6,40 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
+type EagerAvailability = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Availability, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly user?: string | null;
+  readonly startTime?: string | null;
+  readonly endTime?: string | null;
+  readonly day?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyAvailability = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Availability, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly user?: string | null;
+  readonly startTime?: string | null;
+  readonly endTime?: string | null;
+  readonly day?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Availability = LazyLoading extends LazyLoadingDisabled ? EagerAvailability : LazyAvailability
+
+export declare const Availability: (new (init: ModelInit<Availability>) => Availability) & {
+  copyOf(source: Availability, mutator: (draft: MutableModel<Availability>) => MutableModel<Availability> | void): Availability;
+}
+
 type EagerInterviews = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<Interviews, 'id'>;
@@ -52,8 +86,8 @@ type EagerProjects = {
   readonly id: string;
   readonly Title?: string | null;
   readonly Content?: string | null;
-  readonly Created_Date?: string | null;
-  readonly Modified_Date?: string | null;
+  readonly createdDate?: string | null;
+  readonly modifiedDate?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -66,8 +100,8 @@ type LazyProjects = {
   readonly id: string;
   readonly Title?: string | null;
   readonly Content?: string | null;
-  readonly Created_Date?: string | null;
-  readonly Modified_Date?: string | null;
+  readonly createdDate?: string | null;
+  readonly modifiedDate?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

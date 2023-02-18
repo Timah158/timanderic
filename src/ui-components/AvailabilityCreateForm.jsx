@@ -8,13 +8,12 @@
 import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Projects } from "../models";
+import { Availability } from "../models";
 import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
-export default function ProjectsUpdateForm(props) {
+export default function AvailabilityCreateForm(props) {
   const {
-    id: idProp,
-    projects,
+    clearOnSuccess = true,
     onSuccess,
     onError,
     onSubmit,
@@ -24,46 +23,28 @@ export default function ProjectsUpdateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    Title: "",
-    Content: "",
-    createdDate: "",
-    modifiedDate: "",
+    user: "",
+    startTime: "",
+    endTime: "",
+    day: "",
   };
-  const [Title, setTitle] = React.useState(initialValues.Title);
-  const [Content, setContent] = React.useState(initialValues.Content);
-  const [createdDate, setCreatedDate] = React.useState(
-    initialValues.createdDate
-  );
-  const [modifiedDate, setModifiedDate] = React.useState(
-    initialValues.modifiedDate
-  );
+  const [user, setUser] = React.useState(initialValues.user);
+  const [startTime, setStartTime] = React.useState(initialValues.startTime);
+  const [endTime, setEndTime] = React.useState(initialValues.endTime);
+  const [day, setDay] = React.useState(initialValues.day);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    const cleanValues = projectsRecord
-      ? { ...initialValues, ...projectsRecord }
-      : initialValues;
-    setTitle(cleanValues.Title);
-    setContent(cleanValues.Content);
-    setCreatedDate(cleanValues.createdDate);
-    setModifiedDate(cleanValues.modifiedDate);
+    setUser(initialValues.user);
+    setStartTime(initialValues.startTime);
+    setEndTime(initialValues.endTime);
+    setDay(initialValues.day);
     setErrors({});
   };
-  const [projectsRecord, setProjectsRecord] = React.useState(projects);
-  React.useEffect(() => {
-    const queryData = async () => {
-      const record = idProp
-        ? await DataStore.query(Projects, idProp)
-        : projects;
-      setProjectsRecord(record);
-    };
-    queryData();
-  }, [idProp, projects]);
-  React.useEffect(resetStateValues, [projectsRecord]);
   const validations = {
-    Title: [],
-    Content: [],
-    createdDate: [],
-    modifiedDate: [],
+    user: [],
+    startTime: [],
+    endTime: [],
+    day: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -90,10 +71,10 @@ export default function ProjectsUpdateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          Title,
-          Content,
-          createdDate,
-          modifiedDate,
+          user,
+          startTime,
+          endTime,
+          day,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -123,13 +104,12 @@ export default function ProjectsUpdateForm(props) {
               modelFields[key] = undefined;
             }
           });
-          await DataStore.save(
-            Projects.copyOf(projectsRecord, (updated) => {
-              Object.assign(updated, modelFields);
-            })
-          );
+          await DataStore.save(new Availability(modelFields));
           if (onSuccess) {
             onSuccess(modelFields);
+          }
+          if (clearOnSuccess) {
+            resetStateValues();
           }
         } catch (err) {
           if (onError) {
@@ -137,132 +117,131 @@ export default function ProjectsUpdateForm(props) {
           }
         }
       }}
-      {...getOverrideProps(overrides, "ProjectsUpdateForm")}
+      {...getOverrideProps(overrides, "AvailabilityCreateForm")}
       {...rest}
     >
       <TextField
-        label="Title"
+        label="User"
         isRequired={false}
         isReadOnly={false}
-        value={Title}
+        value={user}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              Title: value,
-              Content,
-              createdDate,
-              modifiedDate,
+              user: value,
+              startTime,
+              endTime,
+              day,
             };
             const result = onChange(modelFields);
-            value = result?.Title ?? value;
+            value = result?.user ?? value;
           }
-          if (errors.Title?.hasError) {
-            runValidationTasks("Title", value);
+          if (errors.user?.hasError) {
+            runValidationTasks("user", value);
           }
-          setTitle(value);
+          setUser(value);
         }}
-        onBlur={() => runValidationTasks("Title", Title)}
-        errorMessage={errors.Title?.errorMessage}
-        hasError={errors.Title?.hasError}
-        {...getOverrideProps(overrides, "Title")}
+        onBlur={() => runValidationTasks("user", user)}
+        errorMessage={errors.user?.errorMessage}
+        hasError={errors.user?.hasError}
+        {...getOverrideProps(overrides, "user")}
       ></TextField>
       <TextField
-        label="Content"
+        label="Start time"
         isRequired={false}
         isReadOnly={false}
-        value={Content}
+        type="time"
+        value={startTime}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              Title,
-              Content: value,
-              createdDate,
-              modifiedDate,
+              user,
+              startTime: value,
+              endTime,
+              day,
             };
             const result = onChange(modelFields);
-            value = result?.Content ?? value;
+            value = result?.startTime ?? value;
           }
-          if (errors.Content?.hasError) {
-            runValidationTasks("Content", value);
+          if (errors.startTime?.hasError) {
+            runValidationTasks("startTime", value);
           }
-          setContent(value);
+          setStartTime(value);
         }}
-        onBlur={() => runValidationTasks("Content", Content)}
-        errorMessage={errors.Content?.errorMessage}
-        hasError={errors.Content?.hasError}
-        {...getOverrideProps(overrides, "Content")}
+        onBlur={() => runValidationTasks("startTime", startTime)}
+        errorMessage={errors.startTime?.errorMessage}
+        hasError={errors.startTime?.hasError}
+        {...getOverrideProps(overrides, "startTime")}
       ></TextField>
       <TextField
-        label="Created date"
+        label="End time"
         isRequired={false}
         isReadOnly={false}
-        type="date"
-        value={createdDate}
+        type="time"
+        value={endTime}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              Title,
-              Content,
-              createdDate: value,
-              modifiedDate,
+              user,
+              startTime,
+              endTime: value,
+              day,
             };
             const result = onChange(modelFields);
-            value = result?.createdDate ?? value;
+            value = result?.endTime ?? value;
           }
-          if (errors.createdDate?.hasError) {
-            runValidationTasks("createdDate", value);
+          if (errors.endTime?.hasError) {
+            runValidationTasks("endTime", value);
           }
-          setCreatedDate(value);
+          setEndTime(value);
         }}
-        onBlur={() => runValidationTasks("createdDate", createdDate)}
-        errorMessage={errors.createdDate?.errorMessage}
-        hasError={errors.createdDate?.hasError}
-        {...getOverrideProps(overrides, "createdDate")}
+        onBlur={() => runValidationTasks("endTime", endTime)}
+        errorMessage={errors.endTime?.errorMessage}
+        hasError={errors.endTime?.hasError}
+        {...getOverrideProps(overrides, "endTime")}
       ></TextField>
       <TextField
-        label="Modified date"
+        label="Day"
         isRequired={false}
         isReadOnly={false}
-        type="date"
-        value={modifiedDate}
+        value={day}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              Title,
-              Content,
-              createdDate,
-              modifiedDate: value,
+              user,
+              startTime,
+              endTime,
+              day: value,
             };
             const result = onChange(modelFields);
-            value = result?.modifiedDate ?? value;
+            value = result?.day ?? value;
           }
-          if (errors.modifiedDate?.hasError) {
-            runValidationTasks("modifiedDate", value);
+          if (errors.day?.hasError) {
+            runValidationTasks("day", value);
           }
-          setModifiedDate(value);
+          setDay(value);
         }}
-        onBlur={() => runValidationTasks("modifiedDate", modifiedDate)}
-        errorMessage={errors.modifiedDate?.errorMessage}
-        hasError={errors.modifiedDate?.hasError}
-        {...getOverrideProps(overrides, "modifiedDate")}
+        onBlur={() => runValidationTasks("day", day)}
+        errorMessage={errors.day?.errorMessage}
+        hasError={errors.day?.hasError}
+        {...getOverrideProps(overrides, "day")}
       ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}
       >
         <Button
-          children="Reset"
+          children="Clear"
           type="reset"
           onClick={(event) => {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || projects)}
-          {...getOverrideProps(overrides, "ResetButton")}
+          {...getOverrideProps(overrides, "ClearButton")}
         ></Button>
         <Flex
           gap="15px"
@@ -272,10 +251,7 @@ export default function ProjectsUpdateForm(props) {
             children="Submit"
             type="submit"
             variation="primary"
-            isDisabled={
-              !(idProp || projects) ||
-              Object.values(errors).some((e) => e?.hasError)
-            }
+            isDisabled={Object.values(errors).some((e) => e?.hasError)}
             {...getOverrideProps(overrides, "SubmitButton")}
           ></Button>
         </Flex>
