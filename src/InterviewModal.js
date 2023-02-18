@@ -17,11 +17,11 @@ async function createInterview(interview) {
   );
 }
 
-// async function viewInterview() {
-//   const models = await DataStore.query(Interviews);
-//   console.log(models);
-// }
-// viewInterview();
+async function viewInterview() {
+  const models = await DataStore.query(Interviews);
+  console.log(models);
+}
+viewInterview();
 
 function InterviewModal({props}) {
   const [inputs, setInputs] = useState({});
