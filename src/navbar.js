@@ -5,13 +5,18 @@ import React,{useState} from 'react';
 import './CSS/navbar.css';
 
 function DesktopNavbar({props}) {
+
+  function changePage(page) {
+    props.setPage(page)
+    window.scrollTo(0, 0);
+  }
     return (
       <header className='desktop_navbar'>
         <nav className="navbar">
           <a href="/" className='navbar_logo_link' onClick={() => props.setPage("welcome")}><Logo className='navbar_logo'/></a>
             <ul className="navlist">
-              <li className="navlink"><button className="navlink" onClick={() => props.setPage("tim")}>Tim</button></li>
-              <li className="navlink"><button className="navlink" onClick={() => props.setPage("eric")}>Eric</button></li>
+              <li className="navlink"><button className="navlink" onClick={() => changePage("tim")}>Tim</button></li>
+              <li className="navlink"><button className="navlink" onClick={() => changePage("eric")}>Eric</button></li>
               <li className="navlink last_item"><button className="navlink" onClick={() => props.setIntModal(true)}>Interview</button></li>
             </ul>
         </nav>
@@ -33,11 +38,17 @@ function DesktopNavbar({props}) {
   }
 
   function MobileDropdown({dropdownProps}) {
+    function updatePage(page) {
+      if (page === "interview") {dropdownProps.props.setIntModal(true)}
+      else dropdownProps.props.setPage(page)
+      dropdownProps.setShowDropdown(false)
+      window.scrollTo(0, 0);
+    }
     return(
       <ul className="mobile_navlist">
-        <li className="mobile_navlink"><button className="mobile_navlink_a" onClick={() => dropdownProps.props.setPage("tim")}>Tim</button></li>
-        <li className="mobile_navlink"><button className="mobile_navlink_a" onClick={() => dropdownProps.props.setPage("eric")}>Eric</button></li>
-        <li className="mobile_navlink"><button className="mobile_navlink_a" onClick={() => dropdownProps.props.setIntModal(true)}>Interview</button></li>
+        <li className="mobile_navlink"><button className="mobile_navlink_a" onClick={() => updatePage("tim")}>Tim</button></li>
+        <li className="mobile_navlink"><button className="mobile_navlink_a" onClick={() => updatePage("eric")}>Eric</button></li>
+        <li className="mobile_navlink"><button className="mobile_navlink_a" onClick={() => updatePage("interview")}>Interview</button></li>
         <li className="mobile_navlink white_space" onClick={() => dropdownProps.setShowDropdown(false)}></li>
       </ul>
     );

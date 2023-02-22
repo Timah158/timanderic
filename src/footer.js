@@ -5,12 +5,16 @@ import React,{useState} from 'react';
 import './CSS/footer.css';
 
 function TimFooter ({props}) {
+  function changePage(page) {
+    props.props(page)
+    window.scrollTo(0, 0);
+  }
     return (
       <footer>
         <div className='footer_container'>
           <div className='toggle_footer'>
             <button className='footer_button' onClick={() => props.setToggleFooter(true)}><h4>&#60;</h4></button>
-            <button className="footerlink" onClick={() => props.props("tim")}><b>Tim</b></button>
+            <button className="footerlink" onClick={() => changePage("tim")}><b>Tim</b></button>
             <button className='footer_button' onClick={() => props.setToggleFooter(true)}><h4>&#62;</h4></button>
           </div>
           <div className='footer_icons'>
@@ -24,12 +28,16 @@ function TimFooter ({props}) {
   }
 
   function EricFooter ({props}) {
+    function changePage(page) {
+      props.props(page)
+      window.scrollTo(0, 0);
+    }
     return (
       <footer>
         <div className='footer_container'>
           <div className='toggle_footer'>
             <button className='footer_button' onClick={() => props.setToggleFooter(false)}><h4>&#60;</h4></button>
-            <button className="footerlink" onClick={() => props.props("eric")}><b>Eric</b></button>
+            <button className="footerlink" onClick={() => changePage("eric")}><b>Eric</b></button>
             <button className='footer_button' onClick={() => props.setToggleFooter(false)}><h4>&#62;</h4></button>
           </div>
           <div className='footer_icons'>

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import {ReactComponent as CloseIcon} from './SVGs/close_button.svg'
 import './CSS/Interview.css';
 import { DataStore } from '@aws-amplify/datastore';
@@ -20,12 +20,6 @@ async function createInterview(interview) {
   );
 }
 
-async function viewInterview() {
-  const models = await DataStore.query(Interview);
-  console.log(models);
-}
-viewInterview();
-
 function InterviewModal({props}) {
   const [inputs, setInputs] = useState({});
   const handleChange = (event) => {
@@ -36,6 +30,7 @@ function InterviewModal({props}) {
   const handleSubmit = (event) => {
     event.preventDefault();
     createInterview(inputs);
+    props(false)
   }
 
     return (
@@ -50,18 +45,21 @@ function InterviewModal({props}) {
                   name='date'
                   value={inputs.date || ""} 
                   onChange={handleChange}
+                  required
                   />
                   <input 
                   type="time" 
                   name='time'
                   value={inputs.time || ""} 
                   onChange={handleChange}
+                  required
                   />
                   <select 
                   name="person" 
                   id="person" 
                   value={inputs.person || ""} 
                   onChange={handleChange}
+                  required
                   >
                     <option value="Tim">Tim</option>
                     <option value="Eric">Eric</option>
@@ -72,6 +70,7 @@ function InterviewModal({props}) {
                   name='email'
                   value={inputs.email || ""} 
                   onChange={handleChange}
+                  required
                   />
                   <input 
                   type="tel" 
@@ -79,6 +78,7 @@ function InterviewModal({props}) {
                   name='phone'
                   value={inputs.phone || ""} 
                   onChange={handleChange}
+                  required
                   />
                 </div>
                 <textarea 
