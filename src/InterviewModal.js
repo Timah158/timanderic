@@ -3,6 +3,9 @@ import {ReactComponent as CloseIcon} from './SVGs/close_button.svg'
 import './CSS/Interview.css';
 import { DataStore } from '@aws-amplify/datastore';
 import { Interview } from './models';
+import { Amplify } from 'aws-amplify';
+import awsExports from './aws-exports';
+Amplify.configure(awsExports);
 
 async function createInterview(interview) {
   await DataStore.save(
