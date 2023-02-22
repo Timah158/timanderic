@@ -2,11 +2,11 @@ import React,{useState} from 'react';
 import {ReactComponent as CloseIcon} from './SVGs/close_button.svg'
 import './CSS/Interview.css';
 import { DataStore } from '@aws-amplify/datastore';
-import { Interviews } from './models';
+import { Interview } from './models';
 
 async function createInterview(interview) {
   await DataStore.save(
-    new Interviews({
+    new Interview({
     "time": interview.time,
     "date": interview.date,
     "about": interview.about,
@@ -18,7 +18,7 @@ async function createInterview(interview) {
 }
 
 async function viewInterview() {
-  const models = await DataStore.query(Interviews);
+  const models = await DataStore.query(Interview);
   console.log(models);
 }
 viewInterview();

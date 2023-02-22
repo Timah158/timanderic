@@ -5,7 +5,5 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
-export { default as InterviewsCreateForm } from "./InterviewsCreateForm";
-export { default as InterviewsUpdateForm } from "./InterviewsUpdateForm";
-export { default as ProjectsCreateForm } from "./ProjectsCreateForm";
-export { default as ProjectsUpdateForm } from "./ProjectsUpdateForm";
+export { default as InterviewCreateForm } from "./InterviewCreateForm";
+export { default as InterviewUpdateForm } from "./InterviewUpdateForm";
