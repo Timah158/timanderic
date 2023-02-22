@@ -6,108 +6,40 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
-type EagerAvailability = {
+type EagerInterview = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Availability, 'id'>;
+    identifier: ManagedIdentifier<Interview, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly user?: string | null;
-  readonly startTime?: string | null;
-  readonly endTime?: string | null;
-  readonly day?: string | null;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-type LazyAvailability = {
-  readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Availability, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
-  };
-  readonly id: string;
-  readonly user?: string | null;
-  readonly startTime?: string | null;
-  readonly endTime?: string | null;
-  readonly day?: string | null;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-export declare type Availability = LazyLoading extends LazyLoadingDisabled ? EagerAvailability : LazyAvailability
-
-export declare const Availability: (new (init: ModelInit<Availability>) => Availability) & {
-  copyOf(source: Availability, mutator: (draft: MutableModel<Availability>) => MutableModel<Availability> | void): Availability;
-}
-
-type EagerInterviews = {
-  readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Interviews, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
-  };
-  readonly id: string;
-  readonly time?: string | null;
-  readonly date?: string | null;
+  readonly email: string;
+  readonly phone: string;
+  readonly date: string;
+  readonly time: string;
   readonly about?: string | null;
-  readonly user?: string | null;
-  readonly email?: string | null;
-  readonly phone?: string | null;
+  readonly user: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
-type LazyInterviews = {
+type LazyInterview = {
   readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Interviews, 'id'>;
+    identifier: ManagedIdentifier<Interview, 'id'>;
     readOnlyFields: 'createdAt' | 'updatedAt';
   };
   readonly id: string;
-  readonly time?: string | null;
-  readonly date?: string | null;
+  readonly email: string;
+  readonly phone: string;
+  readonly date: string;
+  readonly time: string;
   readonly about?: string | null;
-  readonly user?: string | null;
-  readonly email?: string | null;
-  readonly phone?: string | null;
+  readonly user: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
 
-export declare type Interviews = LazyLoading extends LazyLoadingDisabled ? EagerInterviews : LazyInterviews
+export declare type Interview = LazyLoading extends LazyLoadingDisabled ? EagerInterview : LazyInterview
 
-export declare const Interviews: (new (init: ModelInit<Interviews>) => Interviews) & {
-  copyOf(source: Interviews, mutator: (draft: MutableModel<Interviews>) => MutableModel<Interviews> | void): Interviews;
-}
-
-type EagerProjects = {
-  readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Projects, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
-  };
-  readonly id: string;
-  readonly Title?: string | null;
-  readonly Content?: string | null;
-  readonly createdDate?: string | null;
-  readonly modifiedDate?: string | null;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-type LazyProjects = {
-  readonly [__modelMeta__]: {
-    identifier: ManagedIdentifier<Projects, 'id'>;
-    readOnlyFields: 'createdAt' | 'updatedAt';
-  };
-  readonly id: string;
-  readonly Title?: string | null;
-  readonly Content?: string | null;
-  readonly createdDate?: string | null;
-  readonly modifiedDate?: string | null;
-  readonly createdAt?: string | null;
-  readonly updatedAt?: string | null;
-}
-
-export declare type Projects = LazyLoading extends LazyLoadingDisabled ? EagerProjects : LazyProjects
-
-export declare const Projects: (new (init: ModelInit<Projects>) => Projects) & {
-  copyOf(source: Projects, mutator: (draft: MutableModel<Projects>) => MutableModel<Projects> | void): Projects;
+export declare const Interview: (new (init: ModelInit<Interview>) => Interview) & {
+  copyOf(source: Interview, mutator: (draft: MutableModel<Interview>) => MutableModel<Interview> | void): Interview;
 }

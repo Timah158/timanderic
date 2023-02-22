@@ -1,26 +1,9 @@
-type Availability @model @auth(rules: [{allow: public}]) {
+type Interview @model @auth(rules: [{allow: public}]) {
   id: ID!
-  user: String
-  startTime: AWSTime
-  endTime: AWSTime
-  day: String
-}
-
-type Interviews @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  time: AWSTime
-  date: AWSDate
+  email: AWSEmail!
+  phone: AWSPhone!
+  date: AWSDate!
+  time: AWSTime!
   about: String
-  user: String
-  email: AWSEmail
-  phone: AWSPhone
+  user: String!
 }
-
-type Projects @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  Title: String
-  Content: String
-  createdDate: AWSDate
-  modifiedDate: AWSDate
-}
- 
