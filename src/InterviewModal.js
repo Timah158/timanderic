@@ -61,6 +61,7 @@ function InterviewModal({props}) {
                   onChange={handleChange}
                   required
                   >
+                    <option value=""></option>
                     <option value="Tim">Tim</option>
                     <option value="Eric">Eric</option>
                   </select>
