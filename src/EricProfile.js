@@ -1,8 +1,14 @@
 import "./CSS/welcome_page.css"
 import "./CSS/profile.css"
-import React from "react";
+import React,{useState, useEffect} from 'react';
 import Eric from "./Pictures/Eric.jpg"
 import {ReactComponent as Skills} from './SVGs/EricSkills.svg'
+import { Project } from './models';
+import {Amplify} from "@aws-amplify/core";
+import {DataStore} from "@aws-amplify/datastore";
+import awsExports from "./aws-exports";
+Amplify.configure(awsExports);
+DataStore.configure(awsExports);
 
 function Heading({props}) {
   return (
@@ -40,11 +46,31 @@ function EricSkills() {
 }
 
 function EricProjects() {
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+  async function fetchProjects() {
+    const apiData = await DataStore.query(Project, c => c.createdBy.eq("Eric"));
+    const projectsFromAPI = apiData;
+    setProjects(projectsFromAPI);
+  }
+
   return (
     <div id='section_3' className="section">
       <section className="center">
-        <div>
+        <div id="carouselWrapper">
           <h3>Current Projects</h3>
+          <div className="projectsCarousel">
+            {projects.map((project) => (
+            <div
+            className="carouselElement"
+            key={project.id}
+            >
+              <div className="projectTitle">{project.title}</div>
+              <div className="projectDescription">{project.description}</div>
+            </div>))}
+          </div>
         </div>
       </section>
     </div>
@@ -56,7 +82,7 @@ function EricProfile({props}) {
     <React.Fragment>
       <Heading props={props}></Heading>
       <EricSkills></EricSkills>
-      {/* <EricProjects></EricProjects> */}
+      <EricProjects></EricProjects>
     </React.Fragment>
   );
 }

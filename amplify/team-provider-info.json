@@ -10,6 +10,11 @@
       "StackName": "amplify-amplify3072ff0f565b4-staging-10046",
       "StackId": "arn:aws:cloudformation:us-east-1:438605614535:stack/amplify-amplify3072ff0f565b4-staging-10046/d82468b0-aff0-11ed-a481-0aa499dc60e3",
       "AmplifyAppId": "d2f2dc3x8rkhy3"
+    },
+    "categories": {
+      "api": {
+        "timanderic": {}
+      }
     }
   }
 }
