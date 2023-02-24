@@ -1,8 +1,14 @@
 import "./CSS/welcome_page.css"
 import "./CSS/profile.css"
-import React from "react";
+import React,{useState, useEffect} from 'react';
 import Tim from "./Pictures/Tim.jpg"
 import {ReactComponent as Skills} from './SVGs/TimSkills.svg'
+import { DataStore } from '@aws-amplify/datastore';
+import { Project } from './models';
+import { Amplify } from 'aws-amplify';
+import awsExports from './aws-exports';
+import { Card } from "@aws-amplify/ui-react";
+Amplify.configure(awsExports);
 
 function Heading({props}) {
   return (
@@ -40,11 +46,41 @@ function TimSkills() {
 }
 
 function TimProjects() {
+
+  // async function deleteProjects() {
+  //   const modelToDelete = await DataStore.query(Project);
+  //   DataStore.delete(modelToDelete);
+  // }
+  //deleteProjects();
+
+
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  async function fetchProjects() {
+    const apiData = await DataStore.query(Project);
+    const projectsFromAPI = apiData;
+    setProjects(projectsFromAPI);
+  }
+
   return (
     <div id='section_3' className="section">
       <section className="center">
-        <div>
+        <div id="carouselWrapper">
           <h3>Current Projects</h3>
+          <div className="projectsCarousel">
+            {projects.map((project) => (
+            <Card
+            className="carouselElement"
+            key={project.id}
+            >
+              <div className="projectTitle">{project.title}</div>
+              <div className="projectDescription">{project.description}</div>
+            </Card>))}
+          </div>
         </div>
       </section>
     </div>
@@ -56,7 +92,7 @@ function TimProfile({props}) {
     <React.Fragment>
       <Heading props={props}></Heading>
       <TimSkills></TimSkills>
-      {/* <TimProjects></TimProjects> */}
+      <TimProjects></TimProjects>
     </React.Fragment>
   );
 }
