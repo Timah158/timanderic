@@ -1,11 +1,11 @@
 import "./CSS/welcome_page.css"
 import "./CSS/profile.css"
-import React,{useState, useEffect} from 'react';
+import React,{ useState, useEffect } from 'react';
 import Tim from "./Pictures/Tim.jpg"
-import {ReactComponent as Skills} from './SVGs/TimSkills.svg'
+import { ReactComponent as Skills } from './SVGs/TimSkills.svg'
 import { Project } from './models';
-import {Amplify} from "@aws-amplify/core";
-import {DataStore} from "@aws-amplify/datastore";
+import { Amplify } from "@aws-amplify/core";
+import { DataStore } from "@aws-amplify/datastore";
 import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
 DataStore.configure(awsExports);
@@ -51,7 +51,11 @@ function TimProjects() {
     fetchProjects();
   }, []);
   async function fetchProjects() {
-    const apiData = await DataStore.query(Project, c => c.createdBy.eq("Tim"));
+    const apiData = await DataStore.query(Project, c => c.createdBy.eq("Tim"), {
+      sort: s => s.createdAt("DESCENDING"),
+      page: 0,
+      limit: 3
+    });
     const projectsFromAPI = apiData;
     setProjects(projectsFromAPI);
   }
@@ -60,7 +64,7 @@ function TimProjects() {
     <div id='section_3' className="section">
       <section className="center">
         <div id="carouselWrapper">
-          <h3>Current Projects</h3>
+          <h3>Projects</h3>
           <div className="projectsCarousel">
             {projects.map((project) => (
             <div
@@ -70,6 +74,11 @@ function TimProjects() {
               <div className="projectTitle">{project.title}</div>
               <div className="projectDescription">{project.description}</div>
             </div>))}
+          </div>
+          <div className="carouselPagination">
+            <button className="carouselButton">&#60;</button>
+            <button className="carouselButton">1</button>
+            <button className="carouselButton">&#62;</button>
           </div>
         </div>
       </section>

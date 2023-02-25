@@ -11,7 +11,6 @@
 
 #carouselWrapper {
     width: 100%;
-    height: 33vh;
 }
 
 .projectsCarousel {
@@ -27,12 +26,17 @@
 .carouselElement {
     background-color: var(--primary-color);
     border-radius: .5em;
-    height: 100%;
+    height: 15vw;
     padding: 1em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow-wrap: break-word;
+}
+
+.carouselElement:hover {
+    cursor: pointer;
+    background-color: var(--hover-color);
 }
 
 .projectTitle {
@@ -42,6 +46,23 @@
 
 .projectDescription {
     height: 50%;
+}
+
+.carouselPagination {
+    display: none;
+}
+
+.carouselButton {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--primary-color);
+    font-size: 45px;
+}
+
+.carouselButton:hover {
+    cursor: pointer;
+    background-color: var(--odd_section_color);
+    color: var(--selected_color);
 }
 
 @media screen and (max-width: 800px) {
