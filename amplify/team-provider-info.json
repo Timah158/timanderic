@@ -14,6 +14,12 @@
     "categories": {
       "api": {
         "timanderic": {}
+      },
+      "auth": {
+        "timanderic": {}
+      },
+      "storage": {
+        "s3timandericstoragea587c092": {}
       }
     }
   }

@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3timandericstoragea587c092",
+  "bucketName": "timanderic-storage-a587c092",
+  "policyUUID": "01eb9c02",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

@@ -3,24 +3,26 @@ import { Project } from './models';
 import { Amplify } from "@aws-amplify/core";
 import { DataStore } from "@aws-amplify/datastore";
 import awsExports from "./aws-exports";
+
 Amplify.configure(awsExports);
 DataStore.configure(awsExports);
 
 function ProfileCarousel({user}) {
-    const [projects, setProjects] = useState([]);
-    useEffect(() => {
-      fetchProjects();
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    fetchProjects()
+  });
+
+  async function fetchProjects() {
+    const apiData = await DataStore.query(Project, c => c.createdBy.eq(user), {
+      sort: s => s.createdAt("DESCENDING"),
+      page: 0,
+      limit: 3
     });
-    async function fetchProjects() {
-      const apiData = await DataStore.query(Project, c => c.createdBy.eq(user), {
-        sort: s => s.createdAt("DESCENDING"),
-        page: 0,
-        limit: 3
-      });
-      const projectsFromAPI = apiData;
-      setProjects(projectsFromAPI);
-    }
-  
+    const projectsFromAPI = apiData;
+    setProjects(projectsFromAPI);
+  }
+
     return (
       <div id='section_3' className="section">
         <section className="center">
@@ -32,8 +34,13 @@ function ProfileCarousel({user}) {
               className="carouselElement"
               key={project.id}
               >
-                <div className="projectTitle">{project.title}</div>
-                <div className="projectDescription">{project.description}</div>
+                <span className='carouselImage' style={{
+                  'backgroundImage': 'url('+project.img+')'
+                }}/>
+                <div className='carouselElementContainer'>
+                  <div className="projectTitle">{project.title}</div>
+                  <div className="projectDescription">{project.description}</div>
+                </div>
               </div>))}
             </div>
             <div className="carouselPagination">
