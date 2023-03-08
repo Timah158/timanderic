@@ -6,7 +6,13 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import {
+  Button,
+  Flex,
+  Grid,
+  SwitchField,
+  TextField,
+} from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Project } from "../models";
 import { fetchByPath, validateField } from "./utils";
@@ -30,6 +36,7 @@ export default function ProjectCreateForm(props) {
     description: "",
     img: "",
     createdBy: "",
+    hidden: false,
   };
   const [title, setTitle] = React.useState(initialValues.title);
   const [content, setContent] = React.useState(initialValues.content);
@@ -42,6 +49,7 @@ export default function ProjectCreateForm(props) {
   );
   const [img, setImg] = React.useState(initialValues.img);
   const [createdBy, setCreatedBy] = React.useState(initialValues.createdBy);
+  const [hidden, setHidden] = React.useState(initialValues.hidden);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setTitle(initialValues.title);
@@ -51,6 +59,7 @@ export default function ProjectCreateForm(props) {
     setDescription(initialValues.description);
     setImg(initialValues.img);
     setCreatedBy(initialValues.createdBy);
+    setHidden(initialValues.hidden);
     setErrors({});
   };
   const validations = {
@@ -61,15 +70,17 @@ export default function ProjectCreateForm(props) {
     description: [],
     img: [{ type: "URL" }],
     createdBy: [{ type: "Required" }],
+    hidden: [],
   };
   const runValidationTasks = async (
     fieldName,
     currentValue,
     getDisplayValue
   ) => {
-    const value = getDisplayValue
-      ? getDisplayValue(currentValue)
-      : currentValue;
+    const value =
+      currentValue && getDisplayValue
+        ? getDisplayValue(currentValue)
+        : currentValue;
     let validationResponse = validateField(value, validations[fieldName]);
     const customValidator = fetchByPath(onValidate, fieldName);
     if (customValidator) {
@@ -94,6 +105,7 @@ export default function ProjectCreateForm(props) {
           description,
           img,
           createdBy,
+          hidden,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -155,6 +167,7 @@ export default function ProjectCreateForm(props) {
               description,
               img,
               createdBy,
+              hidden,
             };
             const result = onChange(modelFields);
             value = result?.title ?? value;
@@ -185,6 +198,7 @@ export default function ProjectCreateForm(props) {
               description,
               img,
               createdBy,
+              hidden,
             };
             const result = onChange(modelFields);
             value = result?.content ?? value;
@@ -216,6 +230,7 @@ export default function ProjectCreateForm(props) {
               description,
               img,
               createdBy,
+              hidden,
             };
             const result = onChange(modelFields);
             value = result?.createdOn ?? value;
@@ -247,6 +262,7 @@ export default function ProjectCreateForm(props) {
               description,
               img,
               createdBy,
+              hidden,
             };
             const result = onChange(modelFields);
             value = result?.completedOn ?? value;
@@ -277,6 +293,7 @@ export default function ProjectCreateForm(props) {
               description: value,
               img,
               createdBy,
+              hidden,
             };
             const result = onChange(modelFields);
             value = result?.description ?? value;
@@ -307,6 +324,7 @@ export default function ProjectCreateForm(props) {
               description,
               img: value,
               createdBy,
+              hidden,
             };
             const result = onChange(modelFields);
             value = result?.img ?? value;
@@ -337,6 +355,7 @@ export default function ProjectCreateForm(props) {
               description,
               img,
               createdBy: value,
+              hidden,
             };
             const result = onChange(modelFields);
             value = result?.createdBy ?? value;
@@ -351,6 +370,37 @@ export default function ProjectCreateForm(props) {
         hasError={errors.createdBy?.hasError}
         {...getOverrideProps(overrides, "createdBy")}
       ></TextField>
+      <SwitchField
+        label="Hidden"
+        defaultChecked={false}
+        isDisabled={false}
+        isChecked={hidden}
+        onChange={(e) => {
+          let value = e.target.checked;
+          if (onChange) {
+            const modelFields = {
+              title,
+              content,
+              createdOn,
+              completedOn,
+              description,
+              img,
+              createdBy,
+              hidden: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.hidden ?? value;
+          }
+          if (errors.hidden?.hasError) {
+            runValidationTasks("hidden", value);
+          }
+          setHidden(value);
+        }}
+        onBlur={() => runValidationTasks("hidden", hidden)}
+        errorMessage={errors.hidden?.errorMessage}
+        hasError={errors.hidden?.hasError}
+        {...getOverrideProps(overrides, "hidden")}
+      ></SwitchField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

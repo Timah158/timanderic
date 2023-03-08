@@ -7,6 +7,7 @@ type Project @model @auth(rules: [{allow: public}]) {
   description: String
   img: AWSURL
   createdBy: String!
+  hidden: Boolean
 }
 
 type Interview @model @auth(rules: [{allow: public}]) {

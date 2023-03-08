@@ -5,13 +5,12 @@ import TimProfile from "./TimProfile";
 import EricProfile from "./EricProfile";
 import InterviewModal from "./InterviewModal";
 import Footer from "./footer";
-import { Amplify} from 'aws-amplify';
-import awsconfig from './aws-exports';
-Amplify.configure(awsconfig);
 
 function App() {
+  
   const [IntModal, setIntModal] = useState(false);
   const [Page, setPage] = useState("welcome");
+
   return (
     <React.Fragment>
       {IntModal && <InterviewModal props={setIntModal}/>}

@@ -8,15 +8,23 @@ Amplify.configure(awsExports);
 DataStore.configure(awsExports);
 
 function ProfileCarousel({user}) {
-  const [projects, setProjects] = useState([]);
-  useEffect(() => {
-    fetchProjects()
-  });
+  const [Page, setPage] = useState(0);
+  function updatePage (num) {
+    if (num === 1) {
+      setPage(Page + 1)
+    }
+    else if (num === -1) {
+      setPage(Page - 1)
+    }
+  }
 
-  async function fetchProjects() {
+  const [projects, setProjects] = useState([]);
+  useEffect(() => { fetchProjects(Page) });
+
+  async function fetchProjects(newPage) {
     const apiData = await DataStore.query(Project, c => c.createdBy.eq(user), {
       sort: s => s.createdAt("DESCENDING"),
-      page: 0,
+      page: newPage,
       limit: 3
     });
     const projectsFromAPI = apiData;
@@ -44,9 +52,10 @@ function ProfileCarousel({user}) {
               </div>))}
             </div>
             <div className="carouselPagination">
-              <button className="carouselButton">&#60;</button>
-              <button className="carouselButton">1</button>
-              <button className="carouselButton">&#62;</button>
+              <button className="carouselButton" onClick={()=> updatePage(-1)}>&#60;</button>
+              <button className="carouselButton" onClick={()=> setPage(0)}>1</button>
+              <button className="carouselButton" onClick={()=> setPage(1)}>2</button>
+              <button className="carouselButton" onClick={()=> updatePage(1)}>&#62;</button>
             </div>
           </div>
         </section>

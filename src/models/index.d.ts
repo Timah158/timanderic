@@ -19,6 +19,7 @@ type EagerProject = {
   readonly description?: string | null;
   readonly img?: string | null;
   readonly createdBy: string;
+  readonly hidden?: boolean | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -36,6 +37,7 @@ type LazyProject = {
   readonly description?: string | null;
   readonly img?: string | null;
   readonly createdBy: string;
+  readonly hidden?: boolean | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

@@ -2,11 +2,13 @@
   "resourceName": "s3timandericstoragea587c092",
   "bucketName": "timanderic-storage-a587c092",
   "policyUUID": "01eb9c02",
-  "storageAccess": "auth",
-  "guestAccess": [],
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
   "authAccess": [
-    "CREATE_AND_UPDATE",
     "READ",
+    "CREATE_AND_UPDATE",
     "DELETE"
   ]
 }

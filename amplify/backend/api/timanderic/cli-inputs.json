@@ -15,22 +15,8 @@
     ],
     "conflictResolution": {
       "defaultResolutionStrategy": {
-        "type": "AUTOMERGE"
-      },
-      "perModelResolutionStrategy": [
-        {
-          "resolutionStrategy": {
-            "type": "AUTOMERGE"
-          },
-          "entityName": "Project"
-        },
-        {
-          "resolutionStrategy": {
-            "type": "AUTOMERGE"
-          },
-          "entityName": "Interview"
-        }
-      ]
+        "type": "OPTIMISTIC_CONCURRENCY"
+      }
     }
   }
 }
