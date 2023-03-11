@@ -7,7 +7,7 @@ import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
 DataStore.configure(awsExports);
 
-function ProfileCarousel({user}) {
+function ProfileCarousel({props}) {
   const [Page, setPage] = useState(0);
   function updatePage (num) {
     if (num === 1) {
@@ -22,13 +22,18 @@ function ProfileCarousel({user}) {
   useEffect(() => { fetchProjects(Page) });
 
   async function fetchProjects(newPage) {
-    const apiData = await DataStore.query(Project, c => c.createdBy.eq(user), {
+    const apiData = await DataStore.query(Project, c => c.createdBy.eq(props.user), {
       sort: s => s.createdAt("DESCENDING"),
       page: newPage,
       limit: 3
     });
     const projectsFromAPI = apiData;
     setProjects(projectsFromAPI);
+  }
+
+  function showProject(project) {
+    props.props.setProjectModal(true);
+    props.props.setCurrentProject(project);
   }
 
     return (
@@ -41,6 +46,7 @@ function ProfileCarousel({user}) {
               <div
               className="carouselElement"
               key={project.id}
+              onClick={() => showProject(project)}
               >
                 <span className='carouselImage' style={{
                   'backgroundImage': 'url('+project.img+')'

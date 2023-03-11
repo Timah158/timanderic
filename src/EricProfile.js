@@ -20,7 +20,7 @@ function Heading({props}) {
           </p>
         </div>
         <div id="main_title_buttons">
-          <button onClick={() => props(true)}>Contact</button>
+          <button onClick={() => props.setIntModal(true)}>Contact</button>
           <button><a href={require("./resumes/ericResume.pdf")} download="eric.pdf">Resume</a></button>
         </div>
       </section>
@@ -45,7 +45,7 @@ function EricProfile({props}) {
     <React.Fragment>
       <Heading props={props}></Heading>
       <EricSkills></EricSkills>
-      <ProfileCarousel user="Eric"></ProfileCarousel>
+      <ProfileCarousel props={{props, user:"Eric"}}></ProfileCarousel>
     </React.Fragment>
   );
 }

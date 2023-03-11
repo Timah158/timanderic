@@ -1,0 +1,11 @@
+.project_profile_picture {
+    width: 7em;
+    height: 7em;
+    border-radius: 10em;
+    object-position: 50% 20%;
+    object-fit: fill;
+}
+
+.projectBodyContainer {
+    width: 100%;
+}
