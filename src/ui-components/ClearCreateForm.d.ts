@@ -12,7 +12,7 @@ export declare type ValidationResponse = {
     errorMessage?: string;
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
-export declare type ProjectCreateFormInputValues = {
+export declare type ClearCreateFormInputValues = {
     title?: string;
     createdOn?: string;
     completedOn?: string;
@@ -22,7 +22,7 @@ export declare type ProjectCreateFormInputValues = {
     hidden?: boolean;
     status?: string;
 };
-export declare type ProjectCreateFormValidationValues = {
+export declare type ClearCreateFormValidationValues = {
     title?: ValidationFunction<string>;
     createdOn?: ValidationFunction<string>;
     completedOn?: ValidationFunction<string>;
@@ -33,8 +33,8 @@ export declare type ProjectCreateFormValidationValues = {
     status?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type ProjectCreateFormOverridesProps = {
-    ProjectCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
+export declare type ClearCreateFormOverridesProps = {
+    ClearCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
     title?: PrimitiveOverrideProps<TextFieldProps>;
     createdOn?: PrimitiveOverrideProps<TextFieldProps>;
     completedOn?: PrimitiveOverrideProps<TextFieldProps>;
@@ -44,14 +44,14 @@ export declare type ProjectCreateFormOverridesProps = {
     hidden?: PrimitiveOverrideProps<SwitchFieldProps>;
     status?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
-export declare type ProjectCreateFormProps = React.PropsWithChildren<{
-    overrides?: ProjectCreateFormOverridesProps | undefined | null;
+export declare type ClearCreateFormProps = React.PropsWithChildren<{
+    overrides?: ClearCreateFormOverridesProps | undefined | null;
 } & {
     clearOnSuccess?: boolean;
-    onSubmit?: (fields: ProjectCreateFormInputValues) => ProjectCreateFormInputValues;
-    onSuccess?: (fields: ProjectCreateFormInputValues) => void;
-    onError?: (fields: ProjectCreateFormInputValues, errorMessage: string) => void;
-    onChange?: (fields: ProjectCreateFormInputValues) => ProjectCreateFormInputValues;
-    onValidate?: ProjectCreateFormValidationValues;
+    onSubmit?: (fields: ClearCreateFormInputValues) => ClearCreateFormInputValues;
+    onSuccess?: (fields: ClearCreateFormInputValues) => void;
+    onError?: (fields: ClearCreateFormInputValues, errorMessage: string) => void;
+    onChange?: (fields: ClearCreateFormInputValues) => ClearCreateFormInputValues;
+    onValidate?: ClearCreateFormValidationValues;
 } & React.CSSProperties>;
-export default function ProjectCreateForm(props: ProjectCreateFormProps): React.ReactElement;
+export default function ClearCreateForm(props: ClearCreateFormProps): React.ReactElement;

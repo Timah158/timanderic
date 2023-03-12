@@ -16,14 +16,18 @@ function ProjectModal ({props}) {
         <div className='modal_content'>
             <CloseIcon className='close_button' onClick={() => props.setProjectModal(false)}/>
             <h3>{props.currentProject.title}</h3>
-            <div className="projectTitleContainer">
-                <div className="profileContainer">
-                    <h4>Author: {Author}</h4>
-                    <h4>Published: {props.currentProject.createdOn}</h4>
+            <div className="projectContentContainer">
+                <div className="projectTitleContainer">
+                    <div className="profileContainer">
+                        <h4>Author: {Author}</h4>
+                        <h4>Published: {props.currentProject.createdOn}</h4>
+                        {props.currentProject.status != null && <h4>Status: {props.currentProject.status}</h4>}
+                    </div>
                 </div>
-            </div>
-            <div className="projectBodyContainer">
-                <p>{props.currentProject.content}</p>
+                <div className="projectBodyContainer">
+                    {props.currentProject.img != null && <img className='projectImage' alt={props.currentProject.title} src= {props.currentProject.img}/>}
+                    <p>{props.currentProject.content.text[0]}</p>
+                </div>
             </div>
         </div>
       </div>

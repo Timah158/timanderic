@@ -6,13 +6,17 @@ export const getProject = /* GraphQL */ `
     getProject(id: $id) {
       id
       title
-      content
+      content {
+        text
+        images
+      }
       createdOn
       completedOn
       description
       img
       createdBy
       hidden
+      status
       createdAt
       updatedAt
       _version
@@ -31,13 +35,13 @@ export const listProjects = /* GraphQL */ `
       items {
         id
         title
-        content
         createdOn
         completedOn
         description
         img
         createdBy
         hidden
+        status
         createdAt
         updatedAt
         _version
@@ -65,13 +69,13 @@ export const syncProjects = /* GraphQL */ `
       items {
         id
         title
-        content
         createdOn
         completedOn
         description
         img
         createdBy
         hidden
+        status
         createdAt
         updatedAt
         _version

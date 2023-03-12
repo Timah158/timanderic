@@ -9,13 +9,17 @@ export const createProject = /* GraphQL */ `
     createProject(input: $input, condition: $condition) {
       id
       title
-      content
+      content {
+        text
+        images
+      }
       createdOn
       completedOn
       description
       img
       createdBy
       hidden
+      status
       createdAt
       updatedAt
       _version
@@ -32,13 +36,17 @@ export const updateProject = /* GraphQL */ `
     updateProject(input: $input, condition: $condition) {
       id
       title
-      content
+      content {
+        text
+        images
+      }
       createdOn
       completedOn
       description
       img
       createdBy
       hidden
+      status
       createdAt
       updatedAt
       _version
@@ -55,13 +63,17 @@ export const deleteProject = /* GraphQL */ `
     deleteProject(input: $input, condition: $condition) {
       id
       title
-      content
+      content {
+        text
+        images
+      }
       createdOn
       completedOn
       description
       img
       createdBy
       hidden
+      status
       createdAt
       updatedAt
       _version

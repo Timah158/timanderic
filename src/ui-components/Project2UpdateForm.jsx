@@ -14,13 +14,13 @@ import {
   TextField,
 } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Project } from "../models";
+import { Project2 } from "../models";
 import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
-export default function ProjectUpdateForm(props) {
+export default function Project2UpdateForm(props) {
   const {
     id: idProp,
-    project,
+    project2,
     onSuccess,
     onError,
     onSubmit,
@@ -53,8 +53,8 @@ export default function ProjectUpdateForm(props) {
   const [status, setStatus] = React.useState(initialValues.status);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    const cleanValues = projectRecord
-      ? { ...initialValues, ...projectRecord }
+    const cleanValues = project2Record
+      ? { ...initialValues, ...project2Record }
       : initialValues;
     setTitle(cleanValues.title);
     setCreatedOn(cleanValues.createdOn);
@@ -66,21 +66,23 @@ export default function ProjectUpdateForm(props) {
     setStatus(cleanValues.status);
     setErrors({});
   };
-  const [projectRecord, setProjectRecord] = React.useState(project);
+  const [project2Record, setProject2Record] = React.useState(project2);
   React.useEffect(() => {
     const queryData = async () => {
-      const record = idProp ? await DataStore.query(Project, idProp) : project;
-      setProjectRecord(record);
+      const record = idProp
+        ? await DataStore.query(Project2, idProp)
+        : project2;
+      setProject2Record(record);
     };
     queryData();
-  }, [idProp, project]);
-  React.useEffect(resetStateValues, [projectRecord]);
+  }, [idProp, project2]);
+  React.useEffect(resetStateValues, [project2Record]);
   const validations = {
     title: [{ type: "Required" }],
     createdOn: [{ type: "Required" }],
     completedOn: [],
     description: [{ type: "Required" }],
-    img: [{ type: "URL" }],
+    img: [{ type: "Required" }, { type: "URL" }],
     createdBy: [{ type: "Required" }],
     hidden: [{ type: "Required" }],
     status: [],
@@ -149,7 +151,7 @@ export default function ProjectUpdateForm(props) {
             }
           });
           await DataStore.save(
-            Project.copyOf(projectRecord, (updated) => {
+            Project2.copyOf(project2Record, (updated) => {
               Object.assign(updated, modelFields);
             })
           );
@@ -162,7 +164,7 @@ export default function ProjectUpdateForm(props) {
           }
         }
       }}
-      {...getOverrideProps(overrides, "ProjectUpdateForm")}
+      {...getOverrideProps(overrides, "Project2UpdateForm")}
       {...rest}
     >
       <TextField
@@ -293,7 +295,7 @@ export default function ProjectUpdateForm(props) {
       ></TextField>
       <TextField
         label="Img"
-        isRequired={false}
+        isRequired={true}
         isReadOnly={false}
         value={img}
         onChange={(e) => {
@@ -426,7 +428,7 @@ export default function ProjectUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || project)}
+          isDisabled={!(idProp || project2)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -438,7 +440,7 @@ export default function ProjectUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || project) ||
+              !(idProp || project2) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}

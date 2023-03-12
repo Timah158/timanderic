@@ -6,13 +6,17 @@ export const onCreateProject = /* GraphQL */ `
     onCreateProject(filter: $filter) {
       id
       title
-      content
+      content {
+        text
+        images
+      }
       createdOn
       completedOn
       description
       img
       createdBy
       hidden
+      status
       createdAt
       updatedAt
       _version
@@ -26,13 +30,17 @@ export const onUpdateProject = /* GraphQL */ `
     onUpdateProject(filter: $filter) {
       id
       title
-      content
+      content {
+        text
+        images
+      }
       createdOn
       completedOn
       description
       img
       createdBy
       hidden
+      status
       createdAt
       updatedAt
       _version
@@ -46,13 +54,17 @@ export const onDeleteProject = /* GraphQL */ `
     onDeleteProject(filter: $filter) {
       id
       title
-      content
+      content {
+        text
+        images
+      }
       createdOn
       completedOn
       description
       img
       createdBy
       hidden
+      status
       createdAt
       updatedAt
       _version

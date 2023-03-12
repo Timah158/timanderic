@@ -14,13 +14,12 @@ import {
   TextField,
 } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Project } from "../models";
+import { Project2 } from "../models";
 import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
-export default function ProjectUpdateForm(props) {
+export default function Project2CreateForm(props) {
   const {
-    id: idProp,
-    project,
+    clearOnSuccess = true,
     onSuccess,
     onError,
     onSubmit,
@@ -53,34 +52,22 @@ export default function ProjectUpdateForm(props) {
   const [status, setStatus] = React.useState(initialValues.status);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    const cleanValues = projectRecord
-      ? { ...initialValues, ...projectRecord }
-      : initialValues;
-    setTitle(cleanValues.title);
-    setCreatedOn(cleanValues.createdOn);
-    setCompletedOn(cleanValues.completedOn);
-    setDescription(cleanValues.description);
-    setImg(cleanValues.img);
-    setCreatedBy(cleanValues.createdBy);
-    setHidden(cleanValues.hidden);
-    setStatus(cleanValues.status);
+    setTitle(initialValues.title);
+    setCreatedOn(initialValues.createdOn);
+    setCompletedOn(initialValues.completedOn);
+    setDescription(initialValues.description);
+    setImg(initialValues.img);
+    setCreatedBy(initialValues.createdBy);
+    setHidden(initialValues.hidden);
+    setStatus(initialValues.status);
     setErrors({});
   };
-  const [projectRecord, setProjectRecord] = React.useState(project);
-  React.useEffect(() => {
-    const queryData = async () => {
-      const record = idProp ? await DataStore.query(Project, idProp) : project;
-      setProjectRecord(record);
-    };
-    queryData();
-  }, [idProp, project]);
-  React.useEffect(resetStateValues, [projectRecord]);
   const validations = {
     title: [{ type: "Required" }],
     createdOn: [{ type: "Required" }],
     completedOn: [],
     description: [{ type: "Required" }],
-    img: [{ type: "URL" }],
+    img: [{ type: "Required" }, { type: "URL" }],
     createdBy: [{ type: "Required" }],
     hidden: [{ type: "Required" }],
     status: [],
@@ -148,13 +135,12 @@ export default function ProjectUpdateForm(props) {
               modelFields[key] = undefined;
             }
           });
-          await DataStore.save(
-            Project.copyOf(projectRecord, (updated) => {
-              Object.assign(updated, modelFields);
-            })
-          );
+          await DataStore.save(new Project2(modelFields));
           if (onSuccess) {
             onSuccess(modelFields);
+          }
+          if (clearOnSuccess) {
+            resetStateValues();
           }
         } catch (err) {
           if (onError) {
@@ -162,7 +148,7 @@ export default function ProjectUpdateForm(props) {
           }
         }
       }}
-      {...getOverrideProps(overrides, "ProjectUpdateForm")}
+      {...getOverrideProps(overrides, "Project2CreateForm")}
       {...rest}
     >
       <TextField
@@ -293,7 +279,7 @@ export default function ProjectUpdateForm(props) {
       ></TextField>
       <TextField
         label="Img"
-        isRequired={false}
+        isRequired={true}
         isReadOnly={false}
         value={img}
         onChange={(e) => {
@@ -420,14 +406,13 @@ export default function ProjectUpdateForm(props) {
         {...getOverrideProps(overrides, "CTAFlex")}
       >
         <Button
-          children="Reset"
+          children="Clear"
           type="reset"
           onClick={(event) => {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || project)}
-          {...getOverrideProps(overrides, "ResetButton")}
+          {...getOverrideProps(overrides, "ClearButton")}
         ></Button>
         <Flex
           gap="15px"
@@ -437,10 +422,7 @@ export default function ProjectUpdateForm(props) {
             children="Submit"
             type="submit"
             variation="primary"
-            isDisabled={
-              !(idProp || project) ||
-              Object.values(errors).some((e) => e?.hasError)
-            }
+            isDisabled={Object.values(errors).some((e) => e?.hasError)}
             {...getOverrideProps(overrides, "SubmitButton")}
           ></Button>
         </Flex>

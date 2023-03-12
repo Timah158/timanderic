@@ -30,16 +30,15 @@ export default function ProjectCreateForm(props) {
   } = props;
   const initialValues = {
     title: "",
-    content: "",
     createdOn: "",
     completedOn: "",
     description: "",
     img: "",
     createdBy: "",
     hidden: false,
+    status: "",
   };
   const [title, setTitle] = React.useState(initialValues.title);
-  const [content, setContent] = React.useState(initialValues.content);
   const [createdOn, setCreatedOn] = React.useState(initialValues.createdOn);
   const [completedOn, setCompletedOn] = React.useState(
     initialValues.completedOn
@@ -50,27 +49,28 @@ export default function ProjectCreateForm(props) {
   const [img, setImg] = React.useState(initialValues.img);
   const [createdBy, setCreatedBy] = React.useState(initialValues.createdBy);
   const [hidden, setHidden] = React.useState(initialValues.hidden);
+  const [status, setStatus] = React.useState(initialValues.status);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setTitle(initialValues.title);
-    setContent(initialValues.content);
     setCreatedOn(initialValues.createdOn);
     setCompletedOn(initialValues.completedOn);
     setDescription(initialValues.description);
     setImg(initialValues.img);
     setCreatedBy(initialValues.createdBy);
     setHidden(initialValues.hidden);
+    setStatus(initialValues.status);
     setErrors({});
   };
   const validations = {
     title: [{ type: "Required" }],
-    content: [{ type: "Required" }],
     createdOn: [{ type: "Required" }],
     completedOn: [],
-    description: [],
+    description: [{ type: "Required" }],
     img: [{ type: "URL" }],
     createdBy: [{ type: "Required" }],
-    hidden: [],
+    hidden: [{ type: "Required" }],
+    status: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -99,13 +99,13 @@ export default function ProjectCreateForm(props) {
         event.preventDefault();
         let modelFields = {
           title,
-          content,
           createdOn,
           completedOn,
           description,
           img,
           createdBy,
           hidden,
+          status,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -161,13 +161,13 @@ export default function ProjectCreateForm(props) {
           if (onChange) {
             const modelFields = {
               title: value,
-              content,
               createdOn,
               completedOn,
               description,
               img,
               createdBy,
               hidden,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.title ?? value;
@@ -183,37 +183,6 @@ export default function ProjectCreateForm(props) {
         {...getOverrideProps(overrides, "title")}
       ></TextField>
       <TextField
-        label="Content"
-        isRequired={true}
-        isReadOnly={false}
-        value={content}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              title,
-              content: value,
-              createdOn,
-              completedOn,
-              description,
-              img,
-              createdBy,
-              hidden,
-            };
-            const result = onChange(modelFields);
-            value = result?.content ?? value;
-          }
-          if (errors.content?.hasError) {
-            runValidationTasks("content", value);
-          }
-          setContent(value);
-        }}
-        onBlur={() => runValidationTasks("content", content)}
-        errorMessage={errors.content?.errorMessage}
-        hasError={errors.content?.hasError}
-        {...getOverrideProps(overrides, "content")}
-      ></TextField>
-      <TextField
         label="Created on"
         isRequired={true}
         isReadOnly={false}
@@ -224,13 +193,13 @@ export default function ProjectCreateForm(props) {
           if (onChange) {
             const modelFields = {
               title,
-              content,
               createdOn: value,
               completedOn,
               description,
               img,
               createdBy,
               hidden,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.createdOn ?? value;
@@ -256,13 +225,13 @@ export default function ProjectCreateForm(props) {
           if (onChange) {
             const modelFields = {
               title,
-              content,
               createdOn,
               completedOn: value,
               description,
               img,
               createdBy,
               hidden,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.completedOn ?? value;
@@ -279,7 +248,7 @@ export default function ProjectCreateForm(props) {
       ></TextField>
       <TextField
         label="Description"
-        isRequired={false}
+        isRequired={true}
         isReadOnly={false}
         value={description}
         onChange={(e) => {
@@ -287,13 +256,13 @@ export default function ProjectCreateForm(props) {
           if (onChange) {
             const modelFields = {
               title,
-              content,
               createdOn,
               completedOn,
               description: value,
               img,
               createdBy,
               hidden,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.description ?? value;
@@ -318,13 +287,13 @@ export default function ProjectCreateForm(props) {
           if (onChange) {
             const modelFields = {
               title,
-              content,
               createdOn,
               completedOn,
               description,
               img: value,
               createdBy,
               hidden,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.img ?? value;
@@ -349,13 +318,13 @@ export default function ProjectCreateForm(props) {
           if (onChange) {
             const modelFields = {
               title,
-              content,
               createdOn,
               completedOn,
               description,
               img,
               createdBy: value,
               hidden,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.createdBy ?? value;
@@ -380,13 +349,13 @@ export default function ProjectCreateForm(props) {
           if (onChange) {
             const modelFields = {
               title,
-              content,
               createdOn,
               completedOn,
               description,
               img,
               createdBy,
               hidden: value,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.hidden ?? value;
@@ -401,6 +370,37 @@ export default function ProjectCreateForm(props) {
         hasError={errors.hidden?.hasError}
         {...getOverrideProps(overrides, "hidden")}
       ></SwitchField>
+      <TextField
+        label="Status"
+        isRequired={false}
+        isReadOnly={false}
+        value={status}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              title,
+              createdOn,
+              completedOn,
+              description,
+              img,
+              createdBy,
+              hidden,
+              status: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.status ?? value;
+          }
+          if (errors.status?.hasError) {
+            runValidationTasks("status", value);
+          }
+          setStatus(value);
+        }}
+        onBlur={() => runValidationTasks("status", status)}
+        errorMessage={errors.status?.errorMessage}
+        hasError={errors.status?.hasError}
+        {...getOverrideProps(overrides, "status")}
+      ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

@@ -4,7 +4,19 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
+type EagerProjectContent = {
+  readonly text?: string[] | null;
+  readonly images?: (string | null)[] | null;
+}
 
+type LazyProjectContent = {
+  readonly text?: string[] | null;
+  readonly images?: (string | null)[] | null;
+}
+
+export declare type ProjectContent = LazyLoading extends LazyLoadingDisabled ? EagerProjectContent : LazyProjectContent
+
+export declare const ProjectContent: (new (init: ModelInit<ProjectContent>) => ProjectContent)
 
 type EagerProject = {
   readonly [__modelMeta__]: {
@@ -13,13 +25,14 @@ type EagerProject = {
   };
   readonly id: string;
   readonly title: string;
-  readonly content: string;
+  readonly content?: ProjectContent | null;
   readonly createdOn: string;
   readonly completedOn?: string | null;
-  readonly description?: string | null;
+  readonly description: string;
   readonly img?: string | null;
   readonly createdBy: string;
-  readonly hidden?: boolean | null;
+  readonly hidden: boolean;
+  readonly status?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -31,13 +44,14 @@ type LazyProject = {
   };
   readonly id: string;
   readonly title: string;
-  readonly content: string;
+  readonly content?: ProjectContent | null;
   readonly createdOn: string;
   readonly completedOn?: string | null;
-  readonly description?: string | null;
+  readonly description: string;
   readonly img?: string | null;
   readonly createdBy: string;
-  readonly hidden?: boolean | null;
+  readonly hidden: boolean;
+  readonly status?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

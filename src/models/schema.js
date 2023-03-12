@@ -20,8 +20,10 @@ export const schema = {
                 "content": {
                     "name": "content",
                     "isArray": false,
-                    "type": "String",
-                    "isRequired": true,
+                    "type": {
+                        "nonModel": "ProjectContent"
+                    },
+                    "isRequired": false,
                     "attributes": []
                 },
                 "createdOn": {
@@ -42,7 +44,7 @@ export const schema = {
                     "name": "description",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": false,
+                    "isRequired": true,
                     "attributes": []
                 },
                 "img": {
@@ -63,6 +65,13 @@ export const schema = {
                     "name": "hidden",
                     "isArray": false,
                     "type": "Boolean",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "status": {
+                    "name": "status",
+                    "isArray": false,
+                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },
@@ -204,7 +213,29 @@ export const schema = {
         }
     },
     "enums": {},
-    "nonModels": {},
+    "nonModels": {
+        "ProjectContent": {
+            "name": "ProjectContent",
+            "fields": {
+                "text": {
+                    "name": "text",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "images": {
+                    "name": "images",
+                    "isArray": true,
+                    "type": "AWSURL",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                }
+            }
+        }
+    },
     "codegenVersion": "3.3.6",
-    "version": "bb5b08ba81996723f2e3aab772bcd4e2"
+    "version": "7df35ecac224cc7d87f025bb95e144b8"
 };

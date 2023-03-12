@@ -7,12 +7,13 @@
 import * as React from "react";
 import { GridProps, SwitchFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { Clear } from "../models";
 export declare type ValidationResponse = {
     hasError: boolean;
     errorMessage?: string;
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
-export declare type ProjectCreateFormInputValues = {
+export declare type ClearUpdateFormInputValues = {
     title?: string;
     createdOn?: string;
     completedOn?: string;
@@ -22,7 +23,7 @@ export declare type ProjectCreateFormInputValues = {
     hidden?: boolean;
     status?: string;
 };
-export declare type ProjectCreateFormValidationValues = {
+export declare type ClearUpdateFormValidationValues = {
     title?: ValidationFunction<string>;
     createdOn?: ValidationFunction<string>;
     completedOn?: ValidationFunction<string>;
@@ -33,8 +34,8 @@ export declare type ProjectCreateFormValidationValues = {
     status?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type ProjectCreateFormOverridesProps = {
-    ProjectCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
+export declare type ClearUpdateFormOverridesProps = {
+    ClearUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
     title?: PrimitiveOverrideProps<TextFieldProps>;
     createdOn?: PrimitiveOverrideProps<TextFieldProps>;
     completedOn?: PrimitiveOverrideProps<TextFieldProps>;
@@ -44,14 +45,15 @@ export declare type ProjectCreateFormOverridesProps = {
     hidden?: PrimitiveOverrideProps<SwitchFieldProps>;
     status?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
-export declare type ProjectCreateFormProps = React.PropsWithChildren<{
-    overrides?: ProjectCreateFormOverridesProps | undefined | null;
+export declare type ClearUpdateFormProps = React.PropsWithChildren<{
+    overrides?: ClearUpdateFormOverridesProps | undefined | null;
 } & {
-    clearOnSuccess?: boolean;
-    onSubmit?: (fields: ProjectCreateFormInputValues) => ProjectCreateFormInputValues;
-    onSuccess?: (fields: ProjectCreateFormInputValues) => void;
-    onError?: (fields: ProjectCreateFormInputValues, errorMessage: string) => void;
-    onChange?: (fields: ProjectCreateFormInputValues) => ProjectCreateFormInputValues;
-    onValidate?: ProjectCreateFormValidationValues;
+    id?: string;
+    clear?: Clear;
+    onSubmit?: (fields: ClearUpdateFormInputValues) => ClearUpdateFormInputValues;
+    onSuccess?: (fields: ClearUpdateFormInputValues) => void;
+    onError?: (fields: ClearUpdateFormInputValues, errorMessage: string) => void;
+    onChange?: (fields: ClearUpdateFormInputValues) => ClearUpdateFormInputValues;
+    onValidate?: ClearUpdateFormValidationValues;
 } & React.CSSProperties>;
-export default function ProjectCreateForm(props: ProjectCreateFormProps): React.ReactElement;
+export default function ClearUpdateForm(props: ClearUpdateFormProps): React.ReactElement;

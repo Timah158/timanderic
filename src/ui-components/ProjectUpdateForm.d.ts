@@ -15,35 +15,35 @@ export declare type ValidationResponse = {
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type ProjectUpdateFormInputValues = {
     title?: string;
-    content?: string;
     createdOn?: string;
     completedOn?: string;
     description?: string;
     img?: string;
     createdBy?: string;
     hidden?: boolean;
+    status?: string;
 };
 export declare type ProjectUpdateFormValidationValues = {
     title?: ValidationFunction<string>;
-    content?: ValidationFunction<string>;
     createdOn?: ValidationFunction<string>;
     completedOn?: ValidationFunction<string>;
     description?: ValidationFunction<string>;
     img?: ValidationFunction<string>;
     createdBy?: ValidationFunction<string>;
     hidden?: ValidationFunction<boolean>;
+    status?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type ProjectUpdateFormOverridesProps = {
     ProjectUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
     title?: PrimitiveOverrideProps<TextFieldProps>;
-    content?: PrimitiveOverrideProps<TextFieldProps>;
     createdOn?: PrimitiveOverrideProps<TextFieldProps>;
     completedOn?: PrimitiveOverrideProps<TextFieldProps>;
     description?: PrimitiveOverrideProps<TextFieldProps>;
     img?: PrimitiveOverrideProps<TextFieldProps>;
     createdBy?: PrimitiveOverrideProps<TextFieldProps>;
     hidden?: PrimitiveOverrideProps<SwitchFieldProps>;
+    status?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type ProjectUpdateFormProps = React.PropsWithChildren<{
     overrides?: ProjectUpdateFormOverridesProps | undefined | null;

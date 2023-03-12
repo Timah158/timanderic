@@ -1,13 +1,19 @@
+type ProjectContent {
+  text: [String!]
+  images: [AWSURL]
+}
+
 type Project @model @auth(rules: [{allow: public}]) {
   id: ID!
   title: String!
-  content: String!
+  content: ProjectContent
   createdOn: AWSDate!
   completedOn: AWSDate
-  description: String
+  description: String!
   img: AWSURL
   createdBy: String!
-  hidden: Boolean
+  hidden: Boolean!
+  status: String
 }
 
 type Interview @model @auth(rules: [{allow: public}]) {
