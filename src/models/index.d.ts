@@ -4,7 +4,63 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
+type EagerProjectContent = {
+  readonly text?: string[] | null;
+  readonly images?: (string | null)[] | null;
+}
 
+type LazyProjectContent = {
+  readonly text?: string[] | null;
+  readonly images?: (string | null)[] | null;
+}
+
+export declare type ProjectContent = LazyLoading extends LazyLoadingDisabled ? EagerProjectContent : LazyProjectContent
+
+export declare const ProjectContent: (new (init: ModelInit<ProjectContent>) => ProjectContent)
+
+type EagerProject = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Project, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly title: string;
+  readonly content?: ProjectContent | null;
+  readonly createdOn: string;
+  readonly completedOn?: string | null;
+  readonly description: string;
+  readonly img?: string | null;
+  readonly createdBy: string;
+  readonly hidden: boolean;
+  readonly status?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyProject = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<Project, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly title: string;
+  readonly content?: ProjectContent | null;
+  readonly createdOn: string;
+  readonly completedOn?: string | null;
+  readonly description: string;
+  readonly img?: string | null;
+  readonly createdBy: string;
+  readonly hidden: boolean;
+  readonly status?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type Project = LazyLoading extends LazyLoadingDisabled ? EagerProject : LazyProject
+
+export declare const Project: (new (init: ModelInit<Project>) => Project) & {
+  copyOf(source: Project, mutator: (draft: MutableModel<Project>) => MutableModel<Project> | void): Project;
+}
 
 type EagerInterview = {
   readonly [__modelMeta__]: {

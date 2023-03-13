@@ -1,6 +1,7 @@
 import {ReactComponent as GithubIcon} from './SVGs/font_awesome_icons/github-brands.svg'
 import {ReactComponent as LinkedInIcon} from './SVGs/font_awesome_icons/linkedin-brands.svg'
 import {ReactComponent as EmailIcon} from './SVGs/font_awesome_icons/envelope-solid.svg'
+import {ReactComponent as THM} from './SVGs/tryhackme-white.svg'
 import React,{useState} from 'react';
 import './CSS/footer.css';
 
@@ -20,7 +21,7 @@ function TimFooter ({props}) {
           <div className='footer_icons'>
             <a href="https://github.com/Timah158" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
             <a href="https://www.linkedin.com/in/timlopez22" rel='noreferrer' target="_blank"><LinkedInIcon className='footer_icon'/></a>
-            <EmailIcon className='footer_icon'onClick={() =>  navigator.clipboard.writeText('timothylopez95@gmail.com')}/>
+            <a href="https://tryhackme.com/p/Timah158" rel='noreferrer' target="_blank"><THM className='footer_icon'/></a>
           </div>
         </div>
       </footer>

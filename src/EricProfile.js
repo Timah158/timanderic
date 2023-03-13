@@ -1,8 +1,9 @@
 import "./CSS/welcome_page.css"
 import "./CSS/profile.css"
-import React from "react";
+import React from 'react';
 import Eric from "./Pictures/Eric.jpg"
-import {ReactComponent as Skills} from './SVGs/EricSkills.svg'
+import { ReactComponent as Skills } from './SVGs/EricSkills.svg'
+import ProfileCarousel from './ProfileCarousel'
 
 function Heading({props}) {
   return (
@@ -19,7 +20,7 @@ function Heading({props}) {
           </p>
         </div>
         <div id="main_title_buttons">
-          <button onClick={() => props(true)}>Contact</button>
+          <button onClick={() => props.setIntModal(true)}>Contact</button>
           <button><a href={require("./resumes/ericResume.pdf")} download="eric.pdf">Resume</a></button>
         </div>
       </section>
@@ -39,24 +40,12 @@ function EricSkills() {
   );
 }
 
-function EricProjects() {
-  return (
-    <div id='section_3' className="section">
-      <section className="center">
-        <div>
-          <h3>Current Projects</h3>
-        </div>
-      </section>
-    </div>
-  );
-}
-
 function EricProfile({props}) {
   return (
     <React.Fragment>
       <Heading props={props}></Heading>
       <EricSkills></EricSkills>
-      {/* <EricProjects></EricProjects> */}
+      <ProfileCarousel props={{props, user:"Eric"}}></ProfileCarousel>
     </React.Fragment>
   );
 }
