@@ -1,6 +1,6 @@
+import {ReactComponent as CloseIcon} from './SVGs/close_button.svg'
 import "./CSS/project.css"
 import "./CSS/Interview.css"
-import {ReactComponent as CloseIcon} from './SVGs/close_button.svg'
 
 function ProjectModal ({props}) {
     let Author = 'Error not found.'
@@ -10,6 +10,19 @@ function ProjectModal ({props}) {
         else if (props.currentProject.createdBy === 'Eric') {
             Author = 'Eric Moore'
         }
+
+    function Content  ({project}) {
+        return (
+            <>
+                {Object.keys(project).map((section, i) => (
+                    <div className="projectBodyContainer" key={i}>
+                        <img className='projectImage' alt=""src= {project.images[i]} key={i}/>
+                        <p>{project.text[i+1]}</p>
+                    </div>
+                ))}
+            </>
+        )
+    }
 
     return (
     <div className='modal_wrapper'>
@@ -27,6 +40,7 @@ function ProjectModal ({props}) {
                 <div className="projectBodyContainer">
                     {props.currentProject.img != null && <img className='projectImage' alt={props.currentProject.title} src= {props.currentProject.img}/>}
                     <p>{props.currentProject.content.text[0]}</p>
+                    {props.currentProject.content.text.length > 1 && <Content project = {props.currentProject.content}/>}
                 </div>
             </div>
         </div>
