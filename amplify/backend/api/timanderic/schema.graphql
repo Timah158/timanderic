@@ -1,12 +1,13 @@
-type ProjectContent {
+type Section {
   text: [String!]
   images: [AWSURL]
+  key: ID!
 }
 
 type Project @model @auth(rules: [{allow: public}]) {
   id: ID!
   title: String!
-  content: ProjectContent
+  content: [Section!]
   createdOn: AWSDate!
   completedOn: AWSDate
   description: String!

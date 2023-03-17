@@ -38,7 +38,7 @@ function ProfileCarousel({props}) {
 
     return (
       <div id='section_3' className="section">
-        <section className="center">
+        <section className="projectSection">
           <div id="carouselWrapper">
             <h3>Projects</h3>
             <div className="projectsCarousel">
@@ -47,14 +47,13 @@ function ProfileCarousel({props}) {
               className="carouselElement"
               key={project.id}
               onClick={() => showProject(project)}
+              style={{
+                'backgroundImage': 'url('+project.img+')',
+                'backgroundSize': 'cover',
+              }}
               >
-                <span className='carouselImage' style={{
-                  'backgroundImage': 'url('+project.img+')'
-                }}/>
-                <div className='carouselElementContainer'>
-                  <div className="projectTitle">{project.title}</div>
-                  <div className="projectDescription">{project.description}</div>
-                </div>
+                <div className="projectTitle">{project.title}</div>
+                <div className="projectDescription">{project.description}</div>
               </div>))}
             </div>
             <div className="carouselPagination">

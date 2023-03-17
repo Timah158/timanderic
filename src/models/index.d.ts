@@ -4,19 +4,21 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
-type EagerProjectContent = {
+type EagerSection = {
   readonly text?: string[] | null;
   readonly images?: (string | null)[] | null;
+  readonly key: string;
 }
 
-type LazyProjectContent = {
+type LazySection = {
   readonly text?: string[] | null;
   readonly images?: (string | null)[] | null;
+  readonly key: string;
 }
 
-export declare type ProjectContent = LazyLoading extends LazyLoadingDisabled ? EagerProjectContent : LazyProjectContent
+export declare type Section = LazyLoading extends LazyLoadingDisabled ? EagerSection : LazySection
 
-export declare const ProjectContent: (new (init: ModelInit<ProjectContent>) => ProjectContent)
+export declare const Section: (new (init: ModelInit<Section>) => Section)
 
 type EagerProject = {
   readonly [__modelMeta__]: {
@@ -25,7 +27,7 @@ type EagerProject = {
   };
   readonly id: string;
   readonly title: string;
-  readonly content?: ProjectContent | null;
+  readonly content?: Section[] | null;
   readonly createdOn: string;
   readonly completedOn?: string | null;
   readonly description: string;
@@ -44,7 +46,7 @@ type LazyProject = {
   };
   readonly id: string;
   readonly title: string;
-  readonly content?: ProjectContent | null;
+  readonly content?: Section[] | null;
   readonly createdOn: string;
   readonly completedOn?: string | null;
   readonly description: string;
