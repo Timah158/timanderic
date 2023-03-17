@@ -23,7 +23,7 @@ function ProfileCarousel({props}) {
 
   async function fetchProjects(newPage) {
     const apiData = await DataStore.query(Project, c => c.createdBy.eq(props.user), {
-      sort: s => s.createdAt("DESCENDING"),
+      sort: s => s.createdOn("DESCENDING"),
       page: newPage,
       limit: 3
     });
