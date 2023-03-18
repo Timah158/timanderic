@@ -47,10 +47,6 @@ function ProfileCarousel({props}) {
               className="carouselElement"
               key={project.id}
               onClick={() => showProject(project)}
-              style={{
-                'backgroundImage': 'url('+project.img+')',
-                'backgroundSize': 'cover',
-              }}
               >
                 <div className="projectTitle">{project.title}</div>
                 <div className="projectDescription">{project.description}</div>
