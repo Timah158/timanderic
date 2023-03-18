@@ -23,7 +23,7 @@ function ProfileCarousel({props}) {
 
   async function fetchProjects(newPage) {
     const apiData = await DataStore.query(Project, c => c.createdBy.eq(props.user), {
-      sort: s => s.createdAt("DESCENDING"),
+      sort: s => s.createdOn("DESCENDING"),
       page: newPage,
       limit: 3
     });
@@ -38,7 +38,7 @@ function ProfileCarousel({props}) {
 
     return (
       <div id='section_3' className="section">
-        <section className="center">
+        <section className="projectSection">
           <div id="carouselWrapper">
             <h3>Projects</h3>
             <div className="projectsCarousel">
@@ -48,13 +48,8 @@ function ProfileCarousel({props}) {
               key={project.id}
               onClick={() => showProject(project)}
               >
-                <span className='carouselImage' style={{
-                  'backgroundImage': 'url('+project.img+')'
-                }}/>
-                <div className='carouselElementContainer'>
-                  <div className="projectTitle">{project.title}</div>
-                  <div className="projectDescription">{project.description}</div>
-                </div>
+                <div className="projectTitle">{project.title}</div>
+                <div className="projectDescription">{project.description}</div>
               </div>))}
             </div>
             <div className="carouselPagination">

@@ -13,21 +13,19 @@ function ProjectModal ({props}) {
 
     function Content  ({project}) {
         return (
-            <>
-                {Object.keys(project).map((section, i) => (
-                    <div className="projectBodyContainer" key={i}>
-                        <img className='projectImage' alt=""src= {project.images[i]} key={i}/>
-                        <p>{project.text[i+1]}</p>
-                    </div>
-                ))}
-            </>
+            project.map((project) => (
+            <div className="projectBodyContainer" key={project.key}>
+                    {project.images != null && <img className='projectImage' alt="" src= {project.images}/>}
+                    <p>{project.text}</p>
+                </div>
+            ))
         )
     }
 
     return (
     <div className='modal_wrapper'>
         <div className='modal_content'>
-            <CloseIcon className='close_button' onClick={() => props.setProjectModal(false)}/>
+            <CloseIcon className='close_button' onClick={() => props.setProjectModal(false)}></CloseIcon>
             <h3>{props.currentProject.title}</h3>
             <div className="projectContentContainer">
                 <div className="projectTitleContainer">
@@ -38,10 +36,9 @@ function ProjectModal ({props}) {
                     </div>
                 </div>
                 <div className="projectBodyContainer">
-                    {props.currentProject.img != null && <img className='projectImage' alt={props.currentProject.title} src= {props.currentProject.img}/>}
-                    <p>{props.currentProject.content.text[0]}</p>
-                    {props.currentProject.content.text.length > 1 && <Content project = {props.currentProject.content}/>}
+                    <img className='projectImage' alt="" src= {props.currentProject.img}/>
                 </div>
+                <Content project = {props.currentProject.content}></Content>
             </div>
         </div>
       </div>

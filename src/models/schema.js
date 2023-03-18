@@ -19,12 +19,13 @@ export const schema = {
                 },
                 "content": {
                     "name": "content",
-                    "isArray": false,
+                    "isArray": true,
                     "type": {
-                        "nonModel": "ProjectContent"
+                        "nonModel": "Section"
                     },
-                    "isRequired": false,
-                    "attributes": []
+                    "isRequired": true,
+                    "attributes": [],
+                    "isArrayNullable": true
                 },
                 "createdOn": {
                     "name": "createdOn",
@@ -214,8 +215,8 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {
-        "ProjectContent": {
-            "name": "ProjectContent",
+        "Section": {
+            "name": "Section",
             "fields": {
                 "text": {
                     "name": "text",
@@ -232,10 +233,17 @@ export const schema = {
                     "isRequired": false,
                     "attributes": [],
                     "isArrayNullable": true
+                },
+                "key": {
+                    "name": "key",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
                 }
             }
         }
     },
     "codegenVersion": "3.3.6",
-    "version": "7df35ecac224cc7d87f025bb95e144b8"
+    "version": "910d69978ba610205966a48f1f5137e3"
 };
