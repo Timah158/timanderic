@@ -22,6 +22,7 @@ function TimFooter ({props}) {
             <a href="https://github.com/Timah158" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
             <a href="https://www.linkedin.com/in/timlopez22" rel='noreferrer' target="_blank"><LinkedInIcon className='footer_icon'/></a>
             <a href="https://tryhackme.com/p/Timah158" rel='noreferrer' target="_blank"><THM className='footer_icon'/></a>
+            <EmailIcon className='footer_icon' onClick={() =>  navigator.clipboard.writeText('tim@tim-and-eric.com')}/>
           </div>
         </div>
       </footer>
@@ -44,7 +45,7 @@ function TimFooter ({props}) {
           <div className='footer_icons'>
           <a href="https://github.com/emoore36" rel='noreferrer' target="_blank"><GithubIcon className='footer_icon'/></a>
           <a href="https://www.linkedin.com/in/ericmoore0709/" rel='noreferrer' target="_blank"><LinkedInIcon className='footer_icon'/></a>
-          <EmailIcon className='footer_icon' onClick={() =>  navigator.clipboard.writeText('ericmoore0709@gmail.com')}/>
+          <EmailIcon className='footer_icon' onClick={() =>  navigator.clipboard.writeText('eric@tim-and-eric.com')}/>
           </div>
         </div>
       </footer>
