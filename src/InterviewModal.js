@@ -1,5 +1,6 @@
-import React,{useState} from 'react';
+import React,{useState, useRef} from 'react';
 import {ReactComponent as CloseIcon} from './SVGs/close_button.svg'
+import reCAPTCHA from "react-google-recaptcha"
 import './CSS/Interview.css';
 import { DataStore } from '@aws-amplify/datastore';
 import { Interview } from './models';
@@ -87,6 +88,10 @@ function InterviewModal({props}) {
                 name='about'
                 value={inputs.about || ""}
                 onChange={handleChange}
+                />
+                <reCAPTCHA
+                  sitekey={process.env.REACT_APP_SITE_KEY}
+                  ref={captchaRef}
                 />
                 <input type="submit"/>
             </form>
