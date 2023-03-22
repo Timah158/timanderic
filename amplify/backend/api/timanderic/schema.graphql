@@ -1,20 +1,23 @@
-type Section {
-  text: [String!]
+type ProjectSection @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String
   images: [AWSURL]
-  key: ID!
+  text: [String!]
+  links: [AWSURL]
+  Project: ID! @index(name: "byProject")
+  index: Int!
 }
 
 type Project @model @auth(rules: [{allow: public}]) {
   id: ID!
   title: String!
-  content: [Section!]
   createdOn: AWSDate!
   completedOn: AWSDate
   description: String!
-  img: AWSURL
   createdBy: String!
   hidden: Boolean!
   status: String
+  ProjectSections: [ProjectSection!] @hasMany(indexName: "byProject", fields: ["id"])
 }
 
 type Interview @model @auth(rules: [{allow: public}]) {

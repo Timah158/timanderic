@@ -1,24 +1,48 @@
 import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier } from "@aws-amplify/datastore";
 // @ts-ignore
-import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
+import { LazyLoading, LazyLoadingDisabled, AsyncCollection } from "@aws-amplify/datastore";
 
 
 
-type EagerSection = {
-  readonly text?: string[] | null;
+
+
+type EagerProjectSection = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<ProjectSection, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly title?: string | null;
   readonly images?: (string | null)[] | null;
-  readonly key: string;
+  readonly text?: string[] | null;
+  readonly links?: (string | null)[] | null;
+  readonly Project: string;
+  readonly index: number;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
 }
 
-type LazySection = {
-  readonly text?: string[] | null;
+type LazyProjectSection = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<ProjectSection, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly title?: string | null;
   readonly images?: (string | null)[] | null;
-  readonly key: string;
+  readonly text?: string[] | null;
+  readonly links?: (string | null)[] | null;
+  readonly Project: string;
+  readonly index: number;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
 }
 
-export declare type Section = LazyLoading extends LazyLoadingDisabled ? EagerSection : LazySection
+export declare type ProjectSection = LazyLoading extends LazyLoadingDisabled ? EagerProjectSection : LazyProjectSection
 
-export declare const Section: (new (init: ModelInit<Section>) => Section)
+export declare const ProjectSection: (new (init: ModelInit<ProjectSection>) => ProjectSection) & {
+  copyOf(source: ProjectSection, mutator: (draft: MutableModel<ProjectSection>) => MutableModel<ProjectSection> | void): ProjectSection;
+}
 
 type EagerProject = {
   readonly [__modelMeta__]: {
@@ -27,14 +51,13 @@ type EagerProject = {
   };
   readonly id: string;
   readonly title: string;
-  readonly content?: Section[] | null;
   readonly createdOn: string;
   readonly completedOn?: string | null;
   readonly description: string;
-  readonly img?: string | null;
   readonly createdBy: string;
   readonly hidden: boolean;
   readonly status?: string | null;
+  readonly ProjectSections?: ProjectSection[] | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -46,14 +69,13 @@ type LazyProject = {
   };
   readonly id: string;
   readonly title: string;
-  readonly content?: Section[] | null;
   readonly createdOn: string;
   readonly completedOn?: string | null;
   readonly description: string;
-  readonly img?: string | null;
   readonly createdBy: string;
   readonly hidden: boolean;
   readonly status?: string | null;
+  readonly ProjectSections: AsyncCollection<ProjectSection>;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
