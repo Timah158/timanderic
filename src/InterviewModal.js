@@ -1,6 +1,5 @@
-import React,{ useState, useRef } from 'react';
+import React,{ useState} from 'react';
 import {ReactComponent as CloseIcon} from './SVGs/close_button.svg'
-import ReCAPTCHA from "react-google-recaptcha";
 import './CSS/Interview.css';
 import { DataStore } from '@aws-amplify/datastore';
 import { Interview } from './models';
@@ -22,7 +21,6 @@ async function createInterview(interview) {
 }
 
 function InterviewModal({props}) {
-  const recaptchaRef = React.useRef();
 
   const [inputs, setInputs] = useState({});
   const handleChange = (event) => {
@@ -90,11 +88,6 @@ function InterviewModal({props}) {
                 name='about'
                 value={inputs.about || ""}
                 onChange={handleChange}
-                />
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  sitekey={process.env.REACT_APP_SITE_KEY}
-                  onChange={handleChange}
                 />
                 <input type="submit"/>
             </form>
