@@ -3,7 +3,6 @@ import { Project } from './models';
 import { Amplify } from "@aws-amplify/core";
 import { DataStore } from "@aws-amplify/datastore";
 import awsExports from "./aws-exports";
-
 Amplify.configure(awsExports);
 DataStore.configure(awsExports);
 
