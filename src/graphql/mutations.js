@@ -1,6 +1,69 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const createProjectSection = /* GraphQL */ `
+  mutation CreateProjectSection(
+    $input: CreateProjectSectionInput!
+    $condition: ModelProjectSectionConditionInput
+  ) {
+    createProjectSection(input: $input, condition: $condition) {
+      id
+      title
+      images
+      text
+      links
+      Project
+      index
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const updateProjectSection = /* GraphQL */ `
+  mutation UpdateProjectSection(
+    $input: UpdateProjectSectionInput!
+    $condition: ModelProjectSectionConditionInput
+  ) {
+    updateProjectSection(input: $input, condition: $condition) {
+      id
+      title
+      images
+      text
+      links
+      Project
+      index
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const deleteProjectSection = /* GraphQL */ `
+  mutation DeleteProjectSection(
+    $input: DeleteProjectSectionInput!
+    $condition: ModelProjectSectionConditionInput
+  ) {
+    deleteProjectSection(input: $input, condition: $condition) {
+      id
+      title
+      images
+      text
+      links
+      Project
+      index
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
 export const createProject = /* GraphQL */ `
   mutation CreateProject(
     $input: CreateProjectInput!
@@ -9,17 +72,16 @@ export const createProject = /* GraphQL */ `
     createProject(input: $input, condition: $condition) {
       id
       title
-      content {
-        text
-        images
-      }
       createdOn
       completedOn
       description
-      img
       createdBy
       hidden
       status
+      ProjectSections {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -36,17 +98,16 @@ export const updateProject = /* GraphQL */ `
     updateProject(input: $input, condition: $condition) {
       id
       title
-      content {
-        text
-        images
-      }
       createdOn
       completedOn
       description
-      img
       createdBy
       hidden
       status
+      ProjectSections {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -63,17 +124,16 @@ export const deleteProject = /* GraphQL */ `
     deleteProject(input: $input, condition: $condition) {
       id
       title
-      content {
-        text
-        images
-      }
       createdOn
       completedOn
       description
-      img
       createdBy
       hidden
       status
+      ProjectSections {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
