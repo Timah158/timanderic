@@ -1,22 +1,81 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateProjectSection = /* GraphQL */ `
+  subscription OnCreateProjectSection(
+    $filter: ModelSubscriptionProjectSectionFilterInput
+  ) {
+    onCreateProjectSection(filter: $filter) {
+      id
+      title
+      images
+      text
+      links
+      Project
+      index
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onUpdateProjectSection = /* GraphQL */ `
+  subscription OnUpdateProjectSection(
+    $filter: ModelSubscriptionProjectSectionFilterInput
+  ) {
+    onUpdateProjectSection(filter: $filter) {
+      id
+      title
+      images
+      text
+      links
+      Project
+      index
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onDeleteProjectSection = /* GraphQL */ `
+  subscription OnDeleteProjectSection(
+    $filter: ModelSubscriptionProjectSectionFilterInput
+  ) {
+    onDeleteProjectSection(filter: $filter) {
+      id
+      title
+      images
+      text
+      links
+      Project
+      index
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
 export const onCreateProject = /* GraphQL */ `
   subscription OnCreateProject($filter: ModelSubscriptionProjectFilterInput) {
     onCreateProject(filter: $filter) {
       id
       title
-      content {
-        text
-        images
-      }
       createdOn
       completedOn
       description
-      img
       createdBy
       hidden
       status
+      ProjectSections {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -30,17 +89,16 @@ export const onUpdateProject = /* GraphQL */ `
     onUpdateProject(filter: $filter) {
       id
       title
-      content {
-        text
-        images
-      }
       createdOn
       completedOn
       description
-      img
       createdBy
       hidden
       status
+      ProjectSections {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
@@ -54,17 +112,16 @@ export const onDeleteProject = /* GraphQL */ `
     onDeleteProject(filter: $filter) {
       id
       title
-      content {
-        text
-        images
-      }
       createdOn
       completedOn
       description
-      img
       createdBy
       hidden
       status
+      ProjectSections {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version

@@ -54,6 +54,13 @@
       "service": "Cognito"
     }
   },
+  "function": {
+    "timanderic5d94b10b": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "storage": {
     "s3timandericstoragea587c092": {
       "dependsOn": [],

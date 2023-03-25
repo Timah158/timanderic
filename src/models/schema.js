@@ -1,5 +1,111 @@
 export const schema = {
     "models": {
+        "ProjectSection": {
+            "name": "ProjectSection",
+            "fields": {
+                "id": {
+                    "name": "id",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "title": {
+                    "name": "title",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "images": {
+                    "name": "images",
+                    "isArray": true,
+                    "type": "AWSURL",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "text": {
+                    "name": "text",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "links": {
+                    "name": "links",
+                    "isArray": true,
+                    "type": "AWSURL",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "Project": {
+                    "name": "Project",
+                    "isArray": false,
+                    "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "index": {
+                    "name": "index",
+                    "isArray": false,
+                    "type": "Int",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "createdAt": {
+                    "name": "createdAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                },
+                "updatedAt": {
+                    "name": "updatedAt",
+                    "isArray": false,
+                    "type": "AWSDateTime",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isReadOnly": true
+                }
+            },
+            "syncable": true,
+            "pluralName": "ProjectSections",
+            "attributes": [
+                {
+                    "type": "model",
+                    "properties": {}
+                },
+                {
+                    "type": "key",
+                    "properties": {
+                        "name": "byProject",
+                        "fields": [
+                            "Project"
+                        ]
+                    }
+                },
+                {
+                    "type": "auth",
+                    "properties": {
+                        "rules": [
+                            {
+                                "allow": "public",
+                                "operations": [
+                                    "create",
+                                    "update",
+                                    "delete",
+                                    "read"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         "Project": {
             "name": "Project",
             "fields": {
@@ -16,16 +122,6 @@ export const schema = {
                     "type": "String",
                     "isRequired": true,
                     "attributes": []
-                },
-                "content": {
-                    "name": "content",
-                    "isArray": true,
-                    "type": {
-                        "nonModel": "Section"
-                    },
-                    "isRequired": true,
-                    "attributes": [],
-                    "isArrayNullable": true
                 },
                 "createdOn": {
                     "name": "createdOn",
@@ -48,13 +144,6 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "img": {
-                    "name": "img",
-                    "isArray": false,
-                    "type": "AWSURL",
-                    "isRequired": false,
-                    "attributes": []
-                },
                 "createdBy": {
                     "name": "createdBy",
                     "isArray": false,
@@ -75,6 +164,22 @@ export const schema = {
                     "type": "String",
                     "isRequired": false,
                     "attributes": []
+                },
+                "ProjectSections": {
+                    "name": "ProjectSections",
+                    "isArray": true,
+                    "type": {
+                        "model": "ProjectSection"
+                    },
+                    "isRequired": true,
+                    "attributes": [],
+                    "isArrayNullable": true,
+                    "association": {
+                        "connectionType": "HAS_MANY",
+                        "associatedWith": [
+                            "Project"
+                        ]
+                    }
                 },
                 "createdAt": {
                     "name": "createdAt",
@@ -214,36 +319,7 @@ export const schema = {
         }
     },
     "enums": {},
-    "nonModels": {
-        "Section": {
-            "name": "Section",
-            "fields": {
-                "text": {
-                    "name": "text",
-                    "isArray": true,
-                    "type": "String",
-                    "isRequired": true,
-                    "attributes": [],
-                    "isArrayNullable": true
-                },
-                "images": {
-                    "name": "images",
-                    "isArray": true,
-                    "type": "AWSURL",
-                    "isRequired": false,
-                    "attributes": [],
-                    "isArrayNullable": true
-                },
-                "key": {
-                    "name": "key",
-                    "isArray": false,
-                    "type": "ID",
-                    "isRequired": true,
-                    "attributes": []
-                }
-            }
-        }
-    },
+    "nonModels": {},
     "codegenVersion": "3.3.6",
-    "version": "910d69978ba610205966a48f1f5137e3"
+    "version": "e549c8416c65ab123d07a2716c32a22b"
 };

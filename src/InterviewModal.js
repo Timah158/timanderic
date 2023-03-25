@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{ useState } from 'react';
 import {ReactComponent as CloseIcon} from './SVGs/close_button.svg'
 import './CSS/Interview.css';
 import { DataStore } from '@aws-amplify/datastore';
@@ -90,6 +90,7 @@ function InterviewModal({props}) {
                 />
                 <input type="submit"/>
             </form>
+
         </div>
       </div>
     );
