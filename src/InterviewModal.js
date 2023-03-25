@@ -1,4 +1,4 @@
-import React,{ useState} from 'react';
+import React,{ useState } from 'react';
 import {ReactComponent as CloseIcon} from './SVGs/close_button.svg'
 import './CSS/Interview.css';
 import { DataStore } from '@aws-amplify/datastore';
@@ -21,7 +21,6 @@ async function createInterview(interview) {
 }
 
 function InterviewModal({props}) {
-
   const [inputs, setInputs] = useState({});
   const handleChange = (event) => {
     const name = event.target.name;
