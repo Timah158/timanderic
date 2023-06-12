@@ -15,7 +15,12 @@ function Heading({props}) {
         </p>
       </div>
       <div id="main_title_buttons">
-        <button onClick={() => props(true)}>Contact</button>
+        <button onClick={() => props.setNavigation({
+          page: props.Navigation.page,
+          modal: {
+            display: true,
+            element: "interviewModal"
+        }})}>Contact</button>
         <button><a href="#section_3">About</a></button>
       </div>
     </section>
@@ -54,11 +59,11 @@ function AboutTim() {
           </p>
           <br></br>
           <ul>
-            <li>Front-end Web Development</li>
             <li>Cyber Security</li>
             <li>Networking</li>
+            <li>Front-end Web Development</li>
             <li>React</li>
-            <li>WordPress</li>
+            <li>AWS</li>
           </ul>
         </div>
       </section>

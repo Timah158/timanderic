@@ -31,8 +31,11 @@ function ProfileCarousel({props}) {
   }
 
   function showProject(project) {
-    props.props.setProjectModal(true);
-    props.props.setCurrentProject(project);
+    //props.props.setProjectModal(true);
+    props.props.setNavigation({
+      modal: {
+        element: "projectModal"
+      }});
   }
 
     return (

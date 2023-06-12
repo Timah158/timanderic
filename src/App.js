@@ -8,21 +8,25 @@ import ProjectModal from "./ProjectModal";
 import Footer from "./footer";
 
 function App() {
-  
-  const [IntModal, setIntModal] = useState(false);
-  const [projectModal, setProjectModal] = useState(false);
-  const [currentProject, setCurrentProject] = useState({});
-  const [Page, setPage] = useState("welcome");
+
+  const [Navigation, setNavigation] = useState({
+    modal: {
+      display: false,
+      element: "",
+      project: {}
+    },
+    page: "welcome"
+  })
 
   return (
     <React.Fragment>
-      {projectModal && <ProjectModal props={{setProjectModal, currentProject}}/>}
-      {IntModal && <InterviewModal props={setIntModal}/>}
-      <NavBar props={{setPage, setIntModal}}></NavBar>
-      {Page === "welcome" && <WelcomePage props={setIntModal}/>}
-      {Page === "tim" && <TimProfile props={{setIntModal, setProjectModal, setCurrentProject}}/>}
-      {Page === "eric" && <EricProfile props={{setIntModal, setProjectModal, setCurrentProject}}/>}
-      <Footer props={setPage}/>
+      {Navigation.modal.element === "projectModal" && Navigation.modal.display === true && <ProjectModal setNavigation={setNavigation}/>}
+      {Navigation.modal.element === "interviewModal" && Navigation.modal.display === true && <InterviewModal props={{setNavigation, Navigation}}/>}
+      <NavBar props={{setNavigation, Navigation}}></NavBar>
+      {Navigation.page === "welcome" && <WelcomePage props={{setNavigation, Navigation}}/>}
+      {Navigation.page === "tim" && <TimProfile props={{setNavigation}}/>}
+      {Navigation.page === "eric" && <EricProfile props={{setNavigation}}/>}
+      <Footer setNavigation={setNavigation}/>
     </React.Fragment>
   );
 }

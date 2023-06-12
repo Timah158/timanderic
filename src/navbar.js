@@ -6,18 +6,29 @@ import './CSS/navbar.css';
 
 function DesktopNavbar({props}) {
 
-  function changePage(page) {
-    props.setPage(page)
+  function changePage(thisPage) {
+    props.setNavigation({
+      page: thisPage,
+      modal: {
+        display: false,
+        element: ""
+      }
+    })
     window.scrollTo(0, 0);
   }
     return (
       <header className='desktop_navbar'>
         <nav className="navbar">
-          <a href="/" className='navbar_logo_link' onClick={() => props.setPage("welcome")}><Logo className='navbar_logo'/></a>
+          <a href="/" className='navbar_logo_link' onClick={() => changePage("welcome")}><Logo className='navbar_logo'/></a>
             <ul className="navlist">
               <li className="navlink"><button className="navlink" onClick={() => changePage("tim")}>Tim</button></li>
               <li className="navlink"><button className="navlink" onClick={() => changePage("eric")}>Eric</button></li>
-              <li className="navlink last_item"><button className="navlink" onClick={() => props.setIntModal(true)}>Interview</button></li>
+              <li className="navlink last_item"><button className="navlink" onClick={() => props.setNavigation({
+                page: props.Navigation.page,
+                modal: {
+                  display: true,
+                  element: "interviewModal"
+              }})}>Interview</button></li>
             </ul>
         </nav>
       </header>
@@ -38,9 +49,19 @@ function DesktopNavbar({props}) {
   }
 
   function MobileDropdown({dropdownProps}) {
-    function updatePage(page) {
-      if (page === "interview") {dropdownProps.props.setIntModal(true)}
-      else dropdownProps.props.setPage(page)
+    function updatePage(thisPage) {
+      if (thisPage === "interview") {dropdownProps.props.setNavigation({
+        modal: {
+          display: true,
+          element: "interviewModal"
+        }})}
+      else dropdownProps.props.setNavigation({
+        page: thisPage,
+        modal: {
+          display: false,
+          element: ""
+        }
+      })
       dropdownProps.setShowDropdown(false)
       window.scrollTo(0, 0);
     }
