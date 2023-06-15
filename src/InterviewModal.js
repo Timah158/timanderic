@@ -1,24 +1,24 @@
 import React,{ useState } from 'react';
 import {ReactComponent as CloseIcon} from './SVGs/close_button.svg'
 import './CSS/Interview.css';
-import { DataStore } from '@aws-amplify/datastore';
-import { Interview } from './models';
-import { Amplify } from 'aws-amplify';
-import awsExports from './aws-exports';
-Amplify.configure(awsExports);
+// import { DataStore } from '@aws-amplify/datastore';
+// import { Interview } from './models';
+// import { Amplify } from 'aws-amplify';
+// import awsExports from './aws-exports';
+// Amplify.configure(awsExports);
 
-async function createInterview(interview) {
-  await DataStore.save(
-    new Interview({
-    "time": interview.time,
-    "date": interview.date,
-    "about": interview.about,
-    "user": interview.person,
-    "email": interview.email,
-    "phone": interview.phone
-  })
-  );
-}
+// async function createInterview(interview) {
+//   await DataStore.save(
+//     new Interview({
+//     "time": interview.time,
+//     "date": interview.date,
+//     "about": interview.about,
+//     "user": interview.person,
+//     "email": interview.email,
+//     "phone": interview.phone
+//   })
+//   );
+// }
 
 function InterviewModal({props}) {
   const [inputs, setInputs] = useState({});
@@ -29,14 +29,24 @@ function InterviewModal({props}) {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    createInterview(inputs);
-    props(false)
+    //createInterview(inputs);
+    props.setNavigation({
+      page: props.Navigation.page,
+      modal: {
+        display: false,
+        element: ""
+    }})
   }
 
     return (
       <div className='modal_wrapper'>
         <div className='modal_content'>
-            <CloseIcon className='close_button' onClick={() => props(false)}/>
+            <CloseIcon className='close_button' onClick={() => props.setNavigation({
+              page: props.Navigation.page,
+              modal: {
+                display: false,
+                element: ""
+            }})}/>
             <h3>Schedule An Interview</h3>
             <form id='interview_form' onSubmit={handleSubmit}>
                 <div id='interview_row1'>

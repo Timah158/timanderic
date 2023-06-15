@@ -47,7 +47,6 @@ function ProjectModal ({props}) {
             ))
         )
     }
-    console.log(props);
     return (
     <div className='modal_wrapper'>
         <div className='modal_content'>

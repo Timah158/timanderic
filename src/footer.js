@@ -6,8 +6,14 @@ import React,{useState} from 'react';
 import './CSS/footer.css';
 
 function TimFooter ({props}) {
-  function changePage(page) {
-    props.props(page)
+  function changePage(thisPage) {
+    props.setNavigation({
+      page: thisPage,
+      modal: {
+        display: false,
+        element: ""
+      }
+    })
     window.scrollTo(0, 0);
   }
     return (
@@ -30,8 +36,14 @@ function TimFooter ({props}) {
   }
 
   function EricFooter ({props}) {
-    function changePage(page) {
-      props.props(page)
+    function changePage(thisPage) {
+      props.setNavigation({
+        page: thisPage,
+        modal: {
+          display: false,
+          element: ""
+        }
+      })
       window.scrollTo(0, 0);
     }
     return (
@@ -52,13 +64,13 @@ function TimFooter ({props}) {
     )
   }
 
-  function Footer ({props}) {
+  function Footer ({setNavigation}) {
     const [ToggleFooter, setToggleFooter] = useState(false);
 
     return (
       <React.Fragment>
-        {!ToggleFooter && <TimFooter props={{setToggleFooter, props}}/>}
-        {ToggleFooter && <EricFooter props={{setToggleFooter, props}}/>}
+        {!ToggleFooter && <TimFooter props={{setToggleFooter, setNavigation}}/>}
+        {ToggleFooter && <EricFooter props={{setToggleFooter, setNavigation}}/>}
       </React.Fragment>
     )
   }

@@ -20,6 +20,9 @@
       },
       "storage": {
         "s3timandericstoragea587c092": {}
+      },
+      "function": {
+        "timanderic5d94b10b": {}
       }
     }
   }
