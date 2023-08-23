@@ -21,7 +21,7 @@ function Heading({props}) {
         </div>
         <div id="main_title_buttons">
           <button onClick={() => props.setIntModal(true)}>Contact</button>
-          <button><a href={require("./resumes/timResume.docx")} download="tim.docx">Resume</a></button>
+          <button><a href={require("./resumes/timResume.docx")} download="timResume.docx">Resume</a></button>
         </div>
       </section>
     </div>
