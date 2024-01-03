@@ -71,7 +71,6 @@ function InterviewModal({props}) {
                   onChange={handleChange}
                   required
                   >
-                    <option value=""></option>
                     <option value="Tim">Tim</option>
                     <option value="Eric">Eric</option>
                   </select>
@@ -98,7 +97,7 @@ function InterviewModal({props}) {
                 value={inputs.about || ""}
                 onChange={handleChange}
                 />
-                <input type="submit"/>
+                <input type="submit" value="Submit"/>
             </form>
 
         </div>
