@@ -38,14 +38,15 @@
             "REQUIRES_SYMBOLS",
             "REQUIRES_UPPERCASE"
           ],
-          "passwordPolicyMinLength": 8
+          "passwordPolicyMinLength": 12
         },
         "signupAttributes": [
-          "EMAIL",
-          "NAME"
+          "EMAIL"
         ],
         "socialProviders": [],
-        "usernameAttributes": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
         "verificationMechanisms": [
           "EMAIL"
         ]
@@ -54,11 +55,30 @@
       "service": "Cognito"
     }
   },
+  "parameters": {
+    "AMPLIFY_storage_timanderic66019d60_bucketName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "timanderic66019d60"
+        }
+      ]
+    },
+    "AMPLIFY_storage_timanderic66019d60_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "timanderic66019d60"
+        }
+      ]
+    }
+  },
   "storage": {
-    "s3timandericstoragea587c092": {
+    "timanderic66019d60": {
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
-      "service": "S3"
+      "service": "S3",
+      "serviceType": "imported"
     }
   }
 }

@@ -6,6 +6,10 @@ import EricProfile from "./EricProfile";
 import InterviewModal from "./InterviewModal";
 import ProjectModal from "./ProjectModal";
 import Footer from "./footer";
+import { Amplify } from 'aws-amplify';
+import awsmobile from './aws-exports';
+
+Amplify.configure(awsmobile);
 
 function App() {
 

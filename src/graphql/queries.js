@@ -1,58 +1,61 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getProjectSection = /* GraphQL */ `
-  query GetProjectSection($id: ID!) {
-    getProjectSection(id: $id) {
+export const getInterview = /* GraphQL */ `
+  query GetInterview($id: ID!) {
+    getInterview(id: $id) {
       id
-      title
-      images
-      text
-      links
-      Project
-      index
+      email
+      phone
+      date
+      time
+      about
+      user
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;
-export const listProjectSections = /* GraphQL */ `
-  query ListProjectSections(
-    $filter: ModelProjectSectionFilterInput
+export const listInterviews = /* GraphQL */ `
+  query ListInterviews(
+    $filter: ModelInterviewFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listProjectSections(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listInterviews(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        title
-        images
-        text
-        links
-        Project
-        index
+        email
+        phone
+        date
+        time
+        about
+        user
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
+        __typename
       }
       nextToken
       startedAt
+      __typename
     }
   }
 `;
-export const syncProjectSections = /* GraphQL */ `
-  query SyncProjectSections(
-    $filter: ModelProjectSectionFilterInput
+export const syncInterviews = /* GraphQL */ `
+  query SyncInterviews(
+    $filter: ModelInterviewFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncProjectSections(
+    syncInterviews(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -60,54 +63,22 @@ export const syncProjectSections = /* GraphQL */ `
     ) {
       items {
         id
-        title
-        images
-        text
-        links
-        Project
-        index
+        email
+        phone
+        date
+        time
+        about
+        user
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
+        __typename
       }
       nextToken
       startedAt
-    }
-  }
-`;
-export const projectSectionsByProject = /* GraphQL */ `
-  query ProjectSectionsByProject(
-    $Project: ID!
-    $sortDirection: ModelSortDirection
-    $filter: ModelProjectSectionFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    projectSectionsByProject(
-      Project: $Project
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        title
-        images
-        text
-        links
-        Project
-        index
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
+      __typename
     }
   }
 `;
@@ -125,12 +96,14 @@ export const getProject = /* GraphQL */ `
       ProjectSections {
         nextToken
         startedAt
+        __typename
       }
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;
@@ -155,9 +128,11 @@ export const listProjects = /* GraphQL */ `
         _version
         _deleted
         _lastChangedAt
+        __typename
       }
       nextToken
       startedAt
+      __typename
     }
   }
 `;
@@ -188,64 +163,69 @@ export const syncProjects = /* GraphQL */ `
         _version
         _deleted
         _lastChangedAt
+        __typename
       }
       nextToken
       startedAt
+      __typename
     }
   }
 `;
-export const getInterview = /* GraphQL */ `
-  query GetInterview($id: ID!) {
-    getInterview(id: $id) {
+export const getProjectSection = /* GraphQL */ `
+  query GetProjectSection($id: ID!) {
+    getProjectSection(id: $id) {
       id
-      email
-      phone
-      date
-      time
-      about
-      user
+      title
+      Images
+      text
+      links
+      Index
+      projectID
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;
-export const listInterviews = /* GraphQL */ `
-  query ListInterviews(
-    $filter: ModelInterviewFilterInput
+export const listProjectSections = /* GraphQL */ `
+  query ListProjectSections(
+    $filter: ModelProjectSectionFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listInterviews(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listProjectSections(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        email
-        phone
-        date
-        time
-        about
-        user
+        title
+        Images
+        text
+        links
+        Index
+        projectID
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
+        __typename
       }
       nextToken
       startedAt
+      __typename
     }
   }
 `;
-export const syncInterviews = /* GraphQL */ `
-  query SyncInterviews(
-    $filter: ModelInterviewFilterInput
+export const syncProjectSections = /* GraphQL */ `
+  query SyncProjectSections(
+    $filter: ModelProjectSectionFilterInput
     $limit: Int
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncInterviews(
+    syncProjectSections(
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -253,20 +233,58 @@ export const syncInterviews = /* GraphQL */ `
     ) {
       items {
         id
-        email
-        phone
-        date
-        time
-        about
-        user
+        title
+        Images
+        text
+        links
+        Index
+        projectID
         createdAt
         updatedAt
         _version
         _deleted
         _lastChangedAt
+        __typename
       }
       nextToken
       startedAt
+      __typename
+    }
+  }
+`;
+export const projectSectionsByProjectID = /* GraphQL */ `
+  query ProjectSectionsByProjectID(
+    $projectID: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelProjectSectionFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    projectSectionsByProjectID(
+      projectID: $projectID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        title
+        Images
+        text
+        links
+        Index
+        projectID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        __typename
+      }
+      nextToken
+      startedAt
+      __typename
     }
   }
 `;

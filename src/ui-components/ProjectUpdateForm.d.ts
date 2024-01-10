@@ -6,8 +6,17 @@
 
 import * as React from "react";
 import { GridProps, SwitchFieldProps, TextFieldProps } from "@aws-amplify/ui-react";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { Project } from "../models";
+export declare type EscapeHatchProps = {
+    [elementHierarchy: string]: Record<string, unknown>;
+} | null;
+export declare type VariantValues = {
+    [key: string]: string;
+};
+export declare type Variant = {
+    variantValues: VariantValues;
+    overrides: EscapeHatchProps;
+};
 export declare type ValidationResponse = {
     hasError: boolean;
     errorMessage?: string;
@@ -18,7 +27,6 @@ export declare type ProjectUpdateFormInputValues = {
     createdOn?: string;
     completedOn?: string;
     description?: string;
-    img?: string;
     createdBy?: string;
     hidden?: boolean;
     status?: string;
@@ -28,7 +36,6 @@ export declare type ProjectUpdateFormValidationValues = {
     createdOn?: ValidationFunction<string>;
     completedOn?: ValidationFunction<string>;
     description?: ValidationFunction<string>;
-    img?: ValidationFunction<string>;
     createdBy?: ValidationFunction<string>;
     hidden?: ValidationFunction<boolean>;
     status?: ValidationFunction<string>;
@@ -40,7 +47,6 @@ export declare type ProjectUpdateFormOverridesProps = {
     createdOn?: PrimitiveOverrideProps<TextFieldProps>;
     completedOn?: PrimitiveOverrideProps<TextFieldProps>;
     description?: PrimitiveOverrideProps<TextFieldProps>;
-    img?: PrimitiveOverrideProps<TextFieldProps>;
     createdBy?: PrimitiveOverrideProps<TextFieldProps>;
     hidden?: PrimitiveOverrideProps<SwitchFieldProps>;
     status?: PrimitiveOverrideProps<TextFieldProps>;

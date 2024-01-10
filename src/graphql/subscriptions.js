@@ -1,135 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateProjectSection = /* GraphQL */ `
-  subscription OnCreateProjectSection(
-    $filter: ModelSubscriptionProjectSectionFilterInput
-  ) {
-    onCreateProjectSection(filter: $filter) {
-      id
-      title
-      images
-      text
-      links
-      Project
-      index
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onUpdateProjectSection = /* GraphQL */ `
-  subscription OnUpdateProjectSection(
-    $filter: ModelSubscriptionProjectSectionFilterInput
-  ) {
-    onUpdateProjectSection(filter: $filter) {
-      id
-      title
-      images
-      text
-      links
-      Project
-      index
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onDeleteProjectSection = /* GraphQL */ `
-  subscription OnDeleteProjectSection(
-    $filter: ModelSubscriptionProjectSectionFilterInput
-  ) {
-    onDeleteProjectSection(filter: $filter) {
-      id
-      title
-      images
-      text
-      links
-      Project
-      index
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onCreateProject = /* GraphQL */ `
-  subscription OnCreateProject($filter: ModelSubscriptionProjectFilterInput) {
-    onCreateProject(filter: $filter) {
-      id
-      title
-      createdOn
-      completedOn
-      description
-      createdBy
-      hidden
-      status
-      ProjectSections {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onUpdateProject = /* GraphQL */ `
-  subscription OnUpdateProject($filter: ModelSubscriptionProjectFilterInput) {
-    onUpdateProject(filter: $filter) {
-      id
-      title
-      createdOn
-      completedOn
-      description
-      createdBy
-      hidden
-      status
-      ProjectSections {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onDeleteProject = /* GraphQL */ `
-  subscription OnDeleteProject($filter: ModelSubscriptionProjectFilterInput) {
-    onDeleteProject(filter: $filter) {
-      id
-      title
-      createdOn
-      completedOn
-      description
-      createdBy
-      hidden
-      status
-      ProjectSections {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
 export const onCreateInterview = /* GraphQL */ `
   subscription OnCreateInterview(
     $filter: ModelSubscriptionInterviewFilterInput
@@ -147,6 +18,7 @@ export const onCreateInterview = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;
@@ -167,6 +39,7 @@ export const onUpdateInterview = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;
@@ -187,6 +60,145 @@ export const onDeleteInterview = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onCreateProject = /* GraphQL */ `
+  subscription OnCreateProject($filter: ModelSubscriptionProjectFilterInput) {
+    onCreateProject(filter: $filter) {
+      id
+      title
+      createdOn
+      completedOn
+      description
+      createdBy
+      hidden
+      status
+      ProjectSections {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateProject = /* GraphQL */ `
+  subscription OnUpdateProject($filter: ModelSubscriptionProjectFilterInput) {
+    onUpdateProject(filter: $filter) {
+      id
+      title
+      createdOn
+      completedOn
+      description
+      createdBy
+      hidden
+      status
+      ProjectSections {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteProject = /* GraphQL */ `
+  subscription OnDeleteProject($filter: ModelSubscriptionProjectFilterInput) {
+    onDeleteProject(filter: $filter) {
+      id
+      title
+      createdOn
+      completedOn
+      description
+      createdBy
+      hidden
+      status
+      ProjectSections {
+        nextToken
+        startedAt
+        __typename
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onCreateProjectSection = /* GraphQL */ `
+  subscription OnCreateProjectSection(
+    $filter: ModelSubscriptionProjectSectionFilterInput
+  ) {
+    onCreateProjectSection(filter: $filter) {
+      id
+      title
+      Images
+      text
+      links
+      Index
+      projectID
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateProjectSection = /* GraphQL */ `
+  subscription OnUpdateProjectSection(
+    $filter: ModelSubscriptionProjectSectionFilterInput
+  ) {
+    onUpdateProjectSection(filter: $filter) {
+      id
+      title
+      Images
+      text
+      links
+      Index
+      projectID
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteProjectSection = /* GraphQL */ `
+  subscription OnDeleteProjectSection(
+    $filter: ModelSubscriptionProjectSectionFilterInput
+  ) {
+    onDeleteProjectSection(filter: $filter) {
+      id
+      title
+      Images
+      text
+      links
+      Index
+      projectID
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
     }
   }
 `;

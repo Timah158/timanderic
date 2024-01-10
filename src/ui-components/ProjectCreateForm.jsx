@@ -13,9 +13,8 @@ import {
   SwitchField,
   TextField,
 } from "@aws-amplify/ui-react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Project } from "../models";
-import { fetchByPath, validateField } from "./utils";
+import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
 export default function ProjectCreateForm(props) {
   const {
@@ -33,7 +32,6 @@ export default function ProjectCreateForm(props) {
     createdOn: "",
     completedOn: "",
     description: "",
-    img: "",
     createdBy: "",
     hidden: false,
     status: "",
@@ -46,7 +44,6 @@ export default function ProjectCreateForm(props) {
   const [description, setDescription] = React.useState(
     initialValues.description
   );
-  const [img, setImg] = React.useState(initialValues.img);
   const [createdBy, setCreatedBy] = React.useState(initialValues.createdBy);
   const [hidden, setHidden] = React.useState(initialValues.hidden);
   const [status, setStatus] = React.useState(initialValues.status);
@@ -56,7 +53,6 @@ export default function ProjectCreateForm(props) {
     setCreatedOn(initialValues.createdOn);
     setCompletedOn(initialValues.completedOn);
     setDescription(initialValues.description);
-    setImg(initialValues.img);
     setCreatedBy(initialValues.createdBy);
     setHidden(initialValues.hidden);
     setStatus(initialValues.status);
@@ -67,7 +63,6 @@ export default function ProjectCreateForm(props) {
     createdOn: [{ type: "Required" }],
     completedOn: [],
     description: [{ type: "Required" }],
-    img: [{ type: "URL" }],
     createdBy: [{ type: "Required" }],
     hidden: [{ type: "Required" }],
     status: [],
@@ -102,7 +97,6 @@ export default function ProjectCreateForm(props) {
           createdOn,
           completedOn,
           description,
-          img,
           createdBy,
           hidden,
           status,
@@ -131,8 +125,8 @@ export default function ProjectCreateForm(props) {
         }
         try {
           Object.entries(modelFields).forEach(([key, value]) => {
-            if (typeof value === "string" && value.trim() === "") {
-              modelFields[key] = undefined;
+            if (typeof value === "string" && value === "") {
+              modelFields[key] = null;
             }
           });
           await DataStore.save(new Project(modelFields));
@@ -164,7 +158,6 @@ export default function ProjectCreateForm(props) {
               createdOn,
               completedOn,
               description,
-              img,
               createdBy,
               hidden,
               status,
@@ -196,7 +189,6 @@ export default function ProjectCreateForm(props) {
               createdOn: value,
               completedOn,
               description,
-              img,
               createdBy,
               hidden,
               status,
@@ -228,7 +220,6 @@ export default function ProjectCreateForm(props) {
               createdOn,
               completedOn: value,
               description,
-              img,
               createdBy,
               hidden,
               status,
@@ -259,7 +250,6 @@ export default function ProjectCreateForm(props) {
               createdOn,
               completedOn,
               description: value,
-              img,
               createdBy,
               hidden,
               status,
@@ -278,37 +268,6 @@ export default function ProjectCreateForm(props) {
         {...getOverrideProps(overrides, "description")}
       ></TextField>
       <TextField
-        label="Img"
-        isRequired={false}
-        isReadOnly={false}
-        value={img}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              title,
-              createdOn,
-              completedOn,
-              description,
-              img: value,
-              createdBy,
-              hidden,
-              status,
-            };
-            const result = onChange(modelFields);
-            value = result?.img ?? value;
-          }
-          if (errors.img?.hasError) {
-            runValidationTasks("img", value);
-          }
-          setImg(value);
-        }}
-        onBlur={() => runValidationTasks("img", img)}
-        errorMessage={errors.img?.errorMessage}
-        hasError={errors.img?.hasError}
-        {...getOverrideProps(overrides, "img")}
-      ></TextField>
-      <TextField
         label="Created by"
         isRequired={true}
         isReadOnly={false}
@@ -321,7 +280,6 @@ export default function ProjectCreateForm(props) {
               createdOn,
               completedOn,
               description,
-              img,
               createdBy: value,
               hidden,
               status,
@@ -352,7 +310,6 @@ export default function ProjectCreateForm(props) {
               createdOn,
               completedOn,
               description,
-              img,
               createdBy,
               hidden: value,
               status,
@@ -383,7 +340,6 @@ export default function ProjectCreateForm(props) {
               createdOn,
               completedOn,
               description,
-              img,
               createdBy,
               hidden,
               status: value,

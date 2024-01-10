@@ -13,14 +13,13 @@ import {
   SwitchField,
   TextField,
 } from "@aws-amplify/ui-react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Project } from "../models";
-import { fetchByPath, validateField } from "./utils";
+import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
 export default function ProjectUpdateForm(props) {
   const {
     id: idProp,
-    project,
+    project: projectModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -34,7 +33,6 @@ export default function ProjectUpdateForm(props) {
     createdOn: "",
     completedOn: "",
     description: "",
-    img: "",
     createdBy: "",
     hidden: false,
     status: "",
@@ -47,7 +45,6 @@ export default function ProjectUpdateForm(props) {
   const [description, setDescription] = React.useState(
     initialValues.description
   );
-  const [img, setImg] = React.useState(initialValues.img);
   const [createdBy, setCreatedBy] = React.useState(initialValues.createdBy);
   const [hidden, setHidden] = React.useState(initialValues.hidden);
   const [status, setStatus] = React.useState(initialValues.status);
@@ -60,27 +57,27 @@ export default function ProjectUpdateForm(props) {
     setCreatedOn(cleanValues.createdOn);
     setCompletedOn(cleanValues.completedOn);
     setDescription(cleanValues.description);
-    setImg(cleanValues.img);
     setCreatedBy(cleanValues.createdBy);
     setHidden(cleanValues.hidden);
     setStatus(cleanValues.status);
     setErrors({});
   };
-  const [projectRecord, setProjectRecord] = React.useState(project);
+  const [projectRecord, setProjectRecord] = React.useState(projectModelProp);
   React.useEffect(() => {
     const queryData = async () => {
-      const record = idProp ? await DataStore.query(Project, idProp) : project;
+      const record = idProp
+        ? await DataStore.query(Project, idProp)
+        : projectModelProp;
       setProjectRecord(record);
     };
     queryData();
-  }, [idProp, project]);
+  }, [idProp, projectModelProp]);
   React.useEffect(resetStateValues, [projectRecord]);
   const validations = {
     title: [{ type: "Required" }],
     createdOn: [{ type: "Required" }],
     completedOn: [],
     description: [{ type: "Required" }],
-    img: [{ type: "URL" }],
     createdBy: [{ type: "Required" }],
     hidden: [{ type: "Required" }],
     status: [],
@@ -115,7 +112,6 @@ export default function ProjectUpdateForm(props) {
           createdOn,
           completedOn,
           description,
-          img,
           createdBy,
           hidden,
           status,
@@ -144,8 +140,8 @@ export default function ProjectUpdateForm(props) {
         }
         try {
           Object.entries(modelFields).forEach(([key, value]) => {
-            if (typeof value === "string" && value.trim() === "") {
-              modelFields[key] = undefined;
+            if (typeof value === "string" && value === "") {
+              modelFields[key] = null;
             }
           });
           await DataStore.save(
@@ -178,7 +174,6 @@ export default function ProjectUpdateForm(props) {
               createdOn,
               completedOn,
               description,
-              img,
               createdBy,
               hidden,
               status,
@@ -210,7 +205,6 @@ export default function ProjectUpdateForm(props) {
               createdOn: value,
               completedOn,
               description,
-              img,
               createdBy,
               hidden,
               status,
@@ -242,7 +236,6 @@ export default function ProjectUpdateForm(props) {
               createdOn,
               completedOn: value,
               description,
-              img,
               createdBy,
               hidden,
               status,
@@ -273,7 +266,6 @@ export default function ProjectUpdateForm(props) {
               createdOn,
               completedOn,
               description: value,
-              img,
               createdBy,
               hidden,
               status,
@@ -292,37 +284,6 @@ export default function ProjectUpdateForm(props) {
         {...getOverrideProps(overrides, "description")}
       ></TextField>
       <TextField
-        label="Img"
-        isRequired={false}
-        isReadOnly={false}
-        value={img}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              title,
-              createdOn,
-              completedOn,
-              description,
-              img: value,
-              createdBy,
-              hidden,
-              status,
-            };
-            const result = onChange(modelFields);
-            value = result?.img ?? value;
-          }
-          if (errors.img?.hasError) {
-            runValidationTasks("img", value);
-          }
-          setImg(value);
-        }}
-        onBlur={() => runValidationTasks("img", img)}
-        errorMessage={errors.img?.errorMessage}
-        hasError={errors.img?.hasError}
-        {...getOverrideProps(overrides, "img")}
-      ></TextField>
-      <TextField
         label="Created by"
         isRequired={true}
         isReadOnly={false}
@@ -335,7 +296,6 @@ export default function ProjectUpdateForm(props) {
               createdOn,
               completedOn,
               description,
-              img,
               createdBy: value,
               hidden,
               status,
@@ -366,7 +326,6 @@ export default function ProjectUpdateForm(props) {
               createdOn,
               completedOn,
               description,
-              img,
               createdBy,
               hidden: value,
               status,
@@ -397,7 +356,6 @@ export default function ProjectUpdateForm(props) {
               createdOn,
               completedOn,
               description,
-              img,
               createdBy,
               hidden,
               status: value,
@@ -426,7 +384,7 @@ export default function ProjectUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || project)}
+          isDisabled={!(idProp || projectModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -438,7 +396,7 @@ export default function ProjectUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || project) ||
+              !(idProp || projectModelProp) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}
