@@ -1,147 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createProjectSection = /* GraphQL */ `
-  mutation CreateProjectSection(
-    $input: CreateProjectSectionInput!
-    $condition: ModelProjectSectionConditionInput
-  ) {
-    createProjectSection(input: $input, condition: $condition) {
-      id
-      title
-      images
-      text
-      links
-      Project
-      index
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const updateProjectSection = /* GraphQL */ `
-  mutation UpdateProjectSection(
-    $input: UpdateProjectSectionInput!
-    $condition: ModelProjectSectionConditionInput
-  ) {
-    updateProjectSection(input: $input, condition: $condition) {
-      id
-      title
-      images
-      text
-      links
-      Project
-      index
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const deleteProjectSection = /* GraphQL */ `
-  mutation DeleteProjectSection(
-    $input: DeleteProjectSectionInput!
-    $condition: ModelProjectSectionConditionInput
-  ) {
-    deleteProjectSection(input: $input, condition: $condition) {
-      id
-      title
-      images
-      text
-      links
-      Project
-      index
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const createProject = /* GraphQL */ `
-  mutation CreateProject(
-    $input: CreateProjectInput!
-    $condition: ModelProjectConditionInput
-  ) {
-    createProject(input: $input, condition: $condition) {
-      id
-      title
-      createdOn
-      completedOn
-      description
-      createdBy
-      hidden
-      status
-      ProjectSections {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const updateProject = /* GraphQL */ `
-  mutation UpdateProject(
-    $input: UpdateProjectInput!
-    $condition: ModelProjectConditionInput
-  ) {
-    updateProject(input: $input, condition: $condition) {
-      id
-      title
-      createdOn
-      completedOn
-      description
-      createdBy
-      hidden
-      status
-      ProjectSections {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const deleteProject = /* GraphQL */ `
-  mutation DeleteProject(
-    $input: DeleteProjectInput!
-    $condition: ModelProjectConditionInput
-  ) {
-    deleteProject(input: $input, condition: $condition) {
-      id
-      title
-      createdOn
-      completedOn
-      description
-      createdBy
-      hidden
-      status
-      ProjectSections {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
 export const createInterview = /* GraphQL */ `
   mutation CreateInterview(
     $input: CreateInterviewInput!
@@ -160,6 +19,7 @@ export const createInterview = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;
@@ -181,6 +41,7 @@ export const updateInterview = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;
@@ -202,6 +63,7 @@ export const deleteInterview = /* GraphQL */ `
       _version
       _deleted
       _lastChangedAt
+      __typename
     }
   }
 `;

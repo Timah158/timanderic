@@ -1,25 +1,3 @@
-type ProjectSection @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  title: String
-  images: [AWSURL]
-  text: [String!]
-  links: [AWSURL]
-  Project: ID! @index(name: "byProject")
-  index: Int!
-}
-
-type Project @model @auth(rules: [{allow: public}]) {
-  id: ID!
-  title: String!
-  createdOn: AWSDate!
-  completedOn: AWSDate
-  description: String!
-  createdBy: String!
-  hidden: Boolean!
-  status: String
-  ProjectSections: [ProjectSection!] @hasMany(indexName: "byProject", fields: ["id"])
-}
-
 type Interview @model @auth(rules: [{allow: public}]) {
   id: ID!
   email: AWSEmail!
@@ -29,4 +7,3 @@ type Interview @model @auth(rules: [{allow: public}]) {
   about: String
   user: String!
 }
- 

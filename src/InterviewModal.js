@@ -1,24 +1,28 @@
 import React,{ useState } from 'react';
-import {ReactComponent as CloseIcon} from './SVGs/close_button.svg'
+import {ReactComponent as CloseIcon} from './SVGs/close_button.svg';
 import './CSS/Interview.css';
-// import { DataStore } from '@aws-amplify/datastore';
-// import { Interview } from './models';
-// import { Amplify } from 'aws-amplify';
-// import awsExports from './aws-exports';
-// Amplify.configure(awsExports);
+import { generateClient } from "@aws-amplify/api";
+import { createInterview } from './graphql/mutations';
 
-// async function createInterview(interview) {
-//   await DataStore.save(
-//     new Interview({
-//     "time": interview.time,
-//     "date": interview.date,
-//     "about": interview.about,
-//     "user": interview.person,
-//     "email": interview.email,
-//     "phone": interview.phone
-//   })
-//   );
-// }
+const client = generateClient();
+
+
+async function createNewInterview(interview){
+  await client.graphql({
+    query: createInterview,
+    authMode: 'apiKey',
+    variables: {
+      input: {
+        "email": interview.email,
+        "phone": interview.phone,
+        "date": interview.date,
+        "time": interview.time,
+        "about": interview.about,
+        "user": interview.person
+      }
+    }
+  });
+}
 
 function InterviewModal({props}) {
   const [inputs, setInputs] = useState({});
@@ -29,7 +33,7 @@ function InterviewModal({props}) {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    //createInterview(inputs);
+    createNewInterview(inputs);
     props.setNavigation({
       page: props.Navigation.page,
       modal: {
@@ -71,6 +75,7 @@ function InterviewModal({props}) {
                   onChange={handleChange}
                   required
                   >
+                    <option></option>
                     <option value="Tim">Tim</option>
                     <option value="Eric">Eric</option>
                   </select>
