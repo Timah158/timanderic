@@ -3,7 +3,7 @@ import "./CSS/profile.css"
 import React from 'react';
 import Eric from "./Pictures/Eric.jpg"
 import { ReactComponent as Skills } from './SVGs/EricSkills.svg'
-// import ProfileCarousel from './ProfileCarousel'
+import ProfileCarousel from './ProfileCarousel'
 
 function Heading({props}) {
   return (
@@ -45,7 +45,7 @@ function EricProfile({props}) {
     <React.Fragment>
       <Heading props={props}></Heading>
       <EricSkills></EricSkills>
-      {/* <ProfileCarousel props={{props, user:"Eric"}}></ProfileCarousel> */}
+      <ProfileCarousel props={{props, user:"Eric"}}></ProfileCarousel>
     </React.Fragment>
   );
 }

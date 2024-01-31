@@ -3,7 +3,7 @@ import "./CSS/profile.css"
 import React from 'react';
 import Tim from "./Pictures/Tim.jpg"
 import { ReactComponent as Skills } from './SVGs/TimSkills.svg'
-// import ProfileCarousel from './ProfileCarousel'
+import ProfileCarousel from './ProfileCarousel'
 
 function Heading({props}) {
   return (
@@ -64,7 +64,7 @@ function TimProfile({props}) {
       <Heading props={props}></Heading>
       <TimCerts></TimCerts>
       <TimSkills></TimSkills>
-      {/* <ProfileCarousel props={{props, user:"Tim"}}></ProfileCarousel> */}
+      <ProfileCarousel props={{props, user:"Tim"}}></ProfileCarousel>
     </React.Fragment>
   );
 }
