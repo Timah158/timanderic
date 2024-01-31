@@ -1,44 +1,28 @@
 import React,{ useState } from 'react';
 import {ReactComponent as CloseIcon} from './SVGs/close_button.svg';
 import './CSS/Interview.css';
-// import { generateClient } from "@aws-amplify/api";
-// import { createInterview } from './graphql/mutations';
+import { generateClient } from "@aws-amplify/api";
+import { createInterview } from './graphql/mutations';
 
-// const client = generateClient();
+const client = generateClient();
 
-// const newInterview = await client.graphql({
-//   query: createInterview,
-//   authMode: 'apiKey',
-//   variables: {
-//       input: {
-//   "email": "test12346789@testemailtestemail.com",
-//   "phone": "(555) 123-6789",
-//   "date": "1970-01-01Z",
-//   "time": "12:30:23.999Z",
-//   "about": "Lorem ipsum dolor sit amet",
-//   "user": "Lorem ipsum dolor sit amet"
-// }
-//   }
-// });
 
-// newInterview();
-
-// async function createNewInterview(interview) {
-//   await client.graphql({
-//     mutation: createInterview,
-//     authMode: "apiKey",
-//     variables: {
-//       input: {
-//         "email": interview.email,
-//         "phone": interview.phone,
-//         "date": interview.date,
-//         "time": interview.time,
-//         "about": interview.about,
-//         "user": interview.person
-//       }
-//     }
-//   });
-// }
+async function createNewInterview(interview){
+  await client.graphql({
+    query: createInterview,
+    authMode: 'apiKey',
+    variables: {
+      input: {
+        "email": interview.email,
+        "phone": interview.phone,
+        "date": interview.date,
+        "time": interview.time,
+        "about": interview.about,
+        "user": interview.person
+      }
+    }
+  });
+}
 
 function InterviewModal({props}) {
   const [inputs, setInputs] = useState({});
@@ -49,7 +33,7 @@ function InterviewModal({props}) {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    // createNewInterview(inputs);
+    createNewInterview(inputs);
     props.setNavigation({
       page: props.Navigation.page,
       modal: {
