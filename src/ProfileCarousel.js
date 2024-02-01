@@ -1,10 +1,11 @@
 import React,{ useState, useEffect } from 'react';
-import { Project } from './models';
-import { Amplify } from "@aws-amplify/core";
-import { DataStore } from "@aws-amplify/datastore";
-import awsExports from "./aws-exports";
-Amplify.configure(awsExports);
-DataStore.configure(awsExports);
+import { Amplify } from 'aws-amplify';
+import config from './aws-exports.js';
+import { generateClient } from "aws-amplify/api";
+import { createProject } from './graphql/mutations';
+
+Amplify.configure(config);
+const client = generateClient()
 
 function ProfileCarousel({props}) {
   const [Page, setPage] = useState(0);

@@ -2,23 +2,27 @@ import React,{ useState } from 'react';
 import {ReactComponent as CloseIcon} from './SVGs/close_button.svg';
 import './CSS/Interview.css';
 import { Amplify } from 'aws-amplify';
-import awsconfig from './aws-exports';
-import { DataStore } from 'aws-amplify/datastore';
-import { Interview } from './models';
+import config from './aws-exports.js';
+import { generateClient } from "aws-amplify/api";
+import { createInterview } from './graphql/mutations';
 
-Amplify.configure(awsconfig);
+Amplify.configure(config);
+const client = generateClient()
 
 async function createNewInterview(interview){
-  await DataStore.save(
-    new Interview({
-      "email": interview.email,
-      "phone": interview.phone,
-      "date": interview.date,
-      "time": interview.time,
-      "about": interview.about,
-      "user": interview.person
-    })
-  );
+  await client.graphql({
+    query: createInterview,
+    variables: {
+      input: {
+        "email": interview.email,
+        "phone": interview.phone,
+        "date": interview.date,
+        "time": interview.time,
+        "about": interview.about,
+        "user": interview.person
+      }
+    }
+  })
 }
 
 function InterviewModal({props}) {
