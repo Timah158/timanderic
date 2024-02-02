@@ -10,6 +10,20 @@
       "StackName": "amplify-amplifyac7ec98ace244-staging-12730",
       "StackId": "arn:aws:cloudformation:us-east-1:438605614535:stack/amplify-amplifyac7ec98ace244-staging-12730/110aeb60-c0a1-11ee-a1b4-1225b20e0051",
       "AmplifyAppId": "d38c82mfuhnafn"
+    },
+    "categories": {
+      "auth": {
+        "timanderic": {}
+      },
+      "storage": {
+        "timanderic42b87b27": {
+          "bucketName": "timanderic-storage-a587c09210046-staging",
+          "region": "us-east-1"
+        }
+      },
+      "api": {
+        "timanderic": {}
+      }
     }
   }
 }
