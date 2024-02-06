@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "testAuthIdentityPool",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "timand859271ab",
     "userPoolName": "timanderic",
     "autoVerifiedAttributes": [
@@ -12,18 +12,13 @@
     "mfaTypes": [
       "TOTP"
     ],
-    "smsAuthenticationMessage": "Your login code is {####}",
+    "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
-    "emailVerificationSubject": "Verification code: {####}",
-    "emailVerificationMessage": "Verification code: {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
-    "passwordPolicyMinLength": 16,
-    "passwordPolicyCharacters": [
-      "Requires Lowercase",
-      "Requires Numbers",
-      "Requires Symbols",
-      "Requires Uppercase"
-    ],
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
     "requiredAttributes": [],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
@@ -37,12 +32,114 @@
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
     "useDefault": "manual",
-    "userPoolGroups": false,
-    "userPoolGroupList": [],
-    "adminQueries": false,
-    "thirdPartyAuth": false,
-    "authProviders": [],
+    "userPoolGroups": true,
+    "userPoolGroupList": [
+      "admin",
+      "guest"
+    ],
+    "adminQueries": true,
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [
+      {
+        "category": "function",
+        "resourceName": "timandericDefineAuthChallenge",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      },
+      {
+        "category": "function",
+        "resourceName": "timandericCreateAuthChallenge",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      },
+      {
+        "category": "function",
+        "resourceName": "timandericVerifyAuthChallengeResponse",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      },
+      {
+        "category": "function",
+        "resourceName": "timandericCustomMessage",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      },
+      {
+        "category": "function",
+        "resourceName": "timandericPostConfirmation",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      },
+      {
+        "category": "function",
+        "resourceName": "timandericPreSignup",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      }
+    ],
+    "hostedUI": false,
+    "authProviders": [],
+    "thirdPartyAuth": false,
+    "triggers": {
+      "DefineAuthChallenge": [
+        "captcha-define-challenge"
+      ],
+      "CreateAuthChallenge": [
+        "captcha-create-challenge"
+      ],
+      "VerifyAuthChallengeResponse": [
+        "captcha-verify"
+      ],
+      "CustomMessage": [
+        "verification-link"
+      ],
+      "PostConfirmation": [
+        "add-to-group"
+      ],
+      "PreSignup": [
+        "email-filter-allowlist"
+      ]
+    },
+    "adminQueryGroup": "admin",
+    "verificationBucketName": "timandericverificationbucket",
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    },
+    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"DefineAuthChallenge\",\n    \"lambdaFunctionName\": \"timandericDefineAuthChallenge\"\n  },\n  {\n    \"triggerType\": \"CreateAuthChallenge\",\n    \"lambdaFunctionName\": \"timandericCreateAuthChallenge\"\n  },\n  {\n    \"triggerType\": \"VerifyAuthChallengeResponse\",\n    \"lambdaFunctionName\": \"timandericVerifyAuthChallengeResponse\"\n  },\n  {\n    \"triggerType\": \"CustomMessage\",\n    \"lambdaFunctionName\": \"timandericCustomMessage\"\n  },\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"timandericPostConfirmation\"\n  },\n  {\n    \"triggerType\": \"PreSignUp\",\n    \"lambdaFunctionName\": \"timandericPreSignup\"\n  }\n]",
+    "permissions": [
+      "{\n  \"policyName\": \"AddToGroupCognito\",\n  \"trigger\": \"PostConfirmation\",\n  \"effect\": \"Allow\",\n  \"actions\": [\n    \"cognito-idp:AdminAddUserToGroup\",\n    \"cognito-idp:GetGroup\",\n    \"cognito-idp:CreateGroup\"\n  ],\n  \"resource\": {\n    \"paramType\": \"!GetAtt\",\n    \"keys\": [\n      \"UserPool\",\n      \"Arn\"\n    ]\n  }\n}"
+    ]
   }
 }

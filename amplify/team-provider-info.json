@@ -20,6 +20,24 @@
       },
       "auth": {
         "timanderic": {}
+      },
+      "function": {
+        "timandericDefineAuthChallenge": {},
+        "timandericCreateAuthChallenge": {},
+        "timandericVerifyAuthChallengeResponse": {
+          "RECAPTCHASECRET": "6Lft3mkpAAAAAAFfbRNimqG_kaVI0bU5BjZPFWIr"
+        },
+        "timandericCustomMessage": {
+          "REDIRECTURL": "tim-and-eric.com",
+          "EMAILSUBJECT": "Account Confirmation",
+          "EMAILMESSAGE": "Your account has been created for:"
+        },
+        "timandericPostConfirmation": {
+          "GROUP": "guest"
+        },
+        "timandericPreSignup": {
+          "DOMAINALLOWLIST": ""
+        }
       }
     }
   }
