@@ -12,17 +12,11 @@
       "AmplifyAppId": "d38c82mfuhnafn"
     },
     "categories": {
-      "auth": {
-        "timanderic": {}
-      },
       "storage": {
         "timanderic42b87b27": {
           "bucketName": "timanderic-storage-a587c09210046-staging",
           "region": "us-east-1"
         }
-      },
-      "api": {
-        "timanderic": {}
       }
     }
   }

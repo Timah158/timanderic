@@ -2,5 +2,5 @@
   "AppSyncApiName": "timanderic",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2024-02-06T22:34:24.692Z"
+  "AuthModeLastUpdated": "2024-02-02T09:36:53.702Z"
 }
