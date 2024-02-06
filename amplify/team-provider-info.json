@@ -13,31 +13,13 @@
     },
     "categories": {
       "storage": {
-        "timanderic42b87b27": {
+        "timanderic833e7187": {
           "bucketName": "timanderic-storage-a587c09210046-staging",
           "region": "us-east-1"
         }
       },
       "auth": {
         "timanderic": {}
-      },
-      "function": {
-        "timandericDefineAuthChallenge": {},
-        "timandericCreateAuthChallenge": {},
-        "timandericVerifyAuthChallengeResponse": {
-          "RECAPTCHASECRET": "6Lft3mkpAAAAAAFfbRNimqG_kaVI0bU5BjZPFWIr"
-        },
-        "timandericCustomMessage": {
-          "REDIRECTURL": "tim-and-eric.com",
-          "EMAILSUBJECT": "Account Confirmation",
-          "EMAILMESSAGE": "Your account has been created for:"
-        },
-        "timandericPostConfirmation": {
-          "GROUP": "guest"
-        },
-        "timandericPreSignup": {
-          "DOMAINALLOWLIST": ""
-        }
       }
     }
   }

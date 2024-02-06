@@ -52,73 +52,25 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_timandericCustomMessage_EMAILMESSAGE": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "timandericCustomMessage"
-        }
-      ]
-    },
-    "AMPLIFY_function_timandericCustomMessage_EMAILSUBJECT": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "timandericCustomMessage"
-        }
-      ]
-    },
-    "AMPLIFY_function_timandericCustomMessage_REDIRECTURL": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "timandericCustomMessage"
-        }
-      ]
-    },
-    "AMPLIFY_function_timandericPostConfirmation_GROUP": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "timandericPostConfirmation"
-        }
-      ]
-    },
-    "AMPLIFY_function_timandericPreSignup_DOMAINALLOWLIST": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "timandericPreSignup"
-        }
-      ]
-    },
-    "AMPLIFY_function_timandericVerifyAuthChallengeResponse_RECAPTCHASECRET": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "timandericVerifyAuthChallengeResponse"
-        }
-      ]
-    },
-    "AMPLIFY_storage_timanderic42b87b27_bucketName": {
+    "AMPLIFY_storage_timanderic833e7187_bucketName": {
       "usedBy": [
         {
           "category": "storage",
-          "resourceName": "timanderic42b87b27"
+          "resourceName": "timanderic833e7187"
         }
       ]
     },
-    "AMPLIFY_storage_timanderic42b87b27_region": {
+    "AMPLIFY_storage_timanderic833e7187_region": {
       "usedBy": [
         {
           "category": "storage",
-          "resourceName": "timanderic42b87b27"
+          "resourceName": "timanderic833e7187"
         }
       ]
     }
   },
   "storage": {
-    "timanderic42b87b27": {
+    "timanderic833e7187": {
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "S3",
