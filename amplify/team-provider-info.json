@@ -16,7 +16,14 @@
         "timanderic833e7187": {
           "bucketName": "timanderic-storage-a587c09210046-staging",
           "region": "us-east-1"
+        },
+        "timanderic8fa83b12": {
+          "bucketName": "timanderic-storage-a587c09210046-staging",
+          "region": "us-east-1"
         }
+      },
+      "auth": {
+        "timanderic": {}
       }
     }
   }
