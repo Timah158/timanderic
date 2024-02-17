@@ -6,4 +6,4 @@ type Interview @model @auth(rules: [{allow: public}]) {
   time: AWSTime!
   about: String
   user: String!
-}
+} 
