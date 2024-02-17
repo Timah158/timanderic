@@ -7,7 +7,7 @@ import InterviewModal from "./InterviewModal";
 import ProjectModal from "./ProjectModal";
 import Footer from "./footer";
 import { Amplify } from 'aws-amplify';
-import config from './aws-exports.js';
+import config from './amplifyconfiguration.json';
 
 Amplify.configure(config);
 

@@ -6,7 +6,6 @@
 
 import * as React from "react";
 import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
-import { Interview } from "../models";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -52,7 +51,7 @@ export declare type InterviewUpdateFormProps = React.PropsWithChildren<{
     overrides?: InterviewUpdateFormOverridesProps | undefined | null;
 } & {
     id?: string;
-    interview?: Interview;
+    interview?: any;
     onSubmit?: (fields: InterviewUpdateFormInputValues) => InterviewUpdateFormInputValues;
     onSuccess?: (fields: InterviewUpdateFormInputValues) => void;
     onError?: (fields: InterviewUpdateFormInputValues, errorMessage: string) => void;

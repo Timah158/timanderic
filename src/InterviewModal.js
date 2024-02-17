@@ -1,16 +1,18 @@
 import React,{ useState } from 'react';
 import {ReactComponent as CloseIcon} from './SVGs/close_button.svg';
-import './CSS/Interview.css';
-import { generateClient } from "@aws-amplify/api";
+import { generateClient } from "aws-amplify/api";
 import { createInterview } from './graphql/mutations';
+import './CSS/Interview.css';
+import { Amplify } from 'aws-amplify';
+import config from './amplifyconfiguration.json';
 
-const client = generateClient();
+Amplify.configure(config);
 
+const client = generateClient()
 
 async function createNewInterview(interview){
   await client.graphql({
     query: createInterview,
-    authMode: 'apiKey',
     variables: {
       input: {
         "email": interview.email,
@@ -20,8 +22,9 @@ async function createNewInterview(interview){
         "about": interview.about,
         "user": interview.person
       }
-    }
-  });
+    },
+    authMode: "apiKey"
+  })
 }
 
 function InterviewModal({props}) {
