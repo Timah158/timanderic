@@ -23,12 +23,12 @@ function DesktopNavbar({props}) {
             <ul className="navlist">
               <li className="navlink"><button className="navlink" onClick={() => changePage("tim")}>Tim</button></li>
               <li className="navlink"><button className="navlink" onClick={() => changePage("eric")}>Eric</button></li>
-              {/* <li className="navlink last_item"><button className="navlink" onClick={() => props.setNavigation({
+              <li className="navlink last_item"><button className="navlink" onClick={() => props.setNavigation({
                 page: props.Navigation.page,
                 modal: {
                   display: true,
                   element: "interviewModal"
-              }})}>Interview</button></li> */}
+              }})}>Interview</button></li>
             </ul>
         </nav>
       </header>
