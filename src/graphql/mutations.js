@@ -16,6 +16,9 @@ export const createInterview = /* GraphQL */ `
       user
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -35,6 +38,9 @@ export const updateInterview = /* GraphQL */ `
       user
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -54,6 +60,9 @@ export const deleteInterview = /* GraphQL */ `
       user
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
