@@ -13,11 +13,11 @@ type EagerProjectSection = {
   };
   readonly id: string;
   readonly title?: string | null;
-  readonly images?: (string | null)[] | null;
-  readonly text: string[];
+  readonly Images?: (string | null)[] | null;
+  readonly text?: string[] | null;
   readonly links?: (string | null)[] | null;
-  readonly index: number;
   readonly projectID: string;
+  readonly index: number;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -29,11 +29,11 @@ type LazyProjectSection = {
   };
   readonly id: string;
   readonly title?: string | null;
-  readonly images?: (string | null)[] | null;
-  readonly text: string[];
+  readonly Images?: (string | null)[] | null;
+  readonly text?: string[] | null;
   readonly links?: (string | null)[] | null;
-  readonly index: number;
   readonly projectID: string;
+  readonly index: number;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

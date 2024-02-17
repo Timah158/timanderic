@@ -8,16 +8,13 @@ export const onCreateProjectSection = /* GraphQL */ `
     onCreateProjectSection(filter: $filter) {
       id
       title
-      images
+      Images
       text
       links
-      index
       projectID
+      index
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -29,16 +26,13 @@ export const onUpdateProjectSection = /* GraphQL */ `
     onUpdateProjectSection(filter: $filter) {
       id
       title
-      images
+      Images
       text
       links
-      index
       projectID
+      index
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -50,16 +44,13 @@ export const onDeleteProjectSection = /* GraphQL */ `
     onDeleteProjectSection(filter: $filter) {
       id
       title
-      images
+      Images
       text
       links
-      index
       projectID
+      index
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -77,14 +68,10 @@ export const onCreateProject = /* GraphQL */ `
       status
       ProjectSections {
         nextToken
-        startedAt
         __typename
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -102,14 +89,10 @@ export const onUpdateProject = /* GraphQL */ `
       status
       ProjectSections {
         nextToken
-        startedAt
         __typename
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -127,14 +110,10 @@ export const onDeleteProject = /* GraphQL */ `
       status
       ProjectSections {
         nextToken
-        startedAt
         __typename
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -153,9 +132,6 @@ export const onCreateInterview = /* GraphQL */ `
       user
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -174,9 +150,6 @@ export const onUpdateInterview = /* GraphQL */ `
       user
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -195,9 +168,6 @@ export const onDeleteInterview = /* GraphQL */ `
       user
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }

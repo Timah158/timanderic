@@ -2,11 +2,5 @@
   "AppSyncApiName": "timanderic",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2024-02-16T23:06:10.311Z",
-  "AuthCognitoUserPoolId": {
-    "Fn::GetAtt": [
-      "authtimanderic",
-      "Outputs.UserPoolId"
-    ]
-  }
+  "AuthModeLastUpdated": "2024-02-16T23:59:24.241Z"
 }

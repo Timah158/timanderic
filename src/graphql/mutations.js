@@ -9,16 +9,13 @@ export const createProjectSection = /* GraphQL */ `
     createProjectSection(input: $input, condition: $condition) {
       id
       title
-      images
+      Images
       text
       links
-      index
       projectID
+      index
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -31,16 +28,13 @@ export const updateProjectSection = /* GraphQL */ `
     updateProjectSection(input: $input, condition: $condition) {
       id
       title
-      images
+      Images
       text
       links
-      index
       projectID
+      index
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -53,16 +47,13 @@ export const deleteProjectSection = /* GraphQL */ `
     deleteProjectSection(input: $input, condition: $condition) {
       id
       title
-      images
+      Images
       text
       links
-      index
       projectID
+      index
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -83,14 +74,10 @@ export const createProject = /* GraphQL */ `
       status
       ProjectSections {
         nextToken
-        startedAt
         __typename
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -111,14 +98,10 @@ export const updateProject = /* GraphQL */ `
       status
       ProjectSections {
         nextToken
-        startedAt
         __typename
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -139,14 +122,10 @@ export const deleteProject = /* GraphQL */ `
       status
       ProjectSections {
         nextToken
-        startedAt
         __typename
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -166,9 +145,6 @@ export const createInterview = /* GraphQL */ `
       user
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -188,9 +164,6 @@ export const updateInterview = /* GraphQL */ `
       user
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }
@@ -210,9 +183,6 @@ export const deleteInterview = /* GraphQL */ `
       user
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
       __typename
     }
   }

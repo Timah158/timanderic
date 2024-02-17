@@ -17,8 +17,8 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
-                "images": {
-                    "name": "images",
+                "Images": {
+                    "name": "Images",
                     "isArray": true,
                     "type": "AWSURL",
                     "isRequired": false,
@@ -31,7 +31,7 @@ export const schema = {
                     "type": "String",
                     "isRequired": true,
                     "attributes": [],
-                    "isArrayNullable": false
+                    "isArrayNullable": true
                 },
                 "links": {
                     "name": "links",
@@ -41,17 +41,17 @@ export const schema = {
                     "attributes": [],
                     "isArrayNullable": true
                 },
-                "index": {
-                    "name": "index",
-                    "isArray": false,
-                    "type": "Int",
-                    "isRequired": true,
-                    "attributes": []
-                },
                 "projectID": {
                     "name": "projectID",
                     "isArray": false,
                     "type": "ID",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "index": {
+                    "name": "index",
+                    "isArray": false,
+                    "type": "Int",
                     "isRequired": true,
                     "attributes": []
                 },
@@ -321,5 +321,5 @@ export const schema = {
     "enums": {},
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "237cceafb3e2c122a3078c064c27109d"
+    "version": "cbddaefe1fa2075a86aa59cfd51c6bae"
 };

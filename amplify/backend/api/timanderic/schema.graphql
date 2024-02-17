@@ -1,11 +1,11 @@
 type ProjectSection @model @auth(rules: [{allow: public}]) {
   id: ID!
   title: String
-  images: [AWSURL]
-  text: [String!]!
+  Images: [AWSURL]
+  text: [String!]
   links: [AWSURL]
-  index: Int!
   projectID: ID! @index(name: "byProject")
+  index: Int!
 }
 
 type Project @model @auth(rules: [{allow: public}]) {
@@ -28,4 +28,5 @@ type Interview @model @auth(rules: [{allow: public}]) {
   time: AWSTime!
   about: String
   user: String!
-} 
+}
+ 
